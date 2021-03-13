@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+<body>
+<!-- NAVBAR -->
+<form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+    <div class="cds-all">
+        <div class="form-group cds-codigo">
+            <label>Código</label>
+            <input class="form-control" type="number" th:field="*{id}" readonly>
+        </div>
+
+        <!-- erro email -->
+        <div th:if="${erroEmail}" class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="far fa-times-circle"></i>
+            </button>
+            <h4>Atenção!</h4>
+            <span>E-mail já existente, confira as credenciais ou atualize seu cadastro!</span>
+        </div>
+
+        <label>Nome e Sobrenome</label>
+        <input class="form-control cds-inputs" type="text" th:field="${usuario.nome}"
+               placeholder="Digite seu nome completo." minlength="8" readonly>
+
+
+        <label>CPF</label>
+        <input class="form-control cds-inputs" type="text" th:field="${usuario.cpf}"
+               placeholder="xxx-xxx-xxx-xx" onkeypress="$(this).mask('000.000.000-00')" minlength="11"
+               maxlength="11" readonly>
+
+        <label>E-mail</label>
+        <input class="form-control cds-inputs " type="email" th:field="${usuario.email} "
+               placeholder="Digite seu e-mail. " minlength="10" required>
+
+
+        <label>Login</label>
+        <input class="form-control cds-inputs" type="text" th:field="${usuario.login}"
+               placeholder="Digite seu login. " minlength="8" maxlength="30" required>
+
+
+        <label>Senha</label>
+        <input type="password" class="form-control cds-inputs " th:field="${usuario.senha} "
+               placeholder="No mínimo 8 letra. " minlength="8" maxlength="30" required>
+
+<!--        <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horário de-->
+<!--            Segunda.</small>-->
+<!--        <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">-->
+<!--            <option th:each="h : ${horarioSegunda} " th:value="${h.id} " th:text="${h.hora} ">-->
+<!--            </option>-->
+<!--        </select>-->
+
+<!--        <small class="form-text text-muted ">Selecione o horário de Terça.</small>-->
+<!--        <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">-->
+<!--            <option th:each="h : ${horarioTerca} " th:value="${h.id} " th:text="${h.hora} ">-->
+<!--            </option>-->
+<!--        </select>-->
+
+<!--        <small class="form-text text-muted ">Selecione o horário de Quarta.</small>-->
+<!--        <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">-->
+<!--            <option th:each="h : ${horarioQuarta} " th:value="${h.id} " th:text="${h.hora} ">-->
+<!--            </option>-->
+<!--        </select>-->
+
+<!--        <small class="form-text text-muted ">Selecione o horário de Quinta.</small>-->
+<!--        <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">-->
+<!--            <option th:each="h : ${horarioQuinta} " th:value="${h.id} " th:text="${h.hora} ">-->
+<!--            </option>-->
+<!--        </select>-->
+
+<!--        <small class="form-text text-muted ">Selecione o horário de Sexta.</small>-->
+<!--        <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">-->
+<!--            <option th:each="h : ${horarioSexta} " th:value="${h.id} " th:text="${h.hora} ">-->
+<!--            </option>-->
+<!--        </select>-->
+
+<!--        <small class="form-text text-muted ">Selecione o horário de Sábado.</small>-->
+<!--        <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">-->
+<!--            <option th:each="h : ${horarioSabado} " th:value="${h.id} " th:text="${h.hora} ">-->
+<!--            </option>-->
+<!--        </select>-->
+
+
+        <button class="btn btn-secondary btn-width cds-botao-cancelar" type="button"
+                onclick="window.location.href='../list'">
+            <i class="fa fa-ban" aria-hidden="true "></i> Cancelar
+        </button>
+
+
+        <button class="btn btn-success btn-width cds-botao-salvar" type="submit ">
+            <i class="fa fa-save" aria-hidden="true"></i> Salvar
+        </button>
+
+</form>
+</body>
+
+</html>

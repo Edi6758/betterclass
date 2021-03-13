@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+<!-- NAVBAR -->
+
+<form th:action="@{/sala/save}" th:object="${sala}" method="POST">
+
+    <label>Código</label>
+    <input class="form-control" type="number" th:field="${sala.id}" required>
+
+    <label>Nome da reunião</label>
+    <input class="form-control" type="number" th:field="${sala.titulo}" readonly>
+
+    <label>Local área da reunião</label>
+    <input class="form-control" type="number" th:field="${sala.local}" readonly>
+
+    <label>Descrição da reunião</label>
+    <input class="form-control" type="number" th:field="${sala.descricao}" readonly>
+
+    <label>Dia da semana</label>
+    <select class="form-control" th:field="${sala.semana}" required>
+
+        <option value="Segunda-feira">Segunda-feira</option>
+        <option value="Terça-feira">Terça-feira</option>
+        <option value="Quarta-feira">Quarta-feira</option>
+        <option value="Quinta-feira">Quinta-feira</option>
+        <option value="Sexta-feira">Sexta-feira</option>
+        <option value="Sábado">Sábado</option>
+
+    </select>
+
+    <label>Horário de treino</label>
+    <input type="text" class="form-control" th:field="*{hora}" autocomplete="off">
+
+
+    <label>Limite de pessoas</label>
+    <input class="form-control" type="number" th:field="${sala.limite}" min="1" max="50" required
+           autocomplete="off">
+
+    <button class="btn btn-width btn-add-hora-cancelar" type="button"
+            onclick="window.location.href='../list'">
+        <i class="fa fa-ban" aria-hidden="true"></i> Voltar
+    </button>
+    <button class="btn btn-width  btn-add-hora-salvar" type="submit">
+        <i class="fa fa-save" aria-hidden="true"></i> Editar
+    </button>
+
+</form>
+
+</body>
+
+</html>

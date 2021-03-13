@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+<!-- NAVBAR -->
+
+<form th:action="@{/usuario/save}" th:object="${usuario}"
+      method="POST">
+
+    <label>Código</label>
+    <input class="form-control" type="number"
+           th:field="${usuario.id}" readonly>
+
+
+    <label>Nome</label>
+    <input class="form-control" type="text" th:field="${usuario.nome}" readonly>
+
+
+    <label>Sobrenome</label>
+    <input class="form-control" type="text" th:field="${usuario.cpf}" readonly>
+
+
+    <label>E-mail</label>
+    <input class="form-control" type="text" th:field="${usuario.email}" readonly>
+
+
+    <label>Horário de treino</label>
+    <input class="form-control" type="time" th:field="${usuario.hora}" readonly>
+
+
+    <label>Login</label>
+    <input class="form-control" type="text" th:field="${usuario.login}" readonly>
+
+
+    <label>Senha</label>
+    <input class="form-control" type="text" th:field="${usuario.senha}" readonly>
+
+
+    <button class="btn btn-secondary btn-voltar-width" type="button"
+            onclick="window.location.href='../../list'">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+    </button>
+
+</form>
+
+</body>
+
+</html>

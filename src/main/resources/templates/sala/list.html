@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salas</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/kauan.css}">
+    <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="container-salas">
+            <div class="salas-head">
+                <h4 class="salas-nome">Inspiration</h4>
+                <div class="btn-group">
+                    <button class="btn-sair">sair</button>
+                    <button class="btn-convidar">convidar</button>
+                    <button class="btn-novo">novo</button>
+                </div>
+                <!--Barra de pesquis  #D8D8D8-->
+                <div class="input-group rounded-lg">
+                    <span class="input-group-text pesquisa-filtro" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input id="pesquisa" type="search" class="form-control rounded pesquisa-filtro" placeholder="Filtrar Salas"
+                        aria-label="Search" aria-describedby="search-addon" />
+                </div>
+            </div>
+            <div class="salas-card container">
+
+                <div class="row">
+                    <div class="col col-12 col-sm-6 mt-2" th:each="sala : ${sala}">
+                        <div class="bg-info text-white card-sala">
+                            <div class="card-title" th:text="${sala.titulo}">a</div>
+                            <div class="card-body" th:text="${sala.descricao}">a</div>
+                            <a class="dropdown-item" th:onclick="|showModalDeletar(${sala.id})|">
+                                <i class="fas fa-calendar-times"></i>deletar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-12 col-sm-6 mt-2">
+                    <a th:href="@{/sala/add}">
+                        <div class="rounded-lg text-center" >
+                            <div class="card-body card-body-nova-sala">Nova Sala</div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Modal -->
+        <div id="modalDeletar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Atenção!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        <p class="cor-texto-modal-tela-list-usuario">Você deseja realmente deletar o Usuário?
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="number" id="id_deletar" hidden>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            <i class="fa fa-ban"></i> Cancelar
+                        </button>
+                        <button type="button" class="btn btn-danger" th:onclick="deletar('sala')">
+                            <i class="fa fa-trash"></i> Deletar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+
+    <script>
+        $(document).ready(function(){
+          $("#pesquisa").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".col").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
+</body>
+
+</html>

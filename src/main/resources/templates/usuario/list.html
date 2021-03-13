@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+<!-- NAVBAR -->
+
+<thead class="thead-tela-list-usuario">
+
+<a th:href="@{/usuario/add}" class="badge badge-info">
+    <i class="fa fa-plus"></i> Adicionar
+</a>
+
+<tr class="tr-head-tela-list-usuario">
+    <th class="coluna-codigo-list-usuario">Cód.</th>
+    <th class="coluna-codigo-list-usuario">Nome</th>
+    <th class="campo-login-tela-usuario-list-1">Login</th>
+    <th class="nao-existe-tela-list-usuario ">cpf</th>
+    <th colspan="4" class="btn-add-sala-list">
+        <div class="a-tela-list-usuario btn-sala-add-list">
+            <a th:href="@{/usuario/add}" class="badge badge-info">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+
+    </th>
+</tr>
+</thead>
+<tbody class="tbody-tela-list-usuario">
+<tr th:each="usuario : ${usuarios}">
+    <td th:text="${usuario.id}"></td>
+    <td th:text="${usuario.nome}"></td>
+    <td th:text="${usuario.login}" class="campo-login-tela-usuario-list-1"></td>
+    <td th:text="${usuario.cpf}" class="nao-existe-tela-list-usuario"></td>
+    <td class="tabela-controle">
+
+        <div class="dropleft dropdown-tela-list-usuario">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item dropdown-tela-list-usuario"
+                   th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}">
+                    <i class="fa fa-eye"></i> Ver
+                </a>
+                <a class="dropdown-item" th:href="@{'/usuario/edit/' + ${usuario.id}}">
+                    <i class="fas fa-user-edit"></i> Editar
+                </a>
+                <a class="dropdown-item" th:onclick="|showModalDeletar(${usuario.id})|">
+                    <i class="fa fa-trash"></i> Deletar
+                </a>
+            </div>
+        </div>
+        <a th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}">
+            <button type="button" class="btn btn-outline-info opcoes-tela-list-usuario"
+                    th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}">
+                <i class="fa fa-eye"></i>
+            </button>
+        </a>
+    </td>
+    <td class="tabela-controle opcoes-tela-list-usuario">
+        <a th:href="@{'/usuario/edit/' + ${usuario.id}}">
+            <button type="button" class="btn btn-outline-info" th:onclick="@{'/usuario/edit/' + ${usuario.id}}">
+                <i class="fas fa-user-edit"></i>
+            </button>
+        </a>
+    </td>
+    <td class="tabela-controle-delete opcoes-tela-list-usuario">
+        <button type="button" class="btn btn-outline-danger" th:onclick="|showModalDeletar(${usuario.id})|">
+            <i class="fa fa-trash"></i>
+        </button>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Modal -->
+<div id="modalDeletar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Atenção!</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p class="cor-texto-modal-tela-list-usuario">Você deseja realmente deletar o Usuário?</p>
+            </div>
+            <div class="modal-footer">
+                <input type="number" id="id_deletar" hidden>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="fa fa-ban"></i> Cancelar
+                </button>
+                <button type="button" class="btn btn-info" th:onclick="deletar('usuario')">
+                    <i class="fa fa-trash"></i> Deletar
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

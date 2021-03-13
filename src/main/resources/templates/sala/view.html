@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<body>
+<!-- NAVBAR -->
+
+<form th:action="@{/sala/save}" th:object="${sala}" method="POST">
+
+    <label>Código</label>
+    <input class="form-control" type="number" th:field="${sala.id}" readonly>
+
+    <label>Nome da reunião:</label>
+    <input class="form-control" th:field="${sala.titulo}" readonly>
+
+    <label>Local área da reunião:</label>
+    <input class="form-control" th:field="${sala.local}" readonly>
+
+    <label>Descrição da reunião:</label>
+    <input class="form-control" th:field="${sala.descricao}" readonly>
+
+    <label>Dia da semana:</label>
+    <input class="form-control" th:field="${sala.semana}" readonly>
+
+    <label>Horário de treino</label>
+    <input type="time" class="form-control" th:field="${sala.hora}" readonly>
+
+    <label>Limite de pessoas</label>
+    <input class="form-control" type="number" th:field="${sala.limite}" min="1" readonly>
+
+    <button class="btn btn-voltar-width btn-view-hora" type="button"
+            onclick="window.location.href='../../list'">
+        <i class="fa fa-backward" aria-hidden="true"></i> Retornar
+    </button>
+
+</form>
+
+</body>
+
+</html>

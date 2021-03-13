@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!--
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/caetano.css}">
+    -->
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/caetano.css}">
+    <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div>
+            <h1 class="texto">bem-vindo de volta!<br>estavamos com saudade.</h1>
+        </div>
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <h1 class="txtLogin">Log In</h1>
+
+                <!-- Login Form -->
+
+                <form id="form1" th:action="@{/login}" method="post">
+                    <div><label> Usuário: <input id="login" class="fadeIn second" type="text" name="username"/> </label></div>
+                    <div><label> Senha: <input type="password" id="password" class="fadeIn third" name="password"/> </label></div>
+                    <div><input type="submit" class="fadeIn fourth" value="Sign In"/></div>
+                </form>
+
+                <!-- Remind Passowrd -->
+                <div id="formFooter">Não é cadastrado?
+                    <a class="underlineHover" th:href="@{/usuario/add}">Cadastre-se</a>
+                </div>
+
+
+
+            </div>
+            <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+            <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+            <script th:src="@{/js/script.js}"></script>
+        </div>
+</body>
+
+</html>
