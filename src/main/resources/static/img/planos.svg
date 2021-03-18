@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.859" height="18.993" viewBox="0 0 17.859 18.993">
+  <g id="planos" transform="translate(-465 -287.893)">
+    <g id="Retângulo_6" data-name="Retângulo 6" transform="translate(465 291.26)" fill="none" stroke="#acacac" stroke-width="2">
+      <rect width="17.859" height="15.626" rx="4" stroke="none"/>
+      <rect x="1" y="1" width="15.859" height="13.626" rx="3" fill="none"/>
+    </g>
+    <line id="Linha_8" data-name="Linha 8" y2="14.637" transform="translate(472.526 291.945)" fill="none" stroke="#acacac" stroke-width="2"/>
+    <g id="Elipse_2" data-name="Elipse 2" transform="translate(470.049 288.331)" fill="none" stroke="#acacac" stroke-width="2">
+      <circle cx="1.94" cy="1.94" r="1.94" stroke="none"/>
+      <circle cx="1.94" cy="1.94" r="0.94" fill="none"/>
+    </g>
+    <g id="Elipse_3" data-name="Elipse 3" transform="matrix(0.966, 0.259, -0.259, 0.966, 473.802, 287.893)" fill="none" stroke="#acacac" stroke-width="2">
+      <circle cx="1.942" cy="1.942" r="1.942" stroke="none"/>
+      <circle cx="1.942" cy="1.942" r="0.942" fill="none"/>
+    </g>
+  </g>
+</svg>

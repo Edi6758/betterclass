@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20.291" viewBox="0 0 20 20.291">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="9.364" height="5.782" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="agenda" transform="translate(-32 -546.709)">
+    <g id="Retângulo_7" data-name="Retângulo 7" transform="translate(32 550)" fill="none" stroke="#acacac" stroke-width="2">
+      <rect width="20" height="17" rx="4" stroke="none"/>
+      <rect x="1" y="1" width="18" height="15" rx="3" fill="none"/>
+    </g>
+    <path id="Caminho_3" data-name="Caminho 3" d="M2033.012,547.709v4.55" transform="translate(-1995.344)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+    <path id="Caminho_4" data-name="Caminho 4" d="M2033.012,547.709v4.55" transform="translate(-1987.109)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+    <path id="Caminho_5" data-name="Caminho 5" d="M2023.322,561.833h17.344" transform="translate(-1989.925 -6.89)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+    <g id="Repetição_de_grade_1" data-name="Repetição de grade 1" transform="translate(37.318 558.027)" clip-path="url(#clip-path)">
+      <g transform="translate(-38.199 -568.851)">
+        <path id="Caminho_6" data-name="Caminho 6" d="M2028.2,569.851h2.461" transform="translate(-1989)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g transform="translate(-33.199 -568.851)">
+        <path id="Caminho_6-2" data-name="Caminho 6" d="M2028.2,569.851h2.461" transform="translate(-1989)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g transform="translate(-38.199 -565.851)">
+        <path id="Caminho_6-3" data-name="Caminho 6" d="M2028.2,569.851h2.461" transform="translate(-1989)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g transform="translate(-33.199 -565.851)">
+        <path id="Caminho_6-4" data-name="Caminho 6" d="M2028.2,569.851h2.461" transform="translate(-1989)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="37.463" height="21.767" viewBox="0 0 37.463 21.767">
+  <g id="usuarios" transform="translate(-62.032 -471.071)">
+    <g id="usuario" transform="translate(7.826 -6.929)">
+      <g id="Elipse_4" data-name="Elipse 4" transform="translate(77.662 478)" fill="none" stroke="#acacac" stroke-width="2">
+        <circle cx="5.279" cy="5.279" r="5.279" stroke="none"/>
+        <circle cx="5.279" cy="5.279" r="4.279" fill="none"/>
+      </g>
+      <path id="Caminho_2" data-name="Caminho 2" d="M2064.037,495.267s1.084-5.37,7.659-5.37,7.851,5.37,7.851,5.37" transform="translate(-1988.85 -1.338)" fill="none" stroke="#acacac" stroke-width="2"/>
+      <line id="Linha_9" data-name="Linha 9" x2="15.442" transform="translate(75.22 493.838)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="usuario-2" data-name="usuario" transform="translate(-12.174 -6.929)">
+      <g id="Elipse_4-2" data-name="Elipse 4" transform="translate(77.662 478)" fill="none" stroke="#acacac" stroke-width="2">
+        <circle cx="5.279" cy="5.279" r="5.279" stroke="none"/>
+        <circle cx="5.279" cy="5.279" r="4.279" fill="none"/>
+      </g>
+      <path id="Caminho_2-2" data-name="Caminho 2" d="M2064.037,495.267s1.084-5.37,7.659-5.37,7.851,5.37,7.851,5.37" transform="translate(-1988.85 -1.338)" fill="none" stroke="#acacac" stroke-width="2"/>
+      <line id="Linha_9-2" data-name="Linha 9" x2="15.442" transform="translate(75.22 493.838)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <g id="usuario-3" data-name="usuario" transform="translate(-2.174 -2)">
+      <g id="Elipse_4-3" data-name="Elipse 4" transform="translate(77.662 478)" fill="none" stroke="#acacac" stroke-width="2">
+        <circle cx="5.279" cy="5.279" r="5.279" stroke="none"/>
+        <circle cx="5.279" cy="5.279" r="4.279" fill="none"/>
+      </g>
+      <path id="Caminho_2-3" data-name="Caminho 2" d="M2064.037,495.267s1.084-5.37,7.659-5.37,7.851,5.37,7.851,5.37" transform="translate(-1988.85 -1.338)" fill="none" stroke="#acacac" stroke-width="2"/>
+      <line id="Linha_9-3" data-name="Linha 9" x2="15.442" transform="translate(75.22 493.838)" fill="none" stroke="#acacac" stroke-linecap="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

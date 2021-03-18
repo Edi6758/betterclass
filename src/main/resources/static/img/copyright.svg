@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17">
+  <g id="copyright" transform="translate(-116 -979)">
+    <g id="Elipse_5" data-name="Elipse 5" transform="translate(116 979)" fill="none" stroke="#acacac" stroke-width="2">
+      <ellipse cx="9" cy="8.5" rx="9" ry="8.5" stroke="none"/>
+      <ellipse cx="9" cy="8.5" rx="8" ry="7.5" fill="none"/>
+    </g>
+    <text id="c" transform="translate(120 992)" fill="#acacac" font-size="17" font-family="Bahnschrift" font-weight="700"><tspan x="0" y="0">c</tspan></text>
+  </g>
+</svg>
