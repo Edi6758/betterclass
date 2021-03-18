@@ -4,58 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adicionar horário</title>
-    <link rel="icon" href="/img/icon2.png">
+    <title>Adicionar Sala</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/kauan.css}">
+    <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
+
+
+
 
 </head>
 
 <body>
-<!--NAVBAR-->
+    <div class="container">
+
+        <form class="container-add-sala" th:action="@{/sala/save}" th:object="${sala}" method="POST">
+            <div class="salas-add-full">
+            <div class="sala-add-1">
+                <label>Nome</label>
+                <input class="form-input form-input-titulo" type="text" th:field="*{titulo}" autocomplete="off"
+                    placeholder="Nome da sala" required>
+                <br><br>
+                <label>Local</label>
+                <input class="form-input form-input-local" type="text" th:field="*{local}" autocomplete="off"
+                    placeholder="Local da reunião" required>
+                <br><br>
+                <label>Descrição</label>
+                <input class="form-input form-input-descricao" type="text" th:field="*{descricao}" autocomplete="off"
+                    placeholder="Descrição da sala" required>
+                <br><br>
+                <label>Dia da semana:</label>
+                <select class="form-select" th:field="*{semana}" required>
+
+                    <option value="Segunda-feira">Segunda-feira</option>
+                    <option value="Terça-feira">Terça-feira</option>
+                    <option value="Quarta-feira">Quarta-feira</option>
+                    <option value="Quinta-feira">Quinta-feira</option>
+                    <option value="Sexta-feira">Sexta-feira</option>
+                    <option value="Sábado">Sábado</option>
+
+                </select>
+                <br>
+                <label>Horário</label>
+                <input type="time" class="form-input" th:field="*{hora}" autocomplete="off"><br><br>
+
+                <label>Limite de pessoas</label>
+                <input class="form-input" type="number" th:field="*{limite}" min="1" max="50" required
+                    autocomplete="off" onfocus="this.value=''">
+            </div>
+            <div class="sala-add-2">
+                <div class="head-cores">
+                <label class="label-cores">Cores</label>
+                </div>
+                <div class="body-cores">
+                </div>
+                <div class="sala-add-btn">
+                    <button class="btn btn-width  btn-add-sala" type="submit">
+                    Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
 
 
-<form th:action="@{/sala/save}" th:object="${sala}" method="POST">
 
-    <label>Código</label>
-    <input class="form-control" type="number" th:field="*{id}" readonly>
+    <!--JAVASCRIPT-->
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
 
-    <label>Nome da reunião</label>
-    <input class="form-control" type="text" th:field="*{titulo}" required>
-
-    <label>Local área da reunião</label>
-    <input class="form-control" type="text" th:field="*{local}" required>
-
-    <label>Descrição da reunião</label>
-    <input class="form-control" type="text" th:field="*{descricao}" required>
-
-    <label>Dia da semana:</label>
-    <select class="form-control" th:field="*{semana}" required>
-
-        <option value="Segunda-feira">Segunda-feira</option>
-        <option value="Terça-feira">Terça-feira</option>
-        <option value="Quarta-feira">Quarta-feira</option>
-        <option value="Quinta-feira">Quinta-feira</option>
-        <option value="Sexta-feira">Sexta-feira</option>
-        <option value="Sábado">Sábado</option>
-
-    </select>
-
-    <label>Horário de treino</label>
-    <input type="time" class="form-control" th:field="*{hora}" autocomplete="off">
-
-    <label>Limite de pessoas</label>
-    <input class="form-control" type="number" th:field="*{limite}" min="1" max="50" required autocomplete="off'">
-
-    <button class="btn btn-width btn-add-hora-cancelar" type="button"
-            onclick="window.location.href='./list'">
-        <i class="fa fa-ban" aria-hidden="true"></i> Cancelar
-    </button>
-    <button class="btn btn-width  btn-add-hora-salvar" type="submit">
-        <i class="fa fa-save" aria-hidden="true"></i> Salvar
-    </button>
-</form>
-
-<!--JAVASCRIPT-->
-<script th:src="@{/js/script.js}"></script>
 
 </body>
 

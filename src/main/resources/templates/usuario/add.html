@@ -5,22 +5,27 @@
 
 
     <!--CSS-->
+
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontawesome-5.14.0/css/all.min.css}">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-
+    <link rel="stylesheet" th:href="@{/css/caetano.css}">
+        <!--
+    <link rel="stylesheet" href="../../static/bootstrap-5.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/caetano.css">
+    -->
 </head>
 
 <body class="body-cadastro-usuario ">
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
 
-<form th:action="@{/usuario/save}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+    <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
 
-    <label>Código</label>
-    <input class="form-control" type="number" th:field="*{id}" readonly>
+        <!--    <label id="lbcodigo">Código</label>
+        <input class="form-control1" type="number" th:field="*{id}" readonly>
+    -->
 
-    <!-- erro login -->
-    <div th:if="${erroLogin}" class="alert alert-danger">
+        <!-- erro login -->
+        <!--<div th:if="${erroLogin}" class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">
             <i class="far fa-times-circle"></i>
         </button>
@@ -28,7 +33,8 @@
         <span>Erro ao salvar, login já existente!</span>
     </div>
 
-    <!-- erro cpf -->
+
+     erro cpf
     <div th:if="${erroCpf}" class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">
             <i class="far fa-times-circle"></i>
@@ -37,7 +43,8 @@
         <span>CPF já existente, confira as credenciais ou atualize seu cadastro!</span>
     </div>
 
-    <!-- erro email -->
+
+     erro email
     <div th:if="${erroEmail}" class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">
             <i class="far fa-times-circle"></i>
@@ -45,49 +52,63 @@
         <h4>Atenção!</h4>
         <span>E-mail já existente, confira as credenciais ou atualize seu cadastro!</span>
     </div>
+-->
+        <div class="container">
 
-    <label>Nome e Sobrenome</label>
-    <input class="form-control cds-inputs" type="text" th:field="*{nome}"
-           placeholder="Digite seu nome completo." minlength="8" required>
+            <div>
+                <h1 class="texto2"><strong>seja bem-vindo!<br>esperamos que curta<br> sua visita!</strong></h1>
+            </div>
+            <div>
+                <h2 class="subtexto2">Lorem Ipsum tem sido o texto fictício<br> padrão da indústria desde quando um impressor<br> desconhecido pegou um modelo de impressão</h2>
+            </div>
+            <div class="wrapper fadeInDown">
+                <div class="box">
+                    <h1 class="txtCadastro">Cadastro</h1>
 
-    <label>CPF</label>
-    <input class="form-control cds-inputs" type="text" th:field="*{cpf}" placeholder="xxx-xxx-xxx-xx"
-           onkeypress="$(this).mask('000.000.000-00')" minlength="11" maxlength="11" required
-           autocomplete="off">
+                    <label class="lb2">Nome</label>
+                    <input class="form-control cds-inputs" type="text" th:field="*{nome}"
+                        placeholder="Digite seu nome completo." minlength="8" required>
 
-    <label>E-mail</label>
-    <input class="form-control cds-inputs " type="email" th:field="*{email} "
-           placeholder="Digite seu e-mail. " minlength="10" required>
+                    <label class="lb2">CPF</label>
+                    <input class="form-control cds-inputs" type="text" th:field="*{cpf}" placeholder="xxx-xxx-xxx-xx"
+                        onkeypress="$(this).mask('000.000.000-00')" minlength="11" maxlength="11" required
+                        autocomplete="off">
 
-    <label>Login</label>
-    <input class="form-control cds-inputs" type="text" th:field="*{login}" placeholder="Digite seu login. "
-           minlength="8" maxlength="30" required>
+                    <label class="lb2">Email</label>
+                    <input class="form-control cds-inputs " type="email" th:field="*{email} "
+                        placeholder="Digite seu e-mail. " minlength="10" required>
 
-    <label>Senha</label>
-    <input type="password" class="form-control cds-inputs " th:field="*{senha} "
-           placeholder="No mínimo 8 letra. " minlength="8" maxlength="30" required>
+                    <label class="lb2">Login</label>
+                    <input class="form-control cds-inputs" type="text" th:field="*{login}"
+                        placeholder="Digite seu login. " minlength="8" maxlength="30" required>
 
-    <label>Foto</label>
-    <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg"/>
-    <img id="thumbnail" alt="Insira sua foto!"/>
+                    <label class="lb2">Senha</label>
+                    <input type="password" class="form-control cds-inputs " th:field="*{senha} "
+                        placeholder="No mínimo 8 letra. " minlength="8" maxlength="30" required>
 
-    <button class="btn btn-secondary btn-width cds-botao-cancelar " type="button "
-            onclick="window.location.href='./list' ">
-        <i class="fa fa-ban " aria-hidden="true "></i> Cancelar
-    </button>
+                    <label class="lb2">Foto</label>
+                    <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg" />
+                    <img id="thumbnail" alt="Insira sua foto!" />
 
-    <button class="btn btn-success btn-width cds-botao-salvar " type="submit ">
-        <i class="fa fa-save " aria-hidden="true "></i> Salvar
-    </button>
+                    <button class="btn btn-secondary btn-width cds-botao-cancelar " type="button "
+                        onclick="window.location.href='./list' ">
+                        <i class="fa fa-ban " aria-hidden="true "></i> Cancelar
+                    </button>
 
-</form>
+                    <button class="btn btn-success btn-width cds-botao-salvar " type="submit ">
+                        <i class="fa fa-save " aria-hidden="true "></i> Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
 
 
-<!--JAVASCRIPT-->
-<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js "></script>
-<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
+    <!--JAVASCRIPT-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js "></script>
+    <script src="../../static/bootstrap-5.0.0/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
 
 </body>
 

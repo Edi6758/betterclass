@@ -6,46 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!--
+
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/caetano.css}">
-    -->
-    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/caetano.css}">
-    <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
 
 </head>
 
 <body>
     <div class="container">
 
-        <div>
-            <h1 class="texto">bem-vindo de volta!<br>estavamos com saudade.</h1>
+        <div class="texto">
+            <h1><strong>bem-vindo de volta!<br>estavamos com saudade.</strong></h1>
         </div>
+        <div class="subtexto">
+            <p>Lorem Ipsum tem sido o texto fictício<br> padrão da indústria desde quando um impressor<br> desconhecido
+                pegou um modelo de impressão</p>
+        </div>
+
         <div class="wrapper fadeInDown">
-            <div id="formContent">
+            <div id="formBox">
                 <h1 class="txtLogin">Log In</h1>
 
                 <!-- Login Form -->
 
                 <form id="form1" th:action="@{/login}" method="post">
-                    <div><label> Usuário: <input id="login" class="fadeIn second" type="text" name="username"/> </label></div>
-                    <div><label> Senha: <input type="password" id="password" class="fadeIn third" name="password"/> </label></div>
-                    <div><input type="submit" class="fadeIn fourth" value="Sign In"/></div>
+                    <div><label class="lb1"> Usuário <input id="login" class="fadeIn second" type="text" name="username"
+                                placeholder="Digite seu login" autocomplete="off" /> </label></div>
+                    <div><label class="lb1"> Senha <input type="password" id="password" class="fadeIn third"
+                                name="password" placeholder="Digite sua senha" autocomplete="off" /> </label></div>
+                    <div id="formFooter">Não é cadastrado?
+                        <a class="underlineHover" href="#">Cadastre-se</a>
+                    </div>
+                    <div><input type="submit" class="fadeIn fourth" value="Login" /></div>
                 </form>
-
-                <!-- Remind Passowrd -->
-                <div id="formFooter">Não é cadastrado?
-                    <a class="underlineHover" th:href="@{/usuario/add}">Cadastre-se</a>
-                </div>
-
-
-
             </div>
+            <!--JAVASCRIPT-->
+
             <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
             <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
             <script th:src="@{/js/script.js}"></script>
         </div>
+    </div>
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 body {
     background-color: #F1F1F1;
-    font-family: Oswald;
+    font-family: Bahnschrift;
     height: 50rem;
-    overflow: hidden;
+    overflow-x: hidden;
     font-style: bold;
 }
 
+/* --- LOGIN --- */
 a {
     color: #6C63FF;
     display: inline-block;
@@ -18,14 +19,28 @@ a {
     display: -webkit-box;
 }
 
+::placeholder {
+    color: rgb(202, 200, 200);
+}
+
 .texto {
-    margin-top: 200px;
+    margin-left: 200px;
+    margin-top: 185px;
     color: #6C63FF;
 }
 
-/* STRUCTURE */
+.subtexto {
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    margin-top: 330px;
+    margin-left: 200px;
+    color: rgb(105, 101, 101);
+}
 
-.txtLogin{
+/* ESTRUTURA */
+
+.txtLogin {
     margin-top: 35px;
     font-family: Bahnschrift;
     color: #6C63FF;
@@ -34,43 +49,100 @@ a {
 .wrapper {
     align-items: center;
     display: flex;
-    justify-content: center;
+    margin-left: 50px;
     width: 100%;
     padding: 20px;
 }
 
-#form1{
+/*#form1 {
+    color: rgb(114, 113, 113);
     margin-left: 50px;
     display: grid;
     text-align: left;
     padding: 20px;
     width: 350px;
     font-size: 17px;
+}*/
+
+.lb1 {
+    display: block;
+    margin-top: 25px;
+    margin-left: 13%;
+    text-align: left;
+    width: 350px;
+    font-size: 17px;
+    color: rgb(114, 113, 113);
 }
 
-#formContent {
-    margin-top: 50px;
-    border-radius: 4px;
+#formBox {
+    margin-top: 60px;
+    border-radius: 6px;
     background: #fff;
     padding: 30px;
     width: 90%;
-    max-width: 450px;
+    max-width: 405px;
     position: relative;
     padding: 0px;
     text-align: center;
 }
 
-#formFooter {
-    padding: 25px;
-    text-align: center;
+/* ESTILO EMAIL/SENHA */
+.fadeIn.second {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    opacity: 1;
+    background-color: #f6f6f6;
+    text-align: left;
+    width: 300px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
     font-size: 17px;
+    color: black;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px;
+    outline: none;
 }
 
-/* FORM TYPOGRAPHY*/
+.fadeIn.second:hover,
+.fadeIn.second:focus {
+    transition: all 0.4s;
+    background-color: #ffffff;
+    border-color: silver;
+}
 
-input[type=button],
-input[type=submit],
-input[type=reset] {
+.fadeIn.third {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    opacity: 1;
+    background-color: #f6f6f6;
+    text-align: left;
+    width: 300px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 17px;
+    color: black;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px;
+    outline: none;
+}
+
+.fadeIn.third:hover,
+.fadeIn.third:focus {
+    transition: all 0.4s;
+    background-color: #ffffff;
+    border-color: silver;
+}
+
+/* ESTILO DO LOGIN */
+input[type=submit] {
     background-color: #56baed;
     border: none;
     color: white;
@@ -80,11 +152,11 @@ input[type=reset] {
     display: inline-block;
     text-transform: uppercase;
     font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-    -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     margin: 5px 20px 40px 20px;
+    outline: none;
+    box-shadow: 0 10px 30px 0 rgba(66, 66, 66, 0.637);
+    /* LOGIN DIMINUI */
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
@@ -92,15 +164,13 @@ input[type=reset] {
     transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover,
-input[type=submit]:hover,
-input[type=reset]:hover {
-    background-color: #4f48cc;
+/* LOGIN MUDA DE COR */
+input[type=submit]:hover {
+    background-color: #0e03da;
 }
 
-input[type=button]:active,
-input[type=submit]:active,
-input[type=reset]:active {
+/* LOGIN DIMINUI */
+input[type=submit]:active {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
@@ -108,42 +178,15 @@ input[type=reset]:active {
     transform: scale(0.95);
 }
 
-input[type=text], 
-input[type=password] {
-    background-color: #f6f6f6;
-    border: none;
-    color: #0d0d0d;
-    padding: 15px 32px;
+#formFooter {
+    color: rgb(114, 113, 113);
+    margin-top: 40px;
+    padding-bottom: 25px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 5px;
-    width: 85%;
-    border: 2px solid #f6f6f6;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
+    font-size: 17px;
 }
 
-input[type=text]:focus,
-input[type=password]:focus {
-    background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
-}
-
-input[type=text]:placeholder,
-input[type=password]:placeholder {
-    color: #cccccc;
-}
-
-
-
-/* ANIMATIONS */
+/* ANIMAÇÕES */
 
 /* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {
@@ -186,7 +229,7 @@ input[type=password]:placeholder {
 /* Simple CSS3 Fade-in Animation */
 
 
-.fadeIn {
+/*.fadeIn {
     opacity: 0;
     -webkit-animation: fadeIn ease-in 1;
     -moz-animation: fadeIn ease-in 1;
@@ -199,33 +242,8 @@ input[type=password]:placeholder {
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
     animation-duration: 1s;
-}
+}*/
 
-.fadeIn.second {
-    -webkit-animation-delay: 0.6s;
-    -moz-animation-delay: 0.6s;
-    animation-delay: 0.6s;
-    opacity: 1;
-    text-align: left;
-    padding-left: 13px;
-    width: 300px;
-    font-size: 17px;
-    margin-left: 0px;
-    color: black;
-}
-
-.fadeIn.third {
-    -webkit-animation-delay: 0.8s;
-    -moz-animation-delay: 0.8s;
-    animation-delay: 0.8s;
-    opacity: 1;
-    text-align: left;
-    padding-left: 13px;
-    width: 300px;
-    font-size: 17px;
-    margin-left: 0px;
-    color: black;
-}
 
 .fadeIn.fourth {
     -webkit-animation-delay: 1s;
@@ -238,7 +256,7 @@ input[type=password]:placeholder {
     background-color: #6C63FF;
 }
 
-/* Simple CSS3 Fade-in Animation */
+/* ANIMAÇÃO CADASTRE-SE */
 .underlineHover {
     font-size: 17px;
 }
@@ -263,3 +281,89 @@ input[type=password]:placeholder {
 }
 
 
+/* --- CADASTRO --- */
+
+/*#lbcodigo {
+}
+
+.form-control1 {
+}*/
+
+.texto2 {
+    font-family: sans-serif;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 750px;
+    color: #6C63FF;
+}
+
+
+.subtexto2 {
+    font-size: 20px;
+    font-family: sans-serif;
+    position: absolute;
+    margin-top: 400px;
+    margin-left: 750px;
+    color: rgb(105, 101, 101);
+}
+
+.box {
+    margin-top: 60px;
+    margin-left: 170px;
+    border-radius: 6px;
+    background: #fff;
+    padding: 30px;
+    width: 420px;
+    position: relative;
+    padding: 0px;
+    text-align: center;
+}
+
+.txtCadastro {
+    font-size: 35px;
+    position: relative;
+    padding-top: 35px;
+    font-family: Bahnschrift;
+    color: #6C63FF;
+}
+
+.lb2{
+    display: block;
+    margin-top: 20px;
+    margin-left: 15%;
+    text-align: left;
+    width: 350px;
+    font-size: 17px;
+    color: rgb(114, 113, 113);
+}
+
+/* INPUTS */
+.form-control {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 300px;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* ANIMAÇÃO INPUTS */
+.form-control:hover {
+    transition: all 0.4s;
+    background-color: #ffffff;
+    border-color: silver;
+}
+
+.form-control::placeholder {
+    color: rgb(202, 200, 200);
+}

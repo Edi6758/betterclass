@@ -28,8 +28,8 @@
                     <span class="input-group-text pesquisa-filtro" id="search-addon">
                         <i class="fas fa-search"></i>
                     </span>
-                    <input id="pesquisa" type="search" class="form-control rounded pesquisa-filtro" placeholder="Filtrar Salas"
-                        aria-label="Search" aria-describedby="search-addon" />
+                    <input id="pesquisa" type="search" class="form-control rounded pesquisa-filtro"
+                        placeholder="Filtrar Salas" aria-label="Search" aria-describedby="search-addon" />
                 </div>
             </div>
             <div class="salas-card container">
@@ -39,71 +39,95 @@
                         <div class="bg-info text-white card-sala">
                             <div class="card-title" th:text="${sala.titulo}">a</div>
                             <div class="card-body" th:text="${sala.descricao}">a</div>
-                            <a class="dropdown-item" th:onclick="|showModalDeletar(${sala.id})|">
-                                <i class="fas fa-calendar-times"></i>deletar
-                            </a>
+
+                            <div class="btn-del-view">
+
+
+                                <a class="dropdown-item icon-eye justify-content-center" th:onclick="|showModalView(${sala.id})|">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a class="dropdown-item icon-trash justify-content-center" th:onclick="|showModalDeletar(${sala.id})|">
+                                    <i class="fas fa-trash text-dark"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col col-12 col-sm-6 mt-2">
-                    <a th:href="@{/sala/add}">
-                        <div class="rounded-lg text-center" >
-                            <div class="card-body card-body-nova-sala">Nova Sala</div>
-                        </div>
-                    </a>
+                        <a th:href="@{/sala/add}">
+                            <div class="rounded-lg text-center">
+                                <div class="card-body card-body-nova-sala">Nova Sala</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-
-
-
-
-        <!-- Modal -->
-        <div id="modalDeletar" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Atenção!</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                    </div>
-                    <div class="modal-body">
-                        <p class="cor-texto-modal-tela-list-usuario">Você deseja realmente deletar o Usuário?
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="number" id="id_deletar" hidden>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            <i class="fa fa-ban"></i> Cancelar
-                        </button>
-                        <button type="button" class="btn btn-danger" th:onclick="deletar('sala')">
-                            <i class="fa fa-trash"></i> Deletar
-                        </button>
-                    </div>
+    <!-- Modal -->
+    <div id="modalView" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
+                <div class="modal-body">
 
+                <!-- COLOCAR CONTEUDO DO BODY AQUI -->
+
+                </div>
             </div>
+
         </div>
     </div>
 
 
 
-    
-    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <!-- Modal -->
+    <div id="modalDeletar" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Atenção!</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <p class="cor-texto-modal-tela-list-usuario">Você deseja realmente deletar esta Sala?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <input type="number" id="id_deletar" hidden>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="fa fa-ban"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-danger" th:onclick="deletar('sala')">
+                        <i class="fa fa-trash"></i> Deletar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
     <script th:src="@{/js/script.js}"></script>
-
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
     <script>
-        $(document).ready(function(){
-          $("#pesquisa").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $(".col").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        const showModalView = function (id) {
+            $('#modalView').modal('show')
+        }
+
+        $(document).ready(function () {
+            $("#pesquisa").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".col").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
-          });
         });
     </script>
 </body>

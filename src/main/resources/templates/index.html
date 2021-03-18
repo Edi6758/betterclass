@@ -8,12 +8,245 @@
     <link rel="icon" href="img/icon2.png">
 
     <!--CSS-->
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-
+    <link rel="stylesheet" th:href="@{css/bianca.css}">
+    <!-- <link rel="stylesheet" href="../static/css/bianca.css"> -->
 </head>
 
-<body>
+<body class="light-mode">
 
+    <div class="batata">
+        <div class="container-all">
+            <!-- <div class="gambiarra"> -->
+            <div class="container">
+                <h1 class="titulo">betterclass</h1>
+                <ul>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="img/home.svg" alt="">
+                            <p class="subtitulo">Home</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="img/sobre.svg" alt="">
+                            <p class="subtitulo">Sobre</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="img/planos.svg" alt="">
+                            <p class="subtitulo">Planos</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="img/contato.svg" alt="">
+                            <p class="subtitulo">Contato</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon icon-usuarios" src="img/usuarios.svg" alt="">
+                            <p class="subtitulo">Usuários</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="img/perfil.svg" alt="">
+                            <p class="subtitulo">Perfil</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="img/salas.svg" alt="">
+                            <p class="subtitulo">Salas</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- <div class="switch__container">
+                    <input id="theme-switch" class="switch switch--shadow" type="checkbox" />
+                    <label for="switch-shadow"></label>
+                </div> -->
+
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+
+                <div>
+                    <button class="button-login">login</button>
+                </div>
+
+                <div class="container-copyright">
+                    <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
+                    <p class="titulo-copyright">2021 Inspiration</p>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+        <div class="sections">
+            <section class="section-1 background-1" id="section-1">
+                <div class="container-home-1">
+                    <div class="container-1">
+                        <h1 class="titulo-home-1">organize os horários de
+                            qualquer sala, auditório
+                            ou escritório!</h1>
+                        <p class="subtitulo-home-1">A melhor opção para organizar seu espaço de trabalho,
+                            academia ou até lazer.
+                            Com o betterclass tudo fica mais fácil!</p>
+                        <button class="button-home-1">conheça os planos!</button>
+                    </div>
+                    <div class="container-2">
+                        <img id="img-2-light" src="img/home-2-light.svg" alt="" class="show">
+                        <img id="img-2-dark" src="img/home-2-dark.svg" alt="" class="hidden">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section-1 background-2" id="section-1">
+                <div class="container-home-1">
+                    <div class="container-1">
+                        <div class="container-columns display-flex justify-center">
+                            <div class="container-columns-inside display-flex justify-center">
+                                <img src="../static/imgs/idea-img-light.svg" alt=""></img>
+                                <p class="texto">Lorem ipsum tortor justo inceptos id nam
+                                    convallis neque nullam, orci bibendum
+                                    lacus adipiscing fringilla pellentesque </p>
+                            </div>
+                        </div>
+                        <div class="container-columns display-flex justify-center">
+                            <div class="container-columns-inside display-flex justify-center">
+                                <img src="../static/imgs/calendar-img-light.svg" alt="">
+                                <p class="texto">Lorem ipsum tortor justo inceptos id nam
+                                    convallis neque nullam, orci bibendum
+                                    lacus adipiscing fringilla pellentesque </p>
+                            </div>
+                        </div>
+                        <div class="container-columns display-flex justify-center">
+                            <div class="container-columns-inside display-flex justify-center">
+                                <img src="../static/imgs/spaceship-img-light.svg" alt="">
+                                <p class="texto">Lorem ipsum tortor justo inceptos id nam
+                                    convallis neque nullam, orci bibendum
+                                    lacus adipiscing fringilla pellentesque </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-2">
+                        <h1 class="titulo-home-1">o melhor jeito de
+                            organizar sua empresa!
+                            simples, rápido e fácil!</h1>
+                        <div class="linha"></div>
+                        <p class="subtitulo-home-1">A melhor opção para organizar seu espaço de trabalho,
+                            academia ou até lazer.
+                            Com o betterclass tudo fica mais fácil!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-1 background-3" id="section-1">
+                <div class="container-home-2">
+                    <div class="container-1">
+                        <h1 class="titulo-1">melhores planos</h1>
+                        <p class="subtitulo subt-sect-3">melhore planos para você, independente de ser 
+                            uma empresa, uma instituição ou pessoa!</p>
+                    </div>
+                    <div class="container-3">
+                        <div class="card-1 display-flex justify-center direction-column">
+                            <h1 class="titulo-2">Básico</h1>
+                            <h2 class="subtitulo-2">gratuito</h2>
+                            <p class="txt-2">Lorem ipsum tortor justo 
+                                inceptos id nam convallis 
+                                neque nullam, orci.</p>
+                            <button class="button-login button-planos">assinar</button>
+                        </div>
+                        <div class="card-2 display-flex justify-center direction-column">
+                            <h1 class="titulo-2">Médio</h1>
+                            <h2 class="subtitulo-2">R$99,99</h2>
+                            <p class="txt-2">Lorem ipsum tortor justo 
+                                inceptos id nam convallis 
+                                neque nullam, orci.</p>
+                            <button class="button-login button-planos">assinar</button>
+                        </div>
+                        <div class="card-1 display-flex justify-center direction-column">
+                            <h1 class="titulo-2">Especial</h1>
+                            <h2 class="subtitulo-2">R$199,99</h2>
+                            <p class="txt-2">Lorem ipsum tortor justo 
+                                inceptos id nam convallis 
+                                neque nullam, orci.</p>
+                            <button class="button-login button-planos">assinar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-1 background-2" id="section-1">
+                <div class="container-home-2">
+                    <div class="container-home-2">
+                        <h1 class="titulo-1">Como você deseja falar com a gente?</h1>
+                    </div>
+                    <div class="container-4 ">
+                        <div class="card-3 display-flex justify-center direction-column">
+                            <h1 class="titulo-3">E-mail</h1>
+                            <h2 class="subtitulo">Tem alguma dúvida?</h2>
+                            <p class="txt-3">inspiration@gmail.com</p>
+                        </div>
+                        <div class="card-4 display-flex justify-center direction-column">
+                            <h1 class="titulo-3">Telefone</h1>
+                            <h2 class="subtitulo">Tem alguma dúvida?</h2>
+                            <p class="txt-3">48 XXXX-XXXX</p>
+                        </div>
+                        <div class="card-5 display-flex justify-center direction-column">
+                            <h1 class="titulo-3">E-mail</h1>
+                            <h2 class="subtitulo">Tem alguma dúvida?</h2>
+                            <p class="txt-3">inspiration@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script>
+
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+                document.getElementById('img-2-light').classList.add('hidden');
+                document.getElementById('img-2-light').classList.remove('show');
+                document.getElementById('img-2-dark').classList.add('show');
+                document.getElementById('img-2-dark').classList.remove('hidden');
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                document.getElementById('img-2-light').classList.add('hidden');
+                document.getElementById('img-2-light').classList.remove('show');
+                document.getElementById('img-2-dark').classList.add('show');
+                document.getElementById('img-2-dark').classList.remove('hidden');
+            }
+            else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                document.getElementById('img-2-light').classList.remove('hidden');
+                document.getElementById('img-2-light').classList.add('show');
+                document.getElementById('img-2-dark').classList.remove('show');
+                document.getElementById('img-2-dark').classList.add('hidden');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ body {
     font-weight: bold;
 }
 
+/* LIST SALA*/
 .container-salas {
     padding: 1.5rem;
     margin-top: 8.5rem;
@@ -12,7 +13,8 @@ body {
     background-color: white;
     border-radius: 7px;
 }
-.container-pessoas{
+
+.container-pessoas {
     background-color: #FBFBFB;
 }
 
@@ -24,6 +26,7 @@ body {
     height: 2.1rem;
     border-radius: 7px;
     margin-right: 2%;
+    outline: none;
 }
 
 .btn-convidar {
@@ -34,6 +37,7 @@ body {
     height: 2.1rem;
     border-radius: 7px;
     margin-right: 2%;
+    outline: none;
 }
 
 .btn-novo {
@@ -44,31 +48,38 @@ body {
     height: 2.1rem;
     border-radius: 7px;
     margin-right: 2%;
+    outline: none;
 }
-.btn-group{
+
+.btn-group {
     padding-left: 30%;
-    
+
 }
-.salas-nome{
+
+.salas-nome {
     width: 20%;
     display: inline;
 }
-.salas-card{
+
+.salas-card {
     padding-top: 1.5rem;
     max-height: 100%;
     overflow: hidden;
     overflow-y: auto;
     max-height: 340px;
 }
-.pesquisa-filtro{
+
+.pesquisa-filtro {
     margin-top: 10px;
 }
-.card-sala{
+
+.card-sala {
     padding-top: 5px;
     padding-left: 10px;
     border-radius: 10px;
 }
-.card-body-nova-sala{
+
+.card-body-nova-sala {
     height: 120px;
     text-align: center;
     font-size: 20px;
@@ -79,9 +90,104 @@ body {
     border-radius: 10px;
     border-style: dashed;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.bg-d{
-background-color: black;
+
+.bg-d {
+    background-color: black;
+}
+
+.dropdown-item:hover {
+    background-color: #0dcaf0;
+    border-radius: 7px;
+}
+.btn-del-view{
+    display: inline;
+}
+.icon-eye{
+    display: inline;
+    width: 100%;
+}
+.icon-trash{
+    display: inline;
+    width: 100%;
+}
+
+
+/* ADD SALA*/
+.salas-add-full {
+    padding: 15px;
+    padding-left: 25px;
+    margin-top: 5.5rem;
+    width: auto;
+    max-width: 75%;
+    height: 35.1rem;
+    background-color: white;
+    border-radius: 7px;
+    display: flex;
+    color: gray;
+}
+
+.form-input {
+    border: 1px solid rgb(238, 238, 238);
+    background-color: rgb(238, 238, 238);
+    padding: 10px;
+    border-radius: 4px;
+    height: 40px;
+    outline: none;
+}
+
+.sala-add-1 {
+    width: 50%;
+    height: 500px;
+}
+
+.sala-add-1>input {
+    width: 95%;
+    outline: none;
+}
+
+.sala-add-2 {
+    width: 50%;
+    height: 500px;
+}
+
+.form-input {
+    width: 300px;
+}
+
+.form-select {
+    width: 95%;
+}
+
+.head-cores {
+    background-color: rgb(238, 238, 238);
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 5px;
+    margin-top: 24px;
+}
+
+.label-cores {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(238, 238, 238);
+}
+
+.body-cores {
+    background-color: rgb(238, 238, 238);
+    width: 100%;
+}
+
+.sala-add-btn {
+    margin-top: 400px;
+    width: 100%;
+}
+
+.btn-add-sala {
+    height: 50px;
+    width: 100%;
+    background-color: rgb(199, 155, 255);
+    color: rgb(75, 0, 174);
 }
