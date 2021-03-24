@@ -139,7 +139,6 @@ public class UsuarioController {
     //----------VIEW USER----------
     @GetMapping("/usuario/viewUser")
     public String viewUser(Model model) {
-
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         //long idUser =  usuarioRespository.findByLogin(login).getId();
         model.addAttribute("usuario", usuarioRepository.findByLogin(login));
