@@ -2,7 +2,7 @@ body {
     background-color: #F1F1F1;
     font-family: Bahnschrift;
     height: 50rem;
-    overflow-x: hidden;
+    overflow: scroll;
     font-style: bold;
 }
 
@@ -366,4 +366,78 @@ input[type=submit]:active {
 
 .form-control::placeholder {
     color: rgb(202, 200, 200);
+}
+
+/* --- TELA LIST --- */
+
+.boxList {
+    padding: 30px;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 50px;
+    border: solid 2px white;
+    border-radius: 10px;
+}
+
+.nomeList {
+    color: #6C63FF;
+    font-family: sans-serif;
+}
+
+.cpfList {
+    color: #6C63FF;
+    font-family: sans-serif;
+}
+
+.emailList {
+    color: #6C63FF;
+    font-family: sans-serif;
+}
+
+.loginList {
+    color: #6C63FF;
+    font-family: sans-serif;
+}
+
+.addList {
+    color: #6C63FF;
+    font-family: sans-serif;
+}
+
+.btnAdd {
+    border: 2px solid white;
+    border-radius: 6px;
+    background-color: #56baed;
+    color: white;
+    padding: 5px 10px;
+    font-family: sans-serif;
+    transition: all 0.5s;
+    text-style: none;
+}
+
+/* BOTAO ADD MUDA DE COR */
+.btnAdd:hover {
+    background-color: #0e03da;
+    color: white;
+}
+
+.nomeList1 {
+    color: rgb(114, 113, 113);
+}
+
+.cpfList1 {
+    color: rgb(114, 113, 113);
+}
+
+.emailList1 {
+    color: rgb(114, 113, 113);
+}
+
+.loginList1 {
+    color: rgb(114, 113, 113);
+}
+
+.btn-group {
+    transition: all 0.5s;
+    padding: 8px 8px;
 }

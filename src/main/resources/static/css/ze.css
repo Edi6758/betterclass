@@ -1,0 +1,51 @@
+body{
+    background-color: #f1f1f1;
+}
+
+.profile-header{
+	margin-top: 75px;
+	margin-left: 150px;
+	margin-right: 150px;
+    border-radius: 10px;
+    background-color: white;
+    padding-bottom: 100px;
+}
+
+.profile-img{
+	float: none;
+	width: 125px;
+	height: 125px;
+}
+
+.profile-img img{
+	border-radius: 50%;
+	height: 125px;
+	width: 125px;
+	margin-left: 22em;
+	margin-top: -65px;
+	border: 4px solid #f6f6f6;
+	position: absolute;
+}
+
+.form{
+	margin-top: 25px;
+	margin-left: 60px;
+	display: compact;
+}
+
+#inputs{
+	text-indent:5px;
+	margin-left: 100px;
+	width: 50%;
+	border: 0px;
+	border-radius: 5px;
+	background-color: #f6f6f6;
+}
+#input-cpf{
+	margin-left: 116px;
+	text-indent:5px;
+	width: 50%;
+	border: 0px;
+	border-radius: 5px;
+	background-color: #f6f6f6;
+}

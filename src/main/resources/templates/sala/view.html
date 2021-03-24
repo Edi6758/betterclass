@@ -2,39 +2,73 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<meta charset="UTF-8">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/ze.css}">
+    <title>betterclass</title>
+
+</head>
 
 <body>
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
 
-<form th:action="@{/sala/save}" th:object="${sala}" method="POST">
+    <div class="container">
+        
+        <div class="profile-header">
+			
+				<div class="profile-img">
+					<img th:src="@{${usuario.get().fotoImagePath}}" width="100px" height="100px"/>
+				</div>
+							
+            	<form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+            	
+            	
 
-    <label>Código</label>
-    <input class="form-control" type="number" th:field="${sala.id}" readonly>
+               	<!--   <label>CÃ³digo</label> 
+                <input class="form-control form-control-usuario-view" type="number" th:field="${usuario.id}" readonly>
+                -->
+				<div class="form">
+                	<label>Nome:</label>
+                	<input id="inputs" type="text" th:field="${usuario.nome}" readonly>
+                	
+                    
+                    
+                    
+				</div>
+	
+				<div class="form">
+                	<label>CPF:</label>
+                	<input id="input-cpf" type="text" th:field="${usuario.cpf}" readonly>
+				</div>
+				
+				<div class="form">
+                	<label>E-mail:</label>
+                	<input id="inputs" type="text" th:field="${usuario.email}" readonly>
+				</div>
 
-    <label>Nome da reunião:</label>
-    <input class="form-control" th:field="${sala.titulo}" readonly>
+				<div class="form">
+               	 	<label>Senha:</label>
+                	<input id="inputs" type="text" th:field="${usuario.senha}" readonly>
+                </div>
+             
 
-    <label>Local área da reunião:</label>
-    <input class="form-control" th:field="${sala.local}" readonly>
+                <ul class="form">
+                	<li class="list-group-item form-group-usuario-view">Hórarios</li>
+                	<li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.get().getSalas()}" th:text="${sala}"></li>
+                </ul>
+				
+        </form>
 
-    <label>Descrição da reunião:</label>
-    <input class="form-control" th:field="${sala.descricao}" readonly>
+    </div>
 
-    <label>Dia da semana:</label>
-    <input class="form-control" th:field="${sala.semana}" readonly>
+    </div>
 
-    <label>Horário de treino</label>
-    <input type="time" class="form-control" th:field="${sala.hora}" readonly>
-
-    <label>Limite de pessoas</label>
-    <input class="form-control" type="number" th:field="${sala.limite}" min="1" readonly>
-
-    <button class="btn btn-voltar-width btn-view-hora" type="button"
-            onclick="window.location.href='../../list'">
-        <i class="fa fa-backward" aria-hidden="true"></i> Retornar
-    </button>
-
-</form>
+    <!--JAVASCRIPT-->
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
 
 </body>
 

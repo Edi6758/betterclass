@@ -38,14 +38,15 @@ public class SalaController {
         } catch (Exception e) {
             System.out.println("Erro ao salvar: " + e.getMessage());
         }
-        return "redirect:/sala/view/" + sala.getId() + "/" + true;
+        //return "redirect:/sala/view/" + sala.getId() + "/" + true;
+        return "sala/list";
     }
 
     @GetMapping("/sala/view/{id}/{salvo}")
     public String viewSala(@PathVariable long id, @PathVariable boolean salvo, Model model) {
         model.addAttribute("sala", salaRepository.findById(id));
         model.addAttribute("salvo", salvo);
-        return "sala/view";
+        return "sala/view_modal";
     }
 
     @GetMapping("/sala/edit/{id}")

@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-</head>
-
-<body>
-<!-- NAVBAR -->
-
 <form th:action="@{/sala/save}" th:object="${sala}" method="POST">
 
     <label>Código</label>
-    <input class="form-control" type="text" th:field="${sala.id}" required hidden>
+    <input class="form-control" type="text" th:field="${sala.id}" required>
 
     <label>Nome da reunião</label>
-    <input class="form-control" th:field="${sala.titulo}" required>
+    <input class="form-control" type="text" th:field="${sala.titulo}" required>
 
     <label>Local área da reunião</label>
-    <input class="form-control" th:field="${sala.local}" required>
+    <input class="form-control" type="text" th:field="${sala.local}" required>
 
     <label>Descrição da reunião</label>
-    <input class="form-control" th:field="${sala.descricao}" required>
+    <input class="form-control" type="text" th:field="${sala.descricao}" required>
 
     <label>Dia da semana</label>
     <select class="form-control" th:field="${sala.semana}" required>
@@ -46,7 +33,7 @@
            autocomplete="off">
 
     <button class="btn btn-width btn-add-hora-cancelar" type="button"
-        onclick="window.location.href='../sala/list'">
+            onclick="window.location.href='../sala/list'">
         <i class="fa fa-ban" aria-hidden="true"></i> Voltar
     </button>
     <button class="btn btn-width  btn-add-hora-salvar" type="submit">
@@ -54,11 +41,3 @@
     </button>
 
 </form>
-
-
-
-
-
-</body>
-
-</html>
