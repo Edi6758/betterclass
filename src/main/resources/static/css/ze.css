@@ -1,14 +1,18 @@
 body{
-    background-color: #f1f1f1;
+	background-color: #f1f1f1;
+}
+
+.hidden{
+	display: none;
 }
 
 .profile-header{
 	margin-top: 75px;
 	margin-left: 150px;
 	margin-right: 150px;
-    border-radius: 10px;
-    background-color: white;
-    padding-bottom: 100px;
+	border-radius: 10px;
+	background-color: white;
+	padding-bottom: 100px;
 }
 
 .profile-img{
@@ -21,7 +25,7 @@ body{
 	border-radius: 50%;
 	height: 125px;
 	width: 125px;
-	margin-left: 22em;
+	margin-left: 28em;
 	margin-top: -65px;
 	border: 4px solid #f6f6f6;
 	position: absolute;
@@ -29,7 +33,7 @@ body{
 
 .form{
 	margin-top: 25px;
-	margin-left: 60px;
+	margin-left: 20%;
 	display: compact;
 }
 
@@ -48,4 +52,9 @@ body{
 	border: 0px;
 	border-radius: 5px;
 	background-color: #f6f6f6;
+}
+
+.btns{
+	margin-left: 40%;
+	margin-top: 5%;
 }

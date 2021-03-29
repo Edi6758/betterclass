@@ -132,8 +132,7 @@ public class UsuarioController {
     public String viewUsuario(@PathVariable long id, @PathVariable boolean salvo, Model model) {
         model.addAttribute("usuario", usuarioRepository.findById(id));
         model.addAttribute("salvo", salvo);
-        return "usuario/view";
-
+        return "usuario/view_modal";
     }
 
     //----------VIEW USER----------

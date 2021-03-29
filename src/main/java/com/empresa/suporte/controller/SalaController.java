@@ -53,7 +53,7 @@ public class SalaController {
     public String editSala(@PathVariable long id, Model model) {
 
         model.addAttribute("sala", salaRepository.findById(id));
-        return "sala/edit";
+        return "sala/edit_modal";
 
     }
 

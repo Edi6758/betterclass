@@ -191,3 +191,105 @@ a {
     background-color: rgb(199, 155, 255);
     color: rgb(75, 0, 174);
 }
+
+/* --- CAETANO --- */
+/* VIEW */
+.modal-content {
+    -webkit-animation-name: modal-content;
+    animation-name: modal-content;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes modal-content {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes modal-content {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.tituloModal {
+    font-size: 2rem;
+    color: blue;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.lblview1 {
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.lblview {
+    margin-left: 3rem;
+    margin-top: 0.5rem;
+}
+
+.lblview-h {
+    display:none;
+}
+
+.form-control {
+    width: 25rem;
+    margin-left: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-control-h {
+    display:none;
+}
+
+/* EDIT */
+
+.tituloModal {
+    font-size: 2rem;
+    color: blue;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.lbledit-h {
+    display: none;
+}
+
+.lbledit1 {
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.lbledit {
+    margin-left: 3rem;
+    margin-top: 0.5rem;
+}
+
+.btn-add-hora-cancelar {
+    margin-left: 8rem;
+    margin-bottom: 1rem;
+}
+
+.btn-add-hora-salvar {
+    margin-left: 3rem;
+    margin-bottom: 1rem;

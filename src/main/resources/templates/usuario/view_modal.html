@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="profile-header">
+
+        <div class="profile-img">
+            <img th:src="@{${usuario.get().fotoImagePath}}" width="100px" height="100px" />
+        </div>
+
+        <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+
+
+
+            <!--   <label>CÃ³digo</label>
+         <input class="form-control form-control-usuario-view" type="number" th:field="${usuario.id}" readonly>
+         -->
+            <div class="form">
+                <label>Nome:</label>
+                <input id="input-nome" type="text" th:field="${usuario.nome}" readonly>
+            </div>
+
+            <div class="form">
+                <label>CPF:</label>
+                <input id="input-cpf" type="text" th:field="${usuario.cpf}" readonly>
+            </div>
+
+            <div class="form">
+                <label>E-mail:</label>
+                <input id="input-email" type="text" th:field="${usuario.email}" readonly>
+            </div>
+
+            <div class="form">
+                <label>Senha:</label>
+                <input id="input-senha" type="text" th:field="${usuario.senha}" readonly>
+            </div>
+
+            <ul class="form">
+                <li class="list-group-item form-group-usuario-view">Hórarios</li>
+                <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.get().getSalas()}"
+                    th:text="${sala}"></li>
+            </ul>
+
+        </form>
+
+    </div>

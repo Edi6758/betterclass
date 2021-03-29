@@ -1,24 +1,26 @@
+<div class="modal-content">
 
-<form th:object="${sala}" method="POST">
+    <form th:object="${sala}" method="POST">
+    <h1 class="tituloModal">visualizar sala</h1>
+        <label class="lblview-h">Código</label>
+        <input class="form-control-h" type="number" th:field="${sala.id}" readonly>
 
-    <label>Código</label>
-    <input class="form-control" type="number" th:field="${sala.id}" readonly>
+        <label class="lblview1">Nome da reunião:</label>
+        <input class="form-control" th:field="${sala.titulo}" readonly>
 
-    <label>Nome da reunião:</label>
-    <input class="form-control" th:field="${sala.titulo}" readonly>
+        <label class="lblview">Local área da reunião:</label>
+        <input class="form-control" th:field="${sala.local}" readonly>
 
-    <label>Local área da reunião:</label>
-    <input class="form-control" th:field="${sala.local}" readonly>
+        <label class="lblview">Descrição da reunião:</label>
+        <input class="form-control" th:field="${sala.descricao}" readonly>
 
-    <label>Descrição da reunião:</label>
-    <input class="form-control" th:field="${sala.descricao}" readonly>
+        <label class="lblview">Dia da semana:</label>
+        <input class="form-control" th:field="${sala.semana}" readonly>
 
-    <label>Dia da semana:</label>
-    <input class="form-control" th:field="${sala.semana}" readonly>
+        <label class="lblview">Horário de treino</label>
+        <input type="time" class="form-control" th:field="${sala.hora}" readonly>
 
-    <label>Horário de treino</label>
-    <input type="time" class="form-control" th:field="${sala.hora}" readonly>
-
-    <label>Limite de pessoas</label>
-    <input class="form-control" type="number" th:field="${sala.limite}" min="1" readonly>
-</form>
+        <label class="lblview">Limite de pessoas</label>
+        <input class="form-control" type="number" th:field="${sala.limite}" min="1" readonly>
+    </form>
+</div>

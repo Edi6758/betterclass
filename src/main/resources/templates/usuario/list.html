@@ -13,101 +13,122 @@
 </head>
 
 <body>
-<!-- NAVBAR -->
-<div class="container">
-    <div class="boxList">
-        <div class="row">
-            <table class='table'>
-                <thead class="thead-tela-list-usuario">
-                <!--
+    <!-- NAVBAR -->
+    <div class="container">
+        <div class="boxList">
+            <div class="row">
+                <table class='table'>
+                    <thead class="thead-tela-list-usuario">
+                        <!--
                 <a th:href="@{/usuario/add}" class="badge badge-info">
                     <i class="fa fa-plus"></i> Adicionar
                 </a>
                 -->
 
-                <tr class="tr-head-tela-list-usuario">
-                    <th class="nomeList col">Nome</th>
-                    <th class="cpfList col">CPF</th>
-                    <th class="emailList col">E-mail</th>
-                    <th class="loginList col">Login</th>
-                    <th colspan="4" class="btn-add-sala-list">
-                        <div class="addList col">
-                            <a th:href="@{/usuario/add}" class="btnAdd">
-                                adicionar <i class="fa fa-plus"></i>
-                            </a>
+                        <tr class="tr-head-tela-list-usuario">
+                            <th class="nomeList col">Nome</th>
+                            <th class="cpfList col">CPF</th>
+                            <th class="emailList col">E-mail</th>
+                            <th class="loginList col">Login</th>
+                            <th colspan="4" class="btn-add-sala-list">
+                                <div class="addList col">
+                                    <a th:href="@{/usuario/add}" class="btnAdd">
+                                        adicionar <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-tela-list-usuario">
+                        <tr th:each="usuario : ${usuarios}">
+                            <td th:text="${usuario.nome}" class="nomeList1"></td>
+                            <td th:text="${usuario.cpf}" class="cpfList1"></td>
+                            <td th:text="${usuario.email}" class="emailList1"></td>
+                            <td th:text="${usuario.login}" class="loginList1"></td>
+                            <td class="tabela-controle">
+
+
+                                <a>
+                                    <button type="button" th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}"
+                                        class="link-view-user btn btn-outline-info opcoes-tela-list-usuario btn-group">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="tabela-controle opcoes-tela-list-usuario">
+                                <a th:href="@{'/usuario/edit/' + ${usuario.id}}">
+                                    <button type="button" class="btn btn-outline-info btn-group"
+                                        th:onclick="@{'/usuario/edit/' + ${usuario.id}}">
+                                        <i class="fas fa-user-edit"></i>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="tabela-controle-delete opcoes-tela-list-usuario">
+                                <button type="button" class="btn btn-outline-danger btn-group"
+                                    th:onclick="|showModalDeletar(${usuario.id})|">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </divclass>
+
+            <!-- Modal view -->
+            <div id="modalViewUser" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div id="modalDeletar" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Atenção!</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
                         </div>
-
-                    </th>
-                </tr>
-                </thead>
-                <tbody class="tbody-tela-list-usuario">
-                <tr th:each="usuario : ${usuarios}">
-                    <td th:text="${usuario.nome}" class="nomeList1"></td>
-                    <td th:text="${usuario.cpf}" class="cpfList1"></td>
-                    <td th:text="${usuario.email}" class="emailList1"></td>
-                    <td th:text="${usuario.login}" class="loginList1"></td>
-                    <td class="tabela-controle">
-
-
-                        <a th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}">
-                            <button type="button" class="btn btn-outline-info opcoes-tela-list-usuario btn-group"
-                                    th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}">
-                                <i class="fa fa-eye"></i>
+                        <div class="modal-body">
+                            <p class="cor-texto-modal-tela-list-usuario">Você deseja realmente deletar o Usuário?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="number" id="id_deletar" hidden>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                <i class="fa fa-ban"></i> Cancelar
                             </button>
-                        </a>
-                    </td>
-                    <td class="tabela-controle opcoes-tela-list-usuario">
-                        <a th:href="@{'/usuario/edit/' + ${usuario.id}}">
-                            <button type="button" class="btn btn-outline-info btn-group"
-                                    th:onclick="@{'/usuario/edit/' + ${usuario.id}}">
-                                <i class="fas fa-user-edit"></i>
+                            <button type="button" class="btn btn-info" th:onclick="deletar('usuario')">
+                                <i class="fa fa-trash"></i> Deletar
                             </button>
-                        </a>
-                    </td>
-                    <td class="tabela-controle-delete opcoes-tela-list-usuario">
-                        <button type="button" class="btn btn-outline-danger btn-group"
-                                th:onclick="|showModalDeletar(${usuario.id})|">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        </divclass>
-
-        <!-- Modal -->
-        <div id="modalDeletar" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Atenção!</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                    </div>
-                    <div class="modal-body">
-                        <p class="cor-texto-modal-tela-list-usuario">Você deseja realmente deletar o Usuário?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="number" id="id_deletar" hidden>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            <i class="fa fa-ban"></i> Cancelar
-                        </button>
-                        <button type="button" class="btn btn-info" th:onclick="deletar('usuario')">
-                            <i class="fa fa-trash"></i> Deletar
-                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
-<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".link-view-user").on("click" , function(e){
+                e.preventDefault();
+                $("#modalViewUser").modal("show").find(".modal-content").load($(this).attr("href"))
+            })
+        })
+    </script>
+
 </body>
 
 </html>

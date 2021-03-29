@@ -38,7 +38,9 @@
                     <div class="col col-12 col-sm-6 mt-2 " th:each="sala : ${sala}">
                         <div class="bg-info text-white card-sala">
                             <div class="card-title link-view" th:text="${sala.titulo}" th:href="@{'/sala/view/' + ${sala.id} + '/' + ${true}}">a</div>
-                            <div class="card-body" th:text="${sala.descricao}">a</div>
+                            <div class="card-body" th:text="${sala.descricao}"></div>
+                            <div class="card-body" th:text="${sala.semana}"></div>
+                            <div class="card-body" th:text="${sala.hora}"></div>
                             <div>
                              <i class="fa fa-trash link-delete" th:onclick="|showModalDeletar(${sala.id})|"></i>
                                 <i class="fas fa-edit link-edit"  th:href="@{'/sala/edit/' + ${sala.id}}"></i>
