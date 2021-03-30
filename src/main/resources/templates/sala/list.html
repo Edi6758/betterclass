@@ -12,8 +12,72 @@
     <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
 </head>
 
-<body>
-    <div class="container">
+<body><div class="container-all">
+    <div class="container-menu">
+        <div class="container">
+            <h1 class="titulo">betterclass</h1>
+            <ul>
+                <li>
+                    <div class="container-item">
+                        <img class="icon" src="../img/home.svg" alt="">
+                        <a class="subtitulo" th:href="@{/}">Home</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="container-item">
+                        <img class="icon" src="../img/sobre.svg" alt="">
+                        <a class="subtitulo" th:href="@{/}">Sobre</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="container-item">
+                        <img class="icon" src="../img/planos.svg" alt="">
+                        <a class="subtitulo" th:href="@{/}">Planos</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="container-item">
+                        <img class="icon" src="../img/contato.svg" alt="">
+                        <a class="subtitulo" th:href="@{/}">Contato</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="container-item">
+                        <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                        <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="container-item">
+                        <img class="icon" src="../img/perfil.svg" alt="">
+                        <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="container-item">
+                        <img class="icon" src="../img/salas.svg" alt="">
+                        <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+
+            <div>
+                <button class="button-login">login</button>
+            </div>
+
+            <div class="container-copyright">
+                <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
+                <p class="titulo-copyright">2021 Inspiration</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-2">
 
         <div class="container-salas">
             <div class="salas-head">
@@ -29,21 +93,37 @@
                         <i class="fas fa-search"></i>
                     </span>
                     <input id="pesquisa" type="search" class="form-control rounded pesquisa-filtro"
-                        placeholder="Filtrar Salas" aria-label="Search" aria-describedby="search-addon"/>
+                        placeholder="Filtrar Salas" aria-label="Search" aria-describedby="search-addon" />
+                </div>
+                <br>
+                <div id="myBtnContainer">
+                    <button class="btn btn-filtro btn-all" onclick="location.href='/sala/list'">Todos</button>
+                    <button class="btn btn-filtro btn-segunda" id="btn-segunda" value="segunda"
+                        onclick="segunda()">Segunda</button>
+                    <button class="btn btn-filtro btn-terca" id="btn-terca" value="terça"
+                        onclick="terca()">Terca</button>
+                    <button class="btn btn-filtro btn-quarta" id="btn-quarta" value="quarta"
+                        onclick="quarta()">Quarta</button>
+                    <button class="btn btn-filtro btn-quinta" id="btn-quinta" value="quinta"
+                        onclick="quinta()">Quinta</button>
+                    <button class="btn btn-filtro btn-sexta" id="btn-sexta" value="sexta"
+                        onclick="sexta()">Sexta</button>
+                    <button class="btn btn-filtro btn-sabado" id="btn-sabado" value="sábado"
+                        onclick="sabado()">Sabado</button>
                 </div>
             </div>
             <div class="salas-card container">
 
                 <div class="row">
-                    <div class="col col-12 col-sm-6 mt-2 " th:each="sala : ${sala}">
+                    <div class="card-sala-filtro col col-12 col-sm-6 mt-2 " th:each="sala : ${sala}">
                         <div class="bg-info text-white card-sala">
-                            <div class="card-title link-view" th:text="${sala.titulo}" th:href="@{'/sala/view/' + ${sala.id} + '/' + ${true}}">a</div>
+                            <div class="card-title link-view" th:text="${sala.titulo}"
+                                th:href="@{'/sala/view/' + ${sala.id} + '/' + ${true}}"></div>
                             <div class="card-body" th:text="${sala.descricao}"></div>
-                            <div class="card-body" th:text="${sala.semana}"></div>
-                            <div class="card-body" th:text="${sala.hora}"></div>
+                            <div id="card-body card-body-semana" th:text="${sala.semana}" hidden></div>
                             <div>
-                             <i class="fa fa-trash link-delete" th:onclick="|showModalDeletar(${sala.id})|"></i>
-                                <i class="fas fa-edit link-edit"  th:href="@{'/sala/edit/' + ${sala.id}}"></i>
+                                <i class="fa fa-trash link-delete" th:onclick="|showModalDeletar(${sala.id})|"></i>
+                                <i class="fas fa-edit link-edit" th:href="@{'/sala/edit/' + ${sala.id}}"></i>
                             </div>
                         </div>
 
@@ -79,8 +159,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Atenção!</h4>
-                    <button type="button" class="close" data-dismiss="modal" 
-                    onclick="window.location.href='../sala/list'">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal"
+                        onclick="window.location.href='../sala/list'">&times;</button>
 
                 </div>
                 <div class="modal-body">
@@ -90,8 +170,8 @@
                 <div class="modal-footer">
                     <input type="number" id="id_deletar" readonly hidden>
 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" 
-                    onclick="window.location.href='../sala/list'">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="window.location.href='../sala/list'">
                         <i class="fa fa-ban"></i> Cancelar
                     </button>
                     <button type="button" class="btn btn-danger" th:onclick="deletar('sala')">
@@ -102,35 +182,11 @@
 
         </div>
     </div>
+</div>
 
     <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
     <script th:src="@{/js/script.js}"></script>
     <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
-    <script>
-        $(document).ready(function(){
-            $(".link-view").on("click" , function(e){
-                e.preventDefault();
-                $("#modalView").modal("show").find(".modal-content").load($(this).attr("href"))
-            })
-        })
-        $(document).ready(function(){
-            $(".link-edit").on("click" , function(e){
-                e.preventDefault();
-                $("#modalView").modal("show").find(".modal-content").load($(this).attr("href"))
-            })
-        })
-        
-
-
-$(document).ready(function () {
-            $("#pesquisa").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $(".col").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

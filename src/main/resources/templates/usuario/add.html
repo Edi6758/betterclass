@@ -17,6 +17,71 @@
 
 <body class="body-cadastro-usuario ">
     <!-- NAVBAR -->
+    <div class="container-all">
+        <div class="container-menu">
+            <div class="container">
+                <h1 class="titulo">betterclass</h1>
+                <ul>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/home.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Home</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/sobre.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Sobre</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/planos.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Planos</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/contato.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Contato</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                            <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/perfil.svg" alt="">
+                            <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/salas.svg" alt="">
+                            <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+
+                <div>
+                    <button class="button-login">login</button>
+                </div>
+
+                <div class="container-copyright">
+                    <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
+                    <p class="titulo-copyright">2021 Inspiration</p>
+                </div>
+            </div>
+        </div>
 
     <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
 
@@ -53,7 +118,7 @@
         <span>E-mail já existente, confira as credenciais ou atualize seu cadastro!</span>
     </div>
 -->
-        <div class="container">
+        <div class="container-2">
 
             <div>
                 <h1 class="texto2"><strong>seja bem-vindo!<br>esperamos que curta<br> sua visita!</strong></h1>
@@ -102,6 +167,7 @@
             </div>
         </div>
     </form>
+</div>
 
 
     <!--JAVASCRIPT-->
