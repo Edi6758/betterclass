@@ -9,13 +9,13 @@
 
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/caetano.css}">
+    <!-- <link rel="stylesheet" href="../static/css/caetano.css"> -->
 
 </head>
 
-<body>
+<body class="light-mode">
     <div class="container-all">
         <div class="container-menu">
-            <!-- <div class="gambiarra"> -->
             <div class="container">
                 <h1 class="titulo">betterclass</h1>
                 <ul>
@@ -115,6 +115,32 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
 </body>
 
 </html>

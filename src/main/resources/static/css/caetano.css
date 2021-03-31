@@ -42,7 +42,7 @@
 
 
 body {
-    background-color: #F1F1F1;
+    background-color: var(--body-bg-color);
     font-family: Bahnschrift;
     height: 50rem;
     overflow: scroll;
@@ -317,7 +317,7 @@ a {
 #formBox {
     margin-top: 60px;
     border-radius: 6px;
-    background: #fff;
+    background-color:var(--container-bg-color);
     padding: 30px;
     width: 90%;
     max-width: 405px;
@@ -332,7 +332,7 @@ a {
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
     opacity: 1;
-    background-color: #f6f6f6;
+    background-color: var(--body-bg-color);
     text-align: left;
     width: 300px;
     margin-top: 8px;
@@ -342,7 +342,7 @@ a {
     padding-top: 15px;
     font-size: 17px;
     color: black;
-    border: 2px solid #f6f6f6;
+    border: 2px solid  var(--body-bg-color);
     border-radius: 5px;
     outline: none;
 }
@@ -359,7 +359,7 @@ a {
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
     opacity: 1;
-    background-color: #f6f6f6;
+    background-color:  var(--body-bg-color);
     text-align: left;
     width: 300px;
     margin-top: 8px;
@@ -369,7 +369,7 @@ a {
     padding-top: 15px;
     font-size: 17px;
     color: black;
-    border: 2px solid #f6f6f6;
+    border: 2px solid  var(--body-bg-color);
     border-radius: 5px;
     outline: none;
 }
@@ -551,7 +551,7 @@ input[type=submit]:active {
     margin-top: 60px;
     margin-left: 170px;
     border-radius: 6px;
-    background: #fff;
+    background-color:var(--container-bg-color);
     padding: 30px;
     width: 420px;
     position: relative;
@@ -579,7 +579,7 @@ input[type=submit]:active {
 
 /* INPUTS */
 .form-control {
-    background-color: #f6f6f6;
+    background-color:var(--body-bg-color);;
     border: none;
     color: #0d0d0d;
     padding-left: 20px;
@@ -592,7 +592,7 @@ input[type=submit]:active {
     margin-top: 5px;
     margin-bottom: 5px;
     width: 300px;
-    border: 2px solid #f6f6f6;
+    border: 2px solid var(--body-bg-color);
     border-radius: 5px;
     outline: none;
 }
@@ -600,8 +600,7 @@ input[type=submit]:active {
 /* ANIMAÇÃO INPUTS */
 .form-control:hover {
     transition: all 0.4s;
-    background-color: #ffffff;
-    border-color: silver;
+    background-color: var(--container-columns-2);
 }
 
 .form-control::placeholder {
