@@ -8,11 +8,6 @@
 
         <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
 
-
-
-            <!--   <label>CÃ³digo</label>
-         <input class="form-control form-control-usuario-view" type="number" th:field="${usuario.id}" readonly>
-         -->
             <div class="form">
                 <label class="lbl-view-modal">Nome:</label>
                 <input id="input-modal-view" type="text" th:field="${usuario.nome}" readonly>

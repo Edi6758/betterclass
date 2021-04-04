@@ -24,6 +24,10 @@ import java.io.IOException;
 @Controller
 public class UsuarioController {
 
+	public boolean erroLogin = false;
+    public boolean erroCpf = false;
+    public boolean erroEmail = false;
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -41,6 +45,7 @@ public class UsuarioController {
 
     @GetMapping("/usuario/add")
     public String addUsuario(Model model) {
+        
         model.addAttribute("usuario", new Usuario());
         model.addAttribute("horarioSegunda", horarioRepository.findBySemanaAndLimite("Segunda-feira"));
         model.addAttribute("horarioTerca", horarioRepository.findBySemanaAndLimite("Terça-feira"));
@@ -49,28 +54,37 @@ public class UsuarioController {
         model.addAttribute("horarioSexta", horarioRepository.findBySemanaAndLimite("Sexta-feira"));
         model.addAttribute("horarioSabado", horarioRepository.findBySemanaAndLimite("Sábado"));
 
-        return "usuario/add";
+        
+        if(erroLogin == true || erroCpf == true || erroEmail == true) {
+        	
+        	
+        	if(erroCpf == true) model.addAttribute("erroCpf", "true");
+        	if(erroEmail == true) model.addAttribute("erroEmail", "true");
+        	if(erroLogin == true) model.addAttribute("erroLogin", "true");
+        	
+        	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n TESTE LOGIN 02 (USUARIO/ADD) "+erroLogin + erroEmail + erroLogin);
+        	erroLogin = false;
+        	erroCpf = false;
+        	erroEmail = false;
+        }
+        
+        return ("usuario/add");
     }
 
+    
     @PostMapping("/usuario/save")
     public RedirectView saveUsuario(Usuario usuario, Model model, @RequestParam("image") MultipartFile multipartFile) throws IOException {
-        String url = "";
-
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        usuario.setFoto(fileName);
-
-        Usuario savedUser = usuarioRepository.save(usuario);
-
-        String uploadDir = "usuario-foto/" + savedUser.getId();
-
-        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        String url = "";        
 
         try {
             if (usuario != null) {
                 boolean erro = false;
+                
+                
                 System.out.println(usuario.getId());
                 SecurityWebConfig.geraSenha(usuario);
                if(usuario.getId() == null) {
+            	   
                    url = "/usuario/add";
                    model.addAttribute("usuario", usuario);
                    model.addAttribute("horarioSegunda", horarioRepository.findBySemanaAndLimite("Segunda-feira"));
@@ -79,17 +93,24 @@ public class UsuarioController {
                    model.addAttribute("horarioQuinta", horarioRepository.findBySemanaAndLimite("Quinta-feira"));
                    model.addAttribute("horarioSexta", horarioRepository.findBySemanaAndLimite("Sexta-feira"));
                    model.addAttribute("horarioSabado", horarioRepository.findBySemanaAndLimite("Sábado"));
+                   
                    if (usuarioRepository.findByLogin(usuario.getLogin()) != null) {
-                       erro = true;
-                       model.addAttribute("erroLogin", erro);
-
-                   } else if (usuarioRepository.findByCpf(usuario.getCpf()) != null) {
-                       erro = true;
-                       model.addAttribute("erroCpf", erro);
-                   } else if (usuarioRepository.findByEmail(usuario.getEmail()) != null) {
-                       erro = true;
-                       model.addAttribute("erroEmail", erro);
+                	   erroLogin = true;
+                   } 
+                   
+                   if (usuarioRepository.findByCpf(usuario.getCpf()) != null) {
+                       erroCpf = true;
+                   } 
+                   
+                   if (usuarioRepository.findByEmail(usuario.getEmail()) != null) {
+                       erroEmail = true;
                    }
+                   
+                   if(erroLogin == true || erroCpf == true || erroEmail == true) {
+                	   System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n TESTE LOGIN 01 (USUARIO/SAVE) "+erroLogin + erroCpf + erroEmail);
+                	   return new RedirectView("/usuario/add");
+                   }
+                   
 
                }else{
                    url = "/usuario/edit";
@@ -104,15 +125,27 @@ public class UsuarioController {
                    System.out.println("\n\n\n\n\n\n print: " + usuarioRepository.findByLoginAndIdNot(usuario.getLogin(), usuario.getId()));
 
                    if (usuarioRepository.findByLoginAndIdNot(usuario.getLogin(), usuario.getId()) != null) {
-                       erro = true;
-                       model.addAttribute("erroLogin", erro);
-
-                   }else if (usuarioRepository.findByEmailAndIdNot(usuario.getEmail(), usuario.getId()) != null) {
-                       erro = true;
-                       model.addAttribute("erroEmail", erro);
+                       erroLogin= true;
                    }
+                   
+                   if (usuarioRepository.findByEmailAndIdNot(usuario.getEmail(), usuario.getId()) != null) {
+                       erroEmail = true;
+                   }
+                   
+                   if(erroLogin == true ||  erroEmail == true) {
+                	   return new RedirectView("/usuario/edit/"+usuario.getId());
+                   }
+                   
                }
                if(!erro){
+                   String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+                   System.out.println("\n\n\n\n\n\n\n\n\n\n FILENAME: "+fileName);
+                   usuario.setFoto(fileName);
+
+                   Usuario savedUser = usuarioRepository.save(usuario);
+                   String uploadDir = "usuario-foto/" + savedUser.getId();
+
+                   FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
                    usuarioRepository.save(usuario);
                    url = "redirect:/usuario/view/" + usuario.getId() + "/" + true;
                }
@@ -154,7 +187,17 @@ public class UsuarioController {
         model.addAttribute("horarioQuinta", horarioRepository.findBySemanaAndLimite("Quinta-feira", id));
         model.addAttribute("horarioSexta", horarioRepository.findBySemanaAndLimite("Sexta-feira", id));
         model.addAttribute("horarioSabado", horarioRepository.findBySemanaAndLimite("Sábado", id));
-
+        
+        if(erroLogin == true || erroEmail == true) {
+        	
+        	if(erroLogin == true) model.addAttribute("erroLogin", "true");
+        	if(erroEmail == true) model.addAttribute("erroEmail", "true");
+        	
+        	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n TESTE LOGIN 02 (USUARIO/EDIT) "+erroLogin + erroEmail);
+        	erroLogin = false;
+        	erroEmail = false;
+        }
+        
         model.addAttribute("usuario", usuarioRepository.findById(id));
         return "usuario/edit";
 

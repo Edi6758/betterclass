@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/caetano.css}">
+    <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
     <!-- <link rel="stylesheet" href="../static/css/caetano.css"> -->
 
 </head>
@@ -80,67 +81,80 @@
                 </div>
             </div>
         </div>
-    <div class="container-2">
+        <div class="container-2">
 
-        <div class="texto">
-            <h1><strong>bem-vindo de volta!<br>estavamos com saudade.</strong></h1>
-        </div>
-        <div class="subtexto">
-            <p>Lorem Ipsum tem sido o texto fictício<br> padrão da indústria desde quando um impressor<br> desconhecido
-                pegou um modelo de impressão</p>
-        </div>
-
-        <div class="wrapper fadeInDown">
-            <div id="formBox">
-                <h1 class="txtLogin">Log In</h1>
-
-                <!-- Login Form -->
-
-                <form id="form1" th:action="@{/login}" method="post">
-                    <div><label class="lb1"> Usuário <input id="login" class="fadeIn second" type="text" name="username"
-                                placeholder="Digite seu login" autocomplete="off" /> </label></div>
-                    <div><label class="lb1"> Senha <input type="password" id="password" class="fadeIn third"
-                                name="password" placeholder="Digite sua senha" autocomplete="off" /> </label></div>
-                    <div id="formFooter">Não é cadastrado?
-                        <a class="underlineHover" href="#">Cadastre-se</a>
-                    </div>
-                    <div><input type="submit" class="fadeIn fourth" value="Login" /></div>
-                </form>
+            <div class="texto">
+                <h1><strong>bem-vindo de volta!<br>estavamos com saudade.</strong></h1>
             </div>
-            <!--JAVASCRIPT-->
+            <div class="subtexto">
+                <p>Lorem Ipsum tem sido o texto fictício<br> padrão da indústria desde quando um impressor<br>
+                    desconhecido
+                    pegou um modelo de impressão</p>
+            </div>
 
-            <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
-            <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-            <script th:src="@{/js/script.js}"></script>
+            <div class="wrapper fadeInDown">
+                <div id="formBox">
+                    <h1 class="txtLogin">Log In</h1>
+
+                    <!-- Login Form -->
+
+                    <form id="form1" th:action="@{/login}" method="post">
+
+                        <div th:if="${param.error}" class="alert alert-danger" id="modalErro">
+                            <button type="button" class="close" data-dismiss="alert"  onclick="hideModal()">
+                                <i class="far fa-times-circle"></i>
+                            </button>
+                            <h4>Atenção!</h4>
+                            <span>Preencha corretamente o usuario e senha</span>
+                        </div>
+
+                        <div><label class="lb1"> Usuário <input id="login" class="fadeIn second" type="text"
+                                    name="username" placeholder="Digite seu login" autocomplete="off" /> </label></div>
+                        <div><label class="lb1"> Senha <input type="password" id="password" class="fadeIn third"
+                                    name="password" placeholder="Digite sua senha" autocomplete="off" /> </label></div>
+                        <div id="formFooter">Não é cadastrado?
+                            <a class="underlineHover" onclick="window.location.href='/usuario/add'">Cadastre-se</a>
+                        </div>
+                        <div><input type="submit" class="fadeIn fourth" value="Login" /></div>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 
-<script>
+    <!--JAVASCRIPT-->
 
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    const currentTheme = localStorage.getItem('theme');
-
-
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script>
+        function hideModal() {
+            document.getElementById("modalErro").style.display = "none";
         }
-    }
 
-    function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        }
-        else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
-    }
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
 
-    toggleSwitch.addEventListener('change', switchTheme, false);
-</script>
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {}
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+
 </body>
 
 </html>
