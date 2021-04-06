@@ -42,8 +42,8 @@
 
 
             <ul class="form">
-                <li class="list-group-item form-group-usuario-view">Hórarios</li>
-                <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.get().getSalas()}" th:text="${sala}"></li>
+                <li class="list-group-item form-group-usuario-view">Horários</li>
+                <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.get().getSalas()}" th:text="${sala.titulo}"></li>
             </ul>
 
         </form>

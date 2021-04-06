@@ -2,11 +2,11 @@
 
     <div class="profile-header">
 
-        <div class="profile-img">
+        <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+        
+        	        <div class="profile-img">
             <img class="img-view" th:src="@{${usuario.get().fotoImagePath}}" width="100px" height="100px" />
         </div>
-
-        <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
 
             <div class="form">
                 <label class="lbl-view-modal">Nome:</label>
@@ -26,14 +26,16 @@
             <!-- <div class="form">
                 <label class="lbl-view-modal">Senha:</label>
                 <input id="input-modal-view" type="text" th:field="${usuario.senha}" readonly>
-            </div>
-
+            </div>-->
+            
             <ul class="form">
-                <li class="list-group-item form-group-usuario-view">Hórarios</li>
-                <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.get().getSalas()}"
-                    th:text="${sala}"></li>
-            </ul> -->
+                <li class="list-group-item form-group-usuario-view">Sala</li>
+<!--            <li class="list-group-item form-group-usuario-view-li" th:each="horario : ${usuario.get().getHorarios()}" th:text="${horario}"></li> -->
+                <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.get().getSalas()}" th:text="${sala.titulo}"></li>
+            </ul> 
 
         </form>
+
+
 
     </div>

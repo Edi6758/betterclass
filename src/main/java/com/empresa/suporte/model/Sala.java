@@ -121,7 +121,6 @@ public class Sala {
                 ", semana='" + semana + '\'' +
                 ", local='" + local + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", usuarios=" + usuarios +
                 '}';
     }
 }

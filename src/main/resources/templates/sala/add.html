@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Sala</title>
 
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
@@ -16,129 +16,160 @@
 
 </head>
 
-<body><div class="container-all">
-    <div class="container-menu">
-        <div class="container">
-            <h1 class="titulo">betterclass</h1>
-            <ul>
-                <li>
+<body>
+    <div class="container-all">
+        <div class="container-menu">
+            <div class="container">
+                <h1 class="titulo">betterclass</h1>
+                <ul>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/home.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Home</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/sobre.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Sobre</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/planos.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Planos</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/contato.svg" alt="">
+                            <a class="subtitulo" th:href="@{/}">Contato</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                            <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/perfil.svg" alt="">
+                            <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-item">
+                            <img class="icon" src="../img/salas.svg" alt="">
+                            <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+
+                <div>
+                    <button class="button-login">login</button>
+                </div>
+
+                <div class="container-copyright">
+                    <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
+                    <p class="titulo-copyright">2021 Inspiration</p>
+                </div>
+            </div>
+        </div>
+
+        <nav role="navigation">
+            <div id="menuToggle">
+
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                </input>
+                <ul id="menu">
                     <div class="container-item">
                         <img class="icon" src="../img/home.svg" alt="">
                         <a class="subtitulo" th:href="@{/}">Home</a>
                     </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/sobre.svg" alt="">
-                        <a class="subtitulo" th:href="@{/}">Sobre</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/planos.svg" alt="">
-                        <a class="subtitulo" th:href="@{/}">Planos</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/contato.svg" alt="">
-                        <a class="subtitulo" th:href="@{/}">Contato</a>
-                    </div>
-                </li>
-                <li>
                     <div class="container-item">
                         <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
                         <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
                     </div>
-                </li>
-                <li>
                     <div class="container-item">
                         <img class="icon" src="../img/perfil.svg" alt="">
                         <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
                     </div>
-                </li>
-                <li>
                     <div class="container-item">
                         <img class="icon" src="../img/salas.svg" alt="">
                         <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
                     </div>
-                </li>
-            </ul>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
+                </ul>
             </div>
+        </nav>
+        <div class="container-2">
 
-            <div>
-                <button class="button-login" onclick="window.location.href='/login';">login</button>
-            </div>
+            <form class="container-add-sala" th:action="@{/sala/save}" th:object="${sala}" method="POST">
+                <div class="salas-add-full">
+                    <div class="sala-add-1">
+                        <label>Nome</label>
+                        <input class="form-input form-input-titulo" type="text" th:field="*{titulo}" autocomplete="off"
+                            placeholder="Nome da sala" required>
+                        <br><br>
+                        <label>Local</label>
+                        <input class="form-input form-input-local" type="text" th:field="*{local}" autocomplete="off"
+                            placeholder="Local da reunião" required>
+                        <br><br>
+                        <label>Descrição</label>
+                        <input class="form-input form-input-descricao" type="text" th:field="*{descricao}"
+                            autocomplete="off" placeholder="Descrição da sala" required>
+                        <br><br>
+                        <label>Dia da semana:</label>
+                        <select class="form-select" th:field="*{semana}" required>
 
-            <div class="container-copyright">
-                <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
-                <p class="titulo-copyright">2021 Inspiration</p>
-            </div>
+                            <option value="Segunda-feira">Segunda-feira</option>
+                            <option value="Terça-feira">Terça-feira</option>
+                            <option value="Quarta-feira">Quarta-feira</option>
+                            <option value="Quinta-feira">Quinta-feira</option>
+                            <option value="Sexta-feira">Sexta-feira</option>
+                            <option value="Sábado">Sábado</option>
+
+                        </select>
+                        <br>
+
+                        <div class="form-group form-group-add-hora clockpicker" data-autoclose="true">
+                            <label>Horário</label><br>
+                            <input type="text" class="form-input form-input-horario" th:field="*{hora}"
+                                autocomplete="off" placeholder="Horário da reunião">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label>Limite de pessoas</label>
+                        <input class="form-input" type="number" th:field="*{limite}" min="1" max="50" required
+                            autocomplete="off" onfocus="this.value=''">
+                    </div>
+                    <div class="sala-add-2">
+                        <div class="head-cores">
+                            <label class="label-cores">Cores</label>
+                        </div>
+                        <div class="body-cores">
+                        </div>
+                        <div class="sala-add-btn">
+                            <button class="btn btn-width  btn-add-sala" type="submit">
+                                Salvar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="container-2">
-
-        <form class="container-add-sala" th:action="@{/sala/save}" th:object="${sala}" method="POST">
-            <div class="salas-add-full">
-                <div class="sala-add-1">
-                    <label>Nome</label>
-                    <input class="form-input form-input-titulo" type="text" th:field="*{titulo}" autocomplete="off"
-                        placeholder="Nome da sala" required>
-                    <br><br>
-                    <label>Local</label>
-                    <input class="form-input form-input-local" type="text" th:field="*{local}" autocomplete="off"
-                        placeholder="Local da reunião" required>
-                    <br><br>
-                    <label>Descrição</label>
-                    <input class="form-input form-input-descricao" type="text" th:field="*{descricao}"
-                        autocomplete="off" placeholder="Descrição da sala" required>
-                    <br><br>
-                    <label>Dia da semana:</label>
-                    <select class="form-select" th:field="*{semana}" required>
-
-                        <option value="Segunda-feira">Segunda-feira</option>
-                        <option value="Terça-feira">Terça-feira</option>
-                        <option value="Quarta-feira">Quarta-feira</option>
-                        <option value="Quinta-feira">Quinta-feira</option>
-                        <option value="Sexta-feira">Sexta-feira</option>
-                        <option value="Sábado">Sábado</option>
-
-                    </select>
-                    <br>
-
-                    <div class="form-group form-group-add-hora a clockpicker" data-autoclose="true">
-                        <label>Horário</label>
-                        <input type="text" class="form-control" th:field="*{hora}" autocomplete="off">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
-                        </span>
-                    </div>
-                    <br>
-                    <label>Limite de pessoas</label>
-                    <input class="form-input" type="number" th:field="*{limite}" min="1" max="50" required
-                        autocomplete="off" onfocus="this.value=''">
-                </div>
-                <div class="sala-add-2">
-                    <div class="head-cores">
-                        <label class="label-cores">Cores</label>
-                    </div>
-                    <div class="body-cores">
-                    </div>
-                    <div class="sala-add-btn">
-                        <button class="btn btn-width  btn-add-sala" type="submit">
-                            Salvar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
 
 
     <!--JAVASCRIPT-->
