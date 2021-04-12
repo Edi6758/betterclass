@@ -597,6 +597,14 @@ input[type=submit]:active {
     outline: none;
 }
 
+.cds-options-horario{
+	width: 85%;
+}
+
+.select-semana{
+	margin-top: 3rem;
+}
+
 /* ANIMAÇÃO INPUTS */
 .form-control:hover {
     transition: all 0.4s;

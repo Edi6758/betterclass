@@ -134,60 +134,66 @@
 
                         <label class="lb2">Foto</label>
                         <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg" required />
-                        <img id="thumbnail"/>
+                        <img id="thumbnail" />
 
-                        <div class="cds-container-direita ">
-                            <div class="form-tabela cds-cd-dentro cds-cd-dentro-segunda ">
+                        <div class="cds-container-direita">
+                            <div class="form-tabela">
 
-                            
-                                <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horário de Segunda.</small>
-                                <select th:field="*{salas} " class="form-control cds-options-horario " multiple="multiple " size="10 ">
-                                    <option th:each="h : ${salaSegunda} " th:value="${h.id} " th:text="${h.hora} ">
+                                <div class="select-semana">
+                                    <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horário
+                                        de Segunda.</small>
+                                    <select th:field="*{salas} " class="form-control cds-options-horario"
+                                        multiple="multiple" size="10 ">
+                                        <option th:each="h : ${salaSegunda} " th:value="${h.id} " th:text="${h.hora} ">
+                                        </option>
+                                    </select>
+                                </div>
 
-                                <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horário de
-                                    Segunda.</small>
-                                <select th:field="*{salas} " class="form-control cds-options-horario "
-                                    multiple="multiple " size="10 ">
-                                    <option th:each="h : ${horarioSegunda} " th:value="${h.id} " th:text="${h.hora} ">
+                                <div class="select-semana">
+                                    <small class="form-text text-muted ">Selecione o horário de Terça.</small>
+                                    <select th:field="*{salas} " class="form-control cds-options-horario "
+                                        multiple="multiple" size="10 ">
+                                        <option th:each="h : ${salaTerca} " th:value="${h.id} " th:text="${h.hora} ">
+                                        </option>
+                                    </select>
+                                </div>
 
-                                    </option>
-                                </select>
 
-                                <small class="form-text text-muted ">Selecione o horário de Terça.</small>
-                                <select th:field="*{salas} " class="form-control cds-options-horario " multiple="multiple " size="10 ">
-                                <select th:field="*{salas} " class="form-control cds-options-horario "
-                                    multiple="multiple " size="10 ">
-                                    <option th:each="h : ${salaTerca} " th:value="${h.id} " th:text="${h.hora} ">
-                                    </option>
-                                </select>
+                                <div class="select-semana">
+                                    <small class="form-text text-muted ">Selecione o horário de Quarta.</small>
+                                    <select th:field="*{salas} " class="form-control cds-options-horario "
+                                        multiple="multiple" size="10 ">
+                                        <option th:each="h : ${salaQuarta} " th:value="${h.id} " th:text="${h.hora} ">
+                                        </option>
+                                    </select>
+                                </div>
 
-                                <small class="form-text text-muted ">Selecione o horário de Quarta.</small>
-                                <select th:field="*{salas} " class="form-control cds-options-horario "
-                                    multiple="multiple " size="10 ">
-                                    <option th:each="h : ${salaQuarta} " th:value="${h.id} " th:text="${h.hora} ">
-                                    </option>
-                                </select>
+                                <div class="select-semana">
+                                    <small class="form-text text-muted ">Selecione o horário de Quinta.</small>
+                                    <select th:field="*{salas} " class="form-control cds-options-horario "
+                                        multiple="multiple" size="10 ">
+                                        <option th:each="h : ${salaQuinta} " th:value="${h.id} " th:text="${h.hora} ">
+                                        </option>
+                                    </select>
+                                </div>
 
-                                <small class="form-text text-muted ">Selecione o horário de Quinta.</small>
-                                <select th:field="*{salas} " class="form-control cds-options-horario "
-                                    multiple="multiple " size="10 ">
-                                    <option th:each="h : ${salaQuinta} " th:value="${h.id} " th:text="${h.hora} ">
-                                    </option>
-                                </select>
+                                <div class="select-semana">
+                                    <small class="form-text text-muted ">Selecione o horário de Sexta.</small>
+                                    <select th:field="*{salas} " class="form-control cds-options-horario "
+                                        multiple="multiple" size="10 ">
+                                        <option th:each="h : ${salaSexta} " th:value="${h.id} " th:text="${h.hora} ">
+                                        </option>
+                                    </select>
+                                </div>
 
-                                <small class="form-text text-muted ">Selecione o horário de Sexta.</small>
-                                <select th:field="*{salas} " class="form-control cds-options-horario "
-                                    multiple="multiple " size="10 ">
-                                    <option th:each="h : ${salaSexta} " th:value="${h.id} " th:text="${h.hora} ">
-                                    </option>
-                                </select>
-
-                                <small class="form-text text-muted ">Selecione o horário de Sábado.</small>
-                                <select th:field="*{salas} " class="form-control cds-options-horario "
-                                    multiple="multiple " size="10 ">
-                                    <option th:each="h : ${salaSabado} " th:value="${h.id} " th:text="${h.hora} ">
-                                    </option>
-                                </select>
+                                <div class="select-semana">
+                                    <small class="form-text text-muted ">Selecione o horário de Sábado.</small>
+                                    <select th:field="*{salas} " class="form-control cds-options-horario "
+                                        multiple="multiple" size="10 ">
+                                        <option th:each="h : ${salaSabado} " th:value="${h.id} " th:text="${h.hora} ">
+                                        </option>
+                                    </select>
+                                </div>
 
                                 <button class="btn btn-secondary btn-width cds-botao-cancelar " type="button "
                                     onclick="window.location.href='./list' ">

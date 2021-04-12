@@ -50,7 +50,6 @@ public class Permissao {
         return "Permissao{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", usuarios=" + usuarios +
                 '}';
     }
 }

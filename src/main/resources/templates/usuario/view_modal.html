@@ -30,7 +30,7 @@
 
             <div class="form">
            		<ul>
-                	<li class="list-group-item form-group-usuario-view">Sala</li>
+                	<li class="list-group-item form-group-usuario-view">Salas</li>
                 	<li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.get().getSalas()}" th:text="${sala.titulo + ' ' + sala.semana + ' ' + sala.hora}"></li>
             	</ul> 
 			</div>

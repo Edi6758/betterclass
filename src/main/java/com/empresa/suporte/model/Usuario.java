@@ -155,7 +155,6 @@ public class Usuario {
                 ", email='" + email + '\'' +
                 ", login='" + login + '\'' +
                 ", foto='" + foto + '\'' +
-                ", permissoes=" + permissoes +
                 '}';
     }
 }
