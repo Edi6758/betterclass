@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <!--CSS-->
-    <link rel="stylesheet"
-        th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
     <link rel="stylesheet" th:href="@{/css/ze.css}">
     <title>betterclass</title>
@@ -74,7 +73,7 @@
                 </div>
 
                 <div class="container-copyright">
-                    <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
+                    <img class="icon-copyright" th:src="@{/img/copyright.svg}" alt="">
                     <p class="titulo-copyright">2021 Inspiration</p>
                 </div>
             </div>
@@ -111,7 +110,7 @@
 
             <div class="form">
                 <label>CPF</label>
-                <input id="input-cpf" type="text" th:field="${usuario.cpf}" placeholder="xxx-xxx-xxx-xx" onkeypress="$(this).mask('000.000.000-00')" minlength="11" maxlength="11" readonly>
+                <input id="inputs" type="text" th:field="${usuario.cpf}" placeholder="xxx-xxx-xxx-xx" onkeypress="$(this).mask('000.000.000-00')" minlength="11" maxlength="11" readonly>
             </div>
 
             <div class="form">

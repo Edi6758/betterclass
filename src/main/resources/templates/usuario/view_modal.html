@@ -4,9 +4,9 @@
 
         <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
         
-        	        <div class="profile-img">
-            <img class="img-view" th:src="@{${usuario.get().fotoImagePath}}" width="100px" height="100px" />
-        </div>
+        	<div class="profile-img">
+            	<img class="img-view" th:src="@{${usuario.get().fotoImagePath}}" width="100px" height="100px" />
+        	</div>
 
             <div class="form">
                 <label class="lbl-view-modal">Nome:</label>
@@ -27,7 +27,7 @@
                 <label class="lbl-view-modal">Senha:</label>
                 <input id="input-modal-view" type="text" th:field="${usuario.senha}" readonly>
             </div>-->
-            
+
             <div class="form">
            		<ul>
                 	<li class="list-group-item form-group-usuario-view">Sala</li>
@@ -35,7 +35,5 @@
             	</ul> 
 			</div>
         </form>
-
-
 
     </div>

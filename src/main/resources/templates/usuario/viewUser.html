@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="container-copyright">
-                    <img class="icon-copyright" th:src="@{../static/imgs/copyright.sgv}" alt="">
+                    <img class="icon-copyright" th:src="@{/img/copyright.svg}" alt="">
                     <p class="titulo-copyright">2021 Inspiration</p>
                 </div>
             </div>
@@ -141,11 +141,11 @@
                         <input id="inputs" type="text" th:field="${usuario.email}" readonly>
                     </div>
 
-                    
+                  
                     <ul class="form form-sala">
                         <li class="list-group-item form-group-usuario-view">Salas</li>
                         <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.getSalas()}" th:text="${sala.titulo + ' ' + sala.semana + ' ' + sala.hora}"></li>
-                    </ul>
+       				</ul>
 
                 </form>
 

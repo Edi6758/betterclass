@@ -138,15 +138,25 @@
 
                         <div class="cds-container-direita ">
                             <div class="form-tabela cds-cd-dentro cds-cd-dentro-segunda ">
+
                             
                                 <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horário de Segunda.</small>
                                 <select th:field="*{salas} " class="form-control cds-options-horario " multiple="multiple " size="10 ">
                                     <option th:each="h : ${salaSegunda} " th:value="${h.id} " th:text="${h.hora} ">
+
+                                <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horário de
+                                    Segunda.</small>
+                                <select th:field="*{salas} " class="form-control cds-options-horario "
+                                    multiple="multiple " size="10 ">
+                                    <option th:each="h : ${horarioSegunda} " th:value="${h.id} " th:text="${h.hora} ">
+
                                     </option>
                                 </select>
 
                                 <small class="form-text text-muted ">Selecione o horário de Terça.</small>
                                 <select th:field="*{salas} " class="form-control cds-options-horario " multiple="multiple " size="10 ">
+                                <select th:field="*{salas} " class="form-control cds-options-horario "
+                                    multiple="multiple " size="10 ">
                                     <option th:each="h : ${salaTerca} " th:value="${h.id} " th:text="${h.hora} ">
                                     </option>
                                 </select>
