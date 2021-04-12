@@ -156,7 +156,6 @@ public class Usuario {
                 ", login='" + login + '\'' +
                 ", foto='" + foto + '\'' +
                 ", permissoes=" + permissoes +
-                ", salas=" + salas +
                 '}';
     }
 }

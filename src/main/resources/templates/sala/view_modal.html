@@ -22,5 +22,10 @@
 
         <label class="lblview">Limite de pessoas</label>
         <input class="form-control" type="number" th:field="${sala.limite}" min="1" readonly>
+        
+        <ul>
+        	<li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.getSalas()}" th:text="${sala.titulo + ' ' + sala.semana + ' ' + sala.hora}"></li>
+        </ul>
+        
     </form>
 </div>

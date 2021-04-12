@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.File;
 import java.io.IOException;
 
 @Controller
@@ -27,6 +28,7 @@ public class UsuarioController {
 	public boolean erroLogin = false;
     public boolean erroCpf = false;
     public boolean erroEmail = false;
+    public String uploadDir;
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -35,7 +37,7 @@ public class UsuarioController {
     PermissaoRepository permissaoRepository;
 
     @Autowired
-    private SalaRepository horarioRepository;
+    private SalaRepository salaRepository;
 
     @GetMapping("/usuario/list")
     public String listUsuario(Model model) {
@@ -47,12 +49,12 @@ public class UsuarioController {
     public String addUsuario(Model model) {
         
         model.addAttribute("usuario", new Usuario());
-        model.addAttribute("horarioSegunda", horarioRepository.findBySemanaAndLimite("Segunda-feira"));
-        model.addAttribute("horarioTerca", horarioRepository.findBySemanaAndLimite("Terça-feira"));
-        model.addAttribute("horarioQuarta", horarioRepository.findBySemanaAndLimite("Quarta-feira"));
-        model.addAttribute("horarioQuinta", horarioRepository.findBySemanaAndLimite("Quinta-feira"));
-        model.addAttribute("horarioSexta", horarioRepository.findBySemanaAndLimite("Sexta-feira"));
-        model.addAttribute("horarioSabado", horarioRepository.findBySemanaAndLimite("Sábado"));
+        model.addAttribute("salaSegunda", salaRepository.findBySemanaAndLimite("Segunda-feira"));
+        model.addAttribute("salaTerca", salaRepository.findBySemanaAndLimite("Terça-feira"));
+        model.addAttribute("salaQuarta", salaRepository.findBySemanaAndLimite("Quarta-feira"));
+        model.addAttribute("salaQuinta", salaRepository.findBySemanaAndLimite("Quinta-feira"));
+        model.addAttribute("salaSexta", salaRepository.findBySemanaAndLimite("Sexta-feira"));
+        model.addAttribute("salaSabado", salaRepository.findBySemanaAndLimite("Sábado"));
 
         
         if(erroLogin == true || erroCpf == true || erroEmail == true) {
@@ -87,12 +89,12 @@ public class UsuarioController {
             	   
                    url = "/usuario/add";
                    model.addAttribute("usuario", usuario);
-                   model.addAttribute("horarioSegunda", horarioRepository.findBySemanaAndLimite("Segunda-feira"));
-                   model.addAttribute("horarioTerca", horarioRepository.findBySemanaAndLimite("Terça-feira"));
-                   model.addAttribute("horarioQuarta", horarioRepository.findBySemanaAndLimite("Quarta-feira"));
-                   model.addAttribute("horarioQuinta", horarioRepository.findBySemanaAndLimite("Quinta-feira"));
-                   model.addAttribute("horarioSexta", horarioRepository.findBySemanaAndLimite("Sexta-feira"));
-                   model.addAttribute("horarioSabado", horarioRepository.findBySemanaAndLimite("Sábado"));
+                   model.addAttribute("salaSegunda", salaRepository.findBySemanaAndLimite("Segunda-feira"));
+                   model.addAttribute("salaTerca", salaRepository.findBySemanaAndLimite("Terça-feira"));
+                   model.addAttribute("salaQuarta", salaRepository.findBySemanaAndLimite("Quarta-feira"));
+                   model.addAttribute("salaQuinta", salaRepository.findBySemanaAndLimite("Quinta-feira"));
+                   model.addAttribute("salaSexta", salaRepository.findBySemanaAndLimite("Sexta-feira"));
+                   model.addAttribute("salaSabado", salaRepository.findBySemanaAndLimite("Sábado"));
                    
                    if (usuarioRepository.findByLogin(usuario.getLogin()) != null) {
                 	   erroLogin = true;
@@ -115,12 +117,12 @@ public class UsuarioController {
                }else{
                    url = "/usuario/edit";
                    model.addAttribute("usuario", usuario);
-                   model.addAttribute("horarioSegunda", horarioRepository.findBySemanaAndLimite("Segunda-feira"));
-                   model.addAttribute("horarioTerca", horarioRepository.findBySemanaAndLimite("Terça-feira"));
-                   model.addAttribute("horarioQuarta", horarioRepository.findBySemanaAndLimite("Quarta-feira"));
-                   model.addAttribute("horarioQuinta", horarioRepository.findBySemanaAndLimite("Quinta-feira"));
-                   model.addAttribute("horarioSexta", horarioRepository.findBySemanaAndLimite("Sexta-feira"));
-                   model.addAttribute("horarioSabado", horarioRepository.findBySemanaAndLimite("Sábado"));
+                   model.addAttribute("salaSegunda", salaRepository.findBySemanaAndLimite("Segunda-feira"));
+                   model.addAttribute("salaTerca", salaRepository.findBySemanaAndLimite("Terça-feira"));
+                   model.addAttribute("salaQuarta", salaRepository.findBySemanaAndLimite("Quarta-feira"));
+                   model.addAttribute("salaQuinta", salaRepository.findBySemanaAndLimite("Quinta-feira"));
+                   model.addAttribute("salaSexta", salaRepository.findBySemanaAndLimite("Sexta-feira"));
+                   model.addAttribute("salaSabado", salaRepository.findBySemanaAndLimite("Sábado"));
 
                    System.out.println("\n\n\n\n\n\n print: " + usuarioRepository.findByLoginAndIdNot(usuario.getLogin(), usuario.getId()));
 
@@ -146,7 +148,7 @@ public class UsuarioController {
                    String uploadDir = "usuario-foto/" + savedUser.getId();
 
                    FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-                   usuarioRepository.save(usuario);
+                   
                    url = "redirect:/usuario/view/" + usuario.getId() + "/" + true;
                }
             }
@@ -181,12 +183,12 @@ public class UsuarioController {
     @GetMapping("/usuario/edit/{id}")
     public String editUsuario(@PathVariable long id, Model model) {
 
-        model.addAttribute("horarioSegunda", horarioRepository.findBySemanaAndLimite("Segunda-feira", id));
-        model.addAttribute("horarioTerca", horarioRepository.findBySemanaAndLimite("Terça-feira", id));
-        model.addAttribute("horarioQuarta", horarioRepository.findBySemanaAndLimite("Quarta-feira", id));
-        model.addAttribute("horarioQuinta", horarioRepository.findBySemanaAndLimite("Quinta-feira", id));
-        model.addAttribute("horarioSexta", horarioRepository.findBySemanaAndLimite("Sexta-feira", id));
-        model.addAttribute("horarioSabado", horarioRepository.findBySemanaAndLimite("Sábado", id));
+        model.addAttribute("salaSegunda", salaRepository.findBySemanaAndLimite("Segunda-feira", id));
+        model.addAttribute("salaTerca", salaRepository.findBySemanaAndLimite("Terça-feira", id));
+        model.addAttribute("salaQuarta", salaRepository.findBySemanaAndLimite("Quarta-feira", id));
+        model.addAttribute("salaQuinta", salaRepository.findBySemanaAndLimite("Quinta-feira", id));
+        model.addAttribute("salaSexta", salaRepository.findBySemanaAndLimite("Sexta-feira", id));
+        model.addAttribute("salaSabado", salaRepository.findBySemanaAndLimite("Sábado", id));
         
         if(erroLogin == true || erroEmail == true) {
         	
@@ -206,7 +208,8 @@ public class UsuarioController {
     @GetMapping("/usuario/delete/{id}")
     public String deleteUsuario(@PathVariable long id) {
         try {
-            usuarioRepository.deleteById(id);
+            usuarioRepository.deleteById(id); 
+            
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Início</title>
-    <link rel="icon" href="img/icon2.png">
+    <link rel="icon" th:href="@{img/icon2.png}">
 
     <!--CSS-->
     <link rel="stylesheet" th:href="@{css/bianca.css}">
@@ -17,87 +17,113 @@
     <div class="batata">
         <div class="container-all">
             <!-- <div class="gambiarra"> -->
-            <div class="container">
-                <h1 class="titulo">betterclass</h1>
-                <ul>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/home.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Home</a>
+                <div class="container-menu">
+                    <div class="container">
+                        <h1 class="titulo">betterclass</h1>
+                        <ul>
+                            <li>
+                                <div class="container-item">
+                                    <img class="icon" src="../img/home.svg" alt="">
+                                    <a class="subtitulo" th:href="@{/}">Home</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-item">
+                                    <img class="icon" src="../img/sobre.svg" alt="">
+                                    <a class="subtitulo" th:href="@{/}">Sobre</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-item">
+                                    <img class="icon" src="../img/planos.svg" alt="">
+                                    <a class="subtitulo" th:href="@{/}">Planos</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-item">
+                                    <img class="icon" src="../img/contato.svg" alt="">
+                                    <a class="subtitulo" th:href="@{/}">Contato</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-item">
+                                    <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                                    <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-item">
+                                    <img class="icon" src="../img/perfil.svg" alt="">
+                                    <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="container-item">
+                                    <img class="icon" src="../img/salas.svg" alt="">
+                                    <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round"></div>
+                            </label>
                         </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/sobre.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Sobre</a>
+        
+                        <div>
+                            <button class="button-login" onclick="window.location.href='/login';">login</button>
                         </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/planos.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Planos</a>
+        
+                        <div class="container-copyright">
+                            <img class="icon-copyright" th:src="@{img/copyright.svg}" alt="">
+                            <p class="titulo-copyright">2021 Inspiration</p>
                         </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/contato.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Contato</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon icon-usuarios" src="img/usuarios.svg" alt="">
-                            <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/perfil.svg" alt="">
-                            <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/salas.svg" alt="">
-                            <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
-                        </div>
-                    </li>
-                </ul>
-
-                <!-- <div class="switch__container">
-                    <input id="theme-switch" class="switch switch--shadow" type="checkbox" />
-                    <label for="switch-shadow"></label>
-                </div> -->
-
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider round"></div>
-                    </label>
+                    </div>
                 </div>
-
-                <div>
-                    <button class="button-login" onclick="window.location.href='/login';">login</button>
-                </div>
-
-                <div class="container-copyright">
-                    <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
-                    <p class="titulo-copyright">2021 Inspiration</p>
-                </div>
-            </div>
+        
+                <nav role="navigation">
+                    <div id="menuToggle">
+        
+                        <input type="checkbox">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </input>
+                        <ul id="menu">
+                            <div class="container-item-hamburger">
+                                <img class="icon" src="../img/home.svg" alt="">
+                                <a class="subtitulo" th:href="@{/}">Home</a>
+                            </div>
+                            <div class="container-item-hamburger">
+                                <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                                <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
+                            </div>
+                            <div class="container-item-hamburger">
+                                <img class="icon" src="../img/perfil.svg" alt="">
+                                <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
+                            </div>
+                            <div class="container-item-hamburger">
+                                <img class="icon" src="../img/salas.svg" alt="">
+                                <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+        
             <!-- </div> -->
         </div>
         <div class="sections">
             <section class="section-1 background-1" id="section-1">
                 <div class="container-home-1">
-                    <div class="container-1">
+                    <div class="container-1" id="container-section-1">
                         <h1 class="titulo-home-1">organize os horários de
                             qualquer sala, auditório
                             ou escritório!</h1>
                         <p class="subtitulo-home-1">A melhor opção para organizar seu espaço de trabalho,
                             academia ou até lazer.
                             Com o betterclass tudo fica mais fácil!</p>
-                        <button class="button-home-1" onclick="location.href='@{/}'">conheça os planos!</button>
+                        <button class="button-home-1" th:onclick="@{location.href='/'}">conheça os planos!</button>
                     </div>
                     <div class="container-2">
                         <img id="img-2-light" src="img/home-2-light.svg" alt="" class="show">
@@ -108,10 +134,10 @@
             
             <section class="section-1 background-2" id="section-1">
                 <div class="container-home-1">
-                    <div class="container-1">
+                    <div class="container-1" id="container-2">
                         <div class="container-columns display-flex justify-center">
                             <div class="container-columns-inside display-flex justify-center">
-                                <img src="../static/imgs/idea-img-light.svg" alt=""></img>
+                                <img th:src="@{/img/idea-img-light.svg}"></img>
                                 <p class="texto">Lorem ipsum tortor justo inceptos id nam
                                     convallis neque nullam, orci bibendum
                                     lacus adipiscing fringilla pellentesque </p>
@@ -119,7 +145,7 @@
                         </div>
                         <div class="container-columns display-flex justify-center">
                             <div class="container-columns-inside display-flex justify-center">
-                                <img src="../static/imgs/calendar-img-light.svg" alt="">
+                                <img th:src="@{/img/calendar-img-light.svg}">
                                 <p class="texto">Lorem ipsum tortor justo inceptos id nam
                                     convallis neque nullam, orci bibendum
                                     lacus adipiscing fringilla pellentesque </p>
@@ -127,7 +153,7 @@
                         </div>
                         <div class="container-columns display-flex justify-center">
                             <div class="container-columns-inside display-flex justify-center">
-                                <img src="../static/imgs/spaceship-img-light.svg" alt="">
+                                <img th:src="@{/img/spaceship-img-light.svg}" alt="">
                                 <p class="texto">Lorem ipsum tortor justo inceptos id nam
                                     convallis neque nullam, orci bibendum
                                     lacus adipiscing fringilla pellentesque </p>
@@ -148,8 +174,8 @@
 
             <section class="section-1 background-3" id="section-1">
                 <div class="container-home-2">
-                    <div class="container-1">
-                        <h1 class="titulo-1">melhores planos</h1>
+                    <div class="container-1" id="container-1-planos">
+                        <h1 class="titulo-1" id="titulo-planos">melhores planos</h1>
                         <p class="subtitulo subt-sect-3">melhore planos para você, independente de ser 
                             uma empresa, uma instituição ou pessoa!</p>
                     </div>
@@ -185,7 +211,7 @@
             <section class="section-1 background-2" id="section-1">
                 <div class="container-home-2">
                     <div class="container-home-2">
-                        <h1 class="titulo-1">Como você deseja falar com a gente?</h1>
+                        <h1 class="titulo-1" id="titulo-contato">Como você deseja falar com a gente?</h1>
                     </div>
                     <div class="container-4 ">
                         <div class="card-3 display-flex justify-center direction-column">

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS-->
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
@@ -12,7 +13,8 @@
 </head>
 
 <body>
-<!-- NAVBAR --><div class="container-all">
+    <!-- NAVBAR -->
+    <div class="container-all">
         <div class="container-menu">
             <div class="container">
                 <h1 class="titulo">betterclass</h1>
@@ -68,53 +70,93 @@
                 </div>
 
                 <div>
-                    <button class="button-login" onclick="window.location.href='/login';">login</button>
+                    <button class="button-login">login</button>
                 </div>
 
                 <div class="container-copyright">
-                    <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
+                    <img class="icon-copyright" th:src="@{../static/imgs/copyright.sgv}" alt="">
                     <p class="titulo-copyright">2021 Inspiration</p>
                 </div>
             </div>
         </div>
 
-<div class="container-2">
+        <nav role="navigation">
+            <div id="menuToggle">
 
-    <div class="profile-header">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                </input>
+                <ul id="menu">
+                    <div class="container-item-hamburger">
+                        <img class="icon" src="../img/home.svg" alt="">
+                        <a class="subtitulo" th:href="@{/}">Home</a>
+                    </div>
+                    <div class="container-item-hamburger">
+                        <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                        <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
+                    </div>
+                    <div class="container-item-hamburger">
+                        <img class="icon" src="../img/perfil.svg" alt="">
+                        <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
+                    </div>
+                    <div class="container-item-hamburger">
+                        <img class="icon" src="../img/salas.svg" alt="">
+                        <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
+                    </div>
+                </ul>
+            </div>
+        </nav>
 
-        <div class="profile-img">
-            <img th:src="@{${usuario.fotoImagePath}}" width="100px" height="100px"/>
+        <div class="container-2">
+
+            <div class="profile-header">
+
+                <div class="profile-img">
+                    <img th:src="@{${usuario.fotoImagePath}}" width="100px" height="100px" />
+                </div>
+
+                <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+
+
+					<div class="form" hidden>
+                    <label>CÃ³digo</label>
+        				<input class="form-control form-control-usuario-view" type="number" th:field="${usuario.id}" readonly>
+      				</div>
+      				
+                    <div class="form">
+                        <label>Nome:</label>
+                        <input id="inputs" type="text" th:field="${usuario.nome}" readonly>
+
+                    </div>
+
+                    <div class="form">
+                        <label>CPF:</label>
+                        <input id="inputs" type="text" th:field="${usuario.cpf}" readonly>
+                    </div>
+
+                    <div class="form">
+                        <label>E-mail:</label>
+                        <input id="inputs" type="text" th:field="${usuario.email}" readonly>
+                    </div>
+
+                    
+                    <ul class="form form-sala">
+                        <li class="list-group-item form-group-usuario-view">Salas</li>
+                        <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.getSalas()}" th:text="${sala.titulo + ' ' + sala.semana + ' ' + sala.hora}"></li>
+                    </ul>
+
+                </form>
+
+            </div>
         </div>
-
-        <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
-
-            <div class="form">
-                <label>Nome:</label>
-                <input id="inputs" type="text" th:field="${usuario.nome}" readonly>
-
-            </div>
-
-            <div class="form">
-                <label>CPF:</label>
-                <input id="input-cpf" type="text" th:field="${usuario.cpf}" readonly>
-            </div>
-
-            <div class="form">
-                <label>E-mail:</label>
-                <input id="inputs" type="text" th:field="${usuario.email}" readonly>
-            </div>
-
-
-        </form>
-
     </div>
-</div>
-</div>
 
-<!--JAVASCRIPT-->
-<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
-<script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
+    <!--JAVASCRIPT-->
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
 
 </body>
 
