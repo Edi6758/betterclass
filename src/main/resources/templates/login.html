@@ -15,6 +15,51 @@
 </head>
 
 <body class="light-mode">
+<nav class="navbar">
+    <ul class="navbar-nav">
+        <li class="logo">
+            <a href="#" class="nav-link">
+                <span class="link-text logo-text">Betterclass</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a th:href="@{/}" class="nav-link">
+                <img class="icon" src="../img/home.svg" alt="">
+                <span class="link-text">Home</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a th:href="@{/usuario/list}" class="nav-link">
+                <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                <span class="link-text">Usuários</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a th:href="@{/usuario/viewUser}" class="nav-link">
+                <img class="icon" src="../img/perfil.svg" alt="">
+                <span class="link-text">Perfil</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a th:href="@{/sala/list}" class="nav-link">
+                <img class="icon" src="../img/salas.svg" alt="">
+                <span class="link-text">Salas</span>
+            </a>
+        </li>
+
+        <li class="nav-item theme-switch-wrapper" id="themeButton">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox"/>
+                <div class="slider round"></div>
+            </label>
+        </li>
+    </ul>
+</nav>
+<!--
     <div class="container-all">
         <div class="container-menu">
             <div class="container">
@@ -81,6 +126,7 @@
                 </div>
             </div>
         </div>
+-->
         <div class="container-2">
 
             <div class="texto">
