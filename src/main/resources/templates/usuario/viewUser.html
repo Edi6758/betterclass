@@ -158,15 +158,15 @@
 
             <div class="profile-header">
 
-                <div class="profile-img">
-                    <img th:src="@{${usuario.fotoImagePath}}" width="100px" height="100px" />
-                </div>
-
                 <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
 
+		            <div class="profile-img">
+            	    	<img th:if="${nullFoto == true}" th:src="@{/img/null.jpg}" width="100px" height="100px"/>
+            	    	<img th:if="${nullFoto == false}" th:src="@{${usuario.fotoImagePath}}" width="100px" height="100px"/>
+        	        </div>
 
 					<div class="form" hidden>
-                    <label>CÃ³digo</label>
+                    <label>Código</label>
         				<input class="form-control form-control-usuario-view" type="number" th:field="${usuario.id}" readonly>
       				</div>
       				
@@ -185,7 +185,8 @@
                         <label>E-mail:</label>
                         <input id="inputs" type="text" th:field="${usuario.email}" readonly>
                     </div>
-
+                    
+                    
                   
                     <ul class="form form-sala">
                         <li class="list-group-item form-group-usuario-view">Salas</li>

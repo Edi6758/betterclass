@@ -64,7 +64,6 @@ public class UsuarioController {
         	if(erroEmail == true) model.addAttribute("erroEmail", "true");
         	if(erroLogin == true) model.addAttribute("erroLogin", "true");
         	
-        	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n TESTE LOGIN 02 (USUARIO/ADD) "+erroLogin + erroEmail + erroLogin);
         	erroLogin = false;
         	erroCpf = false;
         	erroEmail = false;
@@ -81,9 +80,6 @@ public class UsuarioController {
         try {
             if (usuario != null) {
                 boolean erro = false;
-                
-                
-                System.out.println(usuario.getId());
                 SecurityWebConfig.geraSenha(usuario);
                if(usuario.getId() == null) {
             	   
@@ -109,7 +105,6 @@ public class UsuarioController {
                    }
                    
                    if(erroLogin == true || erroCpf == true || erroEmail == true) {
-                	   System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n TESTE LOGIN 01 (USUARIO/SAVE) "+erroLogin + erroCpf + erroEmail);
                 	   return new RedirectView("/usuario/add");
                    }
                    
@@ -123,8 +118,6 @@ public class UsuarioController {
                    model.addAttribute("salaQuinta", salaRepository.findBySemanaAndLimite("Quinta-feira"));
                    model.addAttribute("salaSexta", salaRepository.findBySemanaAndLimite("Sexta-feira"));
                    model.addAttribute("salaSabado", salaRepository.findBySemanaAndLimite("Sábado"));
-
-                   System.out.println("\n\n\n\n\n\n print: " + usuarioRepository.findByLoginAndIdNot(usuario.getLogin(), usuario.getId()));
 
                    if (usuarioRepository.findByLoginAndIdNot(usuario.getLogin(), usuario.getId()) != null) {
                        erroLogin= true;
@@ -141,7 +134,6 @@ public class UsuarioController {
                }
                if(!erro){
                    String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-                   System.out.println("\n\n\n\n\n\n\n\n\n\n FILENAME: "+fileName);
                    usuario.setFoto(fileName);
 
                    Usuario savedUser = usuarioRepository.save(usuario);
@@ -165,8 +157,20 @@ public class UsuarioController {
 
     @GetMapping("/usuario/view/{id}/{salvo}")
     public String viewUsuario(@PathVariable long id, @PathVariable boolean salvo, Model model) {
-        model.addAttribute("usuario", usuarioRepository.findById(id));
+       
+    	Usuario usuario =  usuarioRepository.findById(id).get();
+    	
+    	model.addAttribute("usuario", usuario);
         model.addAttribute("salvo", salvo);
+        
+        
+        
+        if(usuario.getFoto().equals("")) {
+        	model.addAttribute("nullFoto", true);
+        }else {
+        	model.addAttribute("nullFoto", false);
+        }
+
         return "usuario/view_modal";
     }
 
@@ -175,7 +179,19 @@ public class UsuarioController {
     public String viewUser(Model model) {
         String login = SecurityContextHolder.getContext().getAuthentication().getName();
         //long idUser =  usuarioRespository.findByLogin(login).getId();
-        model.addAttribute("usuario", usuarioRepository.findByLogin(login));
+        Usuario usuario = usuarioRepository.findByLogin(login);
+        model.addAttribute("usuario", usuario);
+        
+        if(usuario.getFoto().equals("")) {
+        	model.addAttribute("nullFoto", true);
+        }else {
+        	model.addAttribute("nullFoto", false);
+        }
+        
+        
+        
+        System.out.println("\n\n\n\n\n\n\n\n\n\n USUARIO " + usuario);
+        
         return "usuario/viewUser";
 
     }
@@ -194,13 +210,21 @@ public class UsuarioController {
         	
         	if(erroLogin == true) model.addAttribute("erroLogin", "true");
         	if(erroEmail == true) model.addAttribute("erroEmail", "true");
-        	
-        	System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n TESTE LOGIN 02 (USUARIO/EDIT) "+erroLogin + erroEmail);
         	erroLogin = false;
         	erroEmail = false;
         }
         
+        Usuario usuario = usuarioRepository.findById(id).get();
+        
+        if(usuario.getFoto().equals("")) {
+        	model.addAttribute("nullFoto", true);
+        }else {
+        	model.addAttribute("nullFoto", false);
+        }
+        
         model.addAttribute("usuario", usuarioRepository.findById(id));
+        
+        
         return "usuario/edit";
 
     }

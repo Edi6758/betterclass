@@ -13,51 +13,51 @@
 </head>
 
 <body class="light-mode">
-<nav class="navbar">
-    <ul class="navbar-nav">
-        <li class="logo">
-            <a href="#" class="nav-link">
-                <span class="link-text logo-text">Betterclass</span>
-            </a>
-        </li>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a href="#" class="nav-link">
+                    <span class="link-text logo-text">Betterclass</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/}" class="nav-link">
-                <img class="icon" src="../img/home.svg" alt="">
-                <span class="link-text">Home</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/}" class="nav-link">
+                    <img class="icon" src="../img/home.svg" alt="">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/usuario/list}" class="nav-link">
-                <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
-                <span class="link-text">Usuários</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/usuario/list}" class="nav-link">
+                    <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                    <span class="link-text">Usuários</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/usuario/viewUser}" class="nav-link">
-                <img class="icon" src="../img/perfil.svg" alt="">
-                <span class="link-text">Perfil</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/usuario/viewUser}" class="nav-link">
+                    <img class="icon" src="../img/perfil.svg" alt="">
+                    <span class="link-text">Perfil</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/sala/list}" class="nav-link">
-                <img class="icon" src="../img/salas.svg" alt="">
-                <span class="link-text">Salas</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/sala/list}" class="nav-link">
+                    <img class="icon" src="../img/salas.svg" alt="">
+                    <span class="link-text">Salas</span>
+                </a>
+            </li>
 
-        <li class="nav-item theme-switch-wrapper" id="themeButton">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox"/>
-                <div class="slider round"></div>
-            </label>
-        </li>
-    </ul>
-</nav>
-<!--
+            <li class="nav-item theme-switch-wrapper" id="themeButton">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </li>
+        </ul>
+    </nav>
+    <!--
     <div class="batata">
         <div class="container-all">
             <div class="gambiarra">
@@ -155,132 +155,137 @@
                     </div>
                 </nav>
         -->
-            <!-- </div> -->
-        </div>
-        <div class="sections">
-            <section class="section-1 background-1" id="section-1">
-                <div class="container-home-1">
-                    <div class="container-1" id="container-section-1">
-                        <h1 class="titulo-home-1">organize os horários de
-                            qualquer sala, auditório
-                            ou escritório!</h1>
-                        <p class="subtitulo-home-1">A melhor opção para organizar seu espaço de trabalho,
-                            academia ou até lazer.
-                            Com o betterclass tudo fica mais fácil!</p>
-                        <button class="button-home-1" th:onclick="@{location.href='/'}">conheça os planos!</button>
-                    </div>
-                    <div class="container-2">
-                        <img id="img-2-light" src="img/home-2-light.svg" alt="" class="show">
-                        <img id="img-2-dark" src="img/home-2-dark.svg" alt="" class="hidden">
-                    </div>
+    <!-- </div> -->
+    </div>
+    <div class="sections">
+        <section class="section-1 background-1" id="section-1">
+            <div class="container-home-1">
+                <div class="container-1" id="container-section-1">
+                    <h1 class="titulo-home-1">organize os horários de
+                        qualquer sala, auditório
+                        ou escritório!</h1>
+                    <p class="subtitulo-home-1">A melhor opção para organizar seu espaço de trabalho,
+                        academia ou até lazer.
+                        Com o betterclass tudo fica mais fácil!</p>
+                    <button class="button-home-1" th:onclick="@{location.href='/'}">conheça os planos!</button>
                 </div>
-            </section>
-            
-            <section class="section-1 background-2" id="section-1">
-                <div class="container-home-1">
-                    <div class="container-1" id="container-2">
-                        <div class="container-columns display-flex justify-center">
-                            <div class="container-columns-inside display-flex justify-center">
-                                <img th:src="@{/img/idea-img-light.svg}"></img>
-                                <p class="texto">Lorem ipsum tortor justo inceptos id nam
-                                    convallis neque nullam, orci bibendum
-                                    lacus adipiscing fringilla pellentesque </p>
-                            </div>
-                        </div>
-                        <div class="container-columns display-flex justify-center">
-                            <div class="container-columns-inside display-flex justify-center">
-                                <img th:src="@{/img/calendar-img-light.svg}">
-                                <p class="texto">Lorem ipsum tortor justo inceptos id nam
-                                    convallis neque nullam, orci bibendum
-                                    lacus adipiscing fringilla pellentesque </p>
-                            </div>
-                        </div>
-                        <div class="container-columns display-flex justify-center">
-                            <div class="container-columns-inside display-flex justify-center">
-                                <img th:src="@{/img/spaceship-img-light.svg}" alt="">
-                                <p class="texto">Lorem ipsum tortor justo inceptos id nam
-                                    convallis neque nullam, orci bibendum
-                                    lacus adipiscing fringilla pellentesque </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-2">
-                        <h1 class="titulo-home-1">o melhor jeito de
-                            organizar sua empresa!
-                            simples, rápido e fácil!</h1>
-                        <div class="linha"></div>
-                        <p class="subtitulo-home-1">A melhor opção para organizar seu espaço de trabalho,
-                            academia ou até lazer.
-                            Com o betterclass tudo fica mais fácil!</p>
-                    </div>
+                <div class="container-2">
+                    <img id="img-2-light" src="img/home-2-light.svg" alt="" class="show">
+                    <img id="img-2-dark" src="img/home-2-dark.svg" alt="" class="hidden">
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section-1 background-3" id="section-1">
+        <section class="section-1 background-2" id="section-1">
+            <div class="container-home-1">
+                <div class="container-1" id="container-2">
+                    <div class="container-columns display-flex justify-center">
+                        <div class="container-columns-inside display-flex justify-center">
+                            <img th:src="@{/img/idea-img-light.svg}"></img>
+                            <p class="texto">Lorem ipsum tortor justo inceptos id nam
+                                convallis neque nullam, orci bibendum
+                                lacus adipiscing fringilla pellentesque </p>
+                        </div>
+                    </div>
+                    <div class="container-columns display-flex justify-center">
+                        <div class="container-columns-inside display-flex justify-center">
+                            <img th:src="@{/img/calendar-img-light.svg}">
+                            <p class="texto">Lorem ipsum tortor justo inceptos id nam
+                                convallis neque nullam, orci bibendum
+                                lacus adipiscing fringilla pellentesque </p>
+                        </div>
+                    </div>
+                    <div class="container-columns display-flex justify-center">
+                        <div class="container-columns-inside display-flex justify-center">
+                            <img th:src="@{/img/spaceship-img-light.svg}" alt="">
+                            <p class="texto">Lorem ipsum tortor justo inceptos id nam
+                                convallis neque nullam, orci bibendum
+                                lacus adipiscing fringilla pellentesque </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-2">
+                    <h1 class="titulo-home-1">o melhor jeito de
+                        organizar sua empresa!
+                        simples, rápido e fácil!</h1>
+                    <div class="linha"></div>
+                    <p class="subtitulo-home-1">A melhor opção para organizar seu espaço de trabalho,
+                        academia ou até lazer.
+                        Com o betterclass tudo fica mais fácil!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-1 background-3" id="section-1">
+            <div class="container-home-2">
+                <div class="container-1" id="container-1-planos">
+                    <h1 class="titulo-1" id="titulo-planos">melhores planos</h1>
+                    <p class="subtitulo subt-sect-3">melhore planos para você, independente de ser
+                        uma empresa, uma instituição ou pessoa!</p>
+                </div>
+                <div class="container-3">
+                    <div class="card-1 display-flex justify-center direction-column">
+                        <h1 class="titulo-2">Básico</h1>
+                        <h2 class="subtitulo-2">gratuito</h2>
+                        <p class="txt-2">Lorem ipsum tortor justo
+                            inceptos id nam convallis
+                            neque nullam, orci.</p>
+                        <!--
+                            <button class="button-login button-planos" onclick="location.href='@{/}'">assinar</button>
+                    -->
+                        </div>
+                    <div class="card-2 display-flex justify-center direction-column">
+                        <h1 class="titulo-2">Médio</h1>
+                        <h2 class="subtitulo-2">R$99,99</h2>
+                        <p class="txt-2">Lorem ipsum tortor justo
+                            inceptos id nam convallis
+                            neque nullam, orci.</p>
+                        <!--
+                        <button class="button-login button-planos" onclick="location.href='@{/}'">assinar</button>
+                    -->
+                    </div>
+                    <div class="card-1 display-flex justify-center direction-column">
+                        <h1 class="titulo-2">Especial</h1>
+                        <h2 class="subtitulo-2">R$199,99</h2>
+                        <p class="txt-2">Lorem ipsum tortor justo
+                            inceptos id nam convallis
+                            neque nullam, orci.</p>
+                        <!--
+                        <button class="button-login button-planos" onclick="location.href='@{/}'">assinar</button>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-1 background-2" id="section-1">
+            <div class="container-home-2">
                 <div class="container-home-2">
-                    <div class="container-1" id="container-1-planos">
-                        <h1 class="titulo-1" id="titulo-planos">melhores planos</h1>
-                        <p class="subtitulo subt-sect-3">melhore planos para você, independente de ser 
-                            uma empresa, uma instituição ou pessoa!</p>
+                    <h1 class="titulo-1" id="titulo-contato">Como você deseja falar com a gente?</h1>
+                </div>
+                <div class="container-4 ">
+                    <div class="card-3 display-flex justify-center direction-column">
+                        <h1 class="titulo-3">E-mail</h1>
+                        <h2 class="subtitulo">Tem alguma dúvida?</h2>
+                        <p class="txt-3">inspiration@gmail.com</p>
                     </div>
-                    <div class="container-3">
-                        <div class="card-1 display-flex justify-center direction-column">
-                            <h1 class="titulo-2">Básico</h1>
-                            <h2 class="subtitulo-2">gratuito</h2>
-                            <p class="txt-2">Lorem ipsum tortor justo 
-                                inceptos id nam convallis 
-                                neque nullam, orci.</p>
-                            <button class="button-login button-planos" onclick="location.href='@{/}'">assinar</button>
-                        </div>
-                        <div class="card-2 display-flex justify-center direction-column">
-                            <h1 class="titulo-2">Médio</h1>
-                            <h2 class="subtitulo-2">R$99,99</h2>
-                            <p class="txt-2">Lorem ipsum tortor justo 
-                                inceptos id nam convallis 
-                                neque nullam, orci.</p>
-                            <button class="button-login button-planos" onclick="location.href='@{/}'">assinar</button>
-                        </div>
-                        <div class="card-1 display-flex justify-center direction-column">
-                            <h1 class="titulo-2">Especial</h1>
-                            <h2 class="subtitulo-2">R$199,99</h2>
-                            <p class="txt-2">Lorem ipsum tortor justo 
-                                inceptos id nam convallis 
-                                neque nullam, orci.</p>
-                            <button class="button-login button-planos" onclick="location.href='@{/}'">assinar</button>
-                        </div>
+                    <div class="card-4 display-flex justify-center direction-column">
+                        <h1 class="titulo-3">Telefone</h1>
+                        <h2 class="subtitulo">Tem alguma dúvida?</h2>
+                        <p class="txt-3">48 XXXX-XXXX</p>
+                    </div>
+                    <div class="card-5 display-flex justify-center direction-column">
+                        <h1 class="titulo-3">E-mail</h1>
+                        <h2 class="subtitulo">Tem alguma dúvida?</h2>
+                        <p class="txt-3">inspiration@gmail.com</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section-1 background-2" id="section-1">
-                <div class="container-home-2">
-                    <div class="container-home-2">
-                        <h1 class="titulo-1" id="titulo-contato">Como você deseja falar com a gente?</h1>
-                    </div>
-                    <div class="container-4 ">
-                        <div class="card-3 display-flex justify-center direction-column">
-                            <h1 class="titulo-3">E-mail</h1>
-                            <h2 class="subtitulo">Tem alguma dúvida?</h2>
-                            <p class="txt-3">inspiration@gmail.com</p>
-                        </div>
-                        <div class="card-4 display-flex justify-center direction-column">
-                            <h1 class="titulo-3">Telefone</h1>
-                            <h2 class="subtitulo">Tem alguma dúvida?</h2>
-                            <p class="txt-3">48 XXXX-XXXX</p>
-                        </div>
-                        <div class="card-5 display-flex justify-center direction-column">
-                            <h1 class="titulo-3">E-mail</h1>
-                            <h2 class="subtitulo">Tem alguma dúvida?</h2>
-                            <p class="txt-3">inspiration@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
+    </div>
     </div>
     <script>
-
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         const currentTheme = localStorage.getItem('theme');
 
@@ -304,8 +309,7 @@
                 document.getElementById('img-2-light').classList.remove('show');
                 document.getElementById('img-2-dark').classList.add('show');
                 document.getElementById('img-2-dark').classList.remove('hidden');
-            }
-            else {
+            } else {
                 document.documentElement.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
                 document.getElementById('img-2-light').classList.remove('hidden');

@@ -86,7 +86,8 @@
         <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
 
             <div class="profile-img">
-                <img th:src="@{${usuario.get().fotoImagePath}}" width="100px" height="100px"/>
+                <img class="img-view" th:if="${nullFoto}" th:src="@{/img/null.jpg}" width="100px" height="100px"/>
+            	<img class="img-view" th:unless="${nullFoto}" th:src="@{${usuario.get().fotoImagePath}}"  width="100px" height="100px"/>
             </div>
 
             <div class="hidden">
@@ -130,7 +131,7 @@
 
             <div class="form">
                 <label class="lb2">Foto</label>
-                <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg" required />
+                <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg"/>
                 <img id="thumbnail" alt="Insira sua foto!" />
             </div>
 
