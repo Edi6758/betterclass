@@ -130,7 +130,7 @@
         <div class="container-2">
 
             <div class="texto">
-                <h1><strong>bem-vindo de volta!<br>estavamos com saudade.</strong></h1>
+                <h1 class="h111"><strong>bem-vindo de volta!<br>estavamos com saudade.</strong></h1>
             </div>
             <div class="subtexto">
                 <p>Lorem Ipsum tem sido o texto fictício<br> padrão da indústria desde quando um impressor<br>
@@ -147,9 +147,6 @@
                     <form id="form1" th:action="@{/login}" method="post">
 
                         <div th:if="${param.error}" class="alert alert-danger" id="modalErro">
-                            <button type="button" class="close" data-dismiss="alert"  onclick="hideModal()">
-                                <i class="far fa-times-circle"></i>
-                            </button>
                             <h4>Atenção!</h4>
                             <span>Preencha corretamente o usuario e senha</span>
                         </div>
