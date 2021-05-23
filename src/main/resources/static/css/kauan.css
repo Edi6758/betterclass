@@ -128,10 +128,6 @@ input:checked+.slider:before {
     padding-left: 20px;
 }
 
-.nav-item:last-child {
-    margin-top: auto;
-}
-
 .navbar-nav .nav-link {
     padding-right: 120px;
     padding-left: 5px;
@@ -349,7 +345,7 @@ a {
 .salas-add-full {
     padding: 15px;
     padding-left: 25px;
-    margin-top: 5.5rem;
+    margin-top: 2.5rem;
     width: auto;
     max-width: 75%;
     height: 35.1rem;
@@ -357,7 +353,7 @@ a {
     border-radius: 7px;
     display: flex;
     color: gray;
-    margin-left: 100px; 
+    margin-left: 100px;
 }
 
 .form-input {
@@ -605,6 +601,7 @@ a {
     .container {
         margin-left: 0px;
     }
+
     .salas-add-full {
         margin-left: 20px;
         margin-top: 5px;
@@ -629,12 +626,31 @@ a {
 
 /* COMEÇO - MEDIA DO NAVBAR */
 @media (max-width: 600px) {
-    .navbar-nav .nav-link {
-        padding-right: 40px;
-    }
-
     .nav-item:last-child {
         margin-top: -50px;
+    }
+
+    .nav-item .theme-switch-wrapper {
+        margin-right: auto;
+        margin-left: auto;
+        float: right;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+        margin: 0px;
+        width: auto;
+    }
+
+    .nav-item {
+        padding: 10px;
+        margin: 0px;
+    }
+
+    ul.navbar-nav {
+        width: 100%;
+        height: auto;
+        padding: 0px;
     }
 
     .navbar {
@@ -660,33 +676,28 @@ a {
         margin: 0;
     }
 }
-
-@media (max-width: 496px) {
+@media (max-width: 380px) {
     .navbar-nav .nav-link {
-        padding-right: 50px;
-    }
-}
-@media (max-width: 435px){
-    .navbar-nav .nav-link {
-        padding-right: 40px;
-    }
-}
-
-@media (max-width: 366px) {
-    .navbar-nav .nav-link {
-        padding-right: 20px;
+        padding: 0px;
     }
 
-    .nav-item:last-child {
-        margin-left: 10px;
+    .nav-item {
+        padding: 10px;
     }
-}
-@media (max-width: 330px){
-    .navbar-nav .nav-link {
-        padding-right: 10px;
+    :is(
+    .nav-item:nth-child(2),
+    .nav-item:nth-child(3),
+    .nav-item:nth-child(4),
+    .nav-item:nth-child(5)
+    ){
+        padding: 0px;
     }
 
+    ul.navbar-nav {
+        padding: 0px;
+    }
 }
+
 /* Large screens */
 @media (min-width: 600px) {
     .navbar {
