@@ -7,226 +7,213 @@
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
     <link rel="stylesheet" th:href="@{/css/ze.css}">
-    <title>betterclass</title>
+    <title>Editar usuario</title>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="container-all">
-        <div class="container-menu">
-            <div class="container">
-                <h1 class="titulo">betterclass</h1>
-                <ul>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="/img/home.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Home</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="/img/sobre.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Sobre</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="/img/planos.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Planos</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="/img/contato.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Contato</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon icon-usuarios" src="/img/usuarios.svg" alt="">
-                            <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="/img/perfil.svg" alt="">
-                            <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="/img/salas.svg" alt="">
-                            <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider round"></div>
-                    </label>
-                </div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a href="#" class="nav-link">
+                    <span class="link-text logo-text">Betterclass</span>
+                </a>
+            </li>
 
-                <div>
-                    <button class="button-login" onclick="window.location.href='/login';">login</button>
-                </div>
+            <li class="nav-item">
+                <a th:href="@{/}" class="nav-link">
+                    <img class="icon" src="/img/home.svg" alt="">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
 
-                <div class="container-copyright">
-                    <img class="icon-copyright" th:src="@{/img/copyright.svg}" alt="">
-                    <p class="titulo-copyright">2021 Inspiration</p>
-                </div>
+            <li class="nav-item">
+                <a th:href="@{/usuario/list}" class="nav-link">
+                    <img class="icon icon-usuarios" src="/img/usuarios.svg" alt="">
+                    <span class="link-text">Usuários</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a th:href="@{/usuario/viewUser}" class="nav-link">
+                    <img class="icon" src="/img/perfil.svg" alt="">
+                    <span class="link-text">Perfil</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a th:href="@{/sala/list}" class="nav-link">
+                    <img class="icon" src="/img/salas.svg" alt="">
+                    <span class="link-text">Salas</span>
+                </a>
+            </li>
+
+            <li class="nav-item theme-switch-wrapper" id="themeButton">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </li>
+        </ul>
+    </nav>
+
+        <div class="container-2">
+
+            <div class="profile-header">
+
+                <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+
+                    <div class="profile-img">
+                        <img class="img-view" th:if="${nullFoto}" th:src="@{/img/null.jpg}" width="100px"
+                            height="100px" />
+                        <img class="img-view" th:unless="${nullFoto}" th:src="@{${usuario.get().fotoImagePath}}"
+                            width="100px" height="100px" />
+                    </div>
+
+                    <div class="hidden">
+                        <label>Código</label> <input class="form-control" type="number" th:field="*{id}" readonly>
+                    </div>
+
+                    <div class="alert alert-danger" id="modalErro">
+                        <button type="button" class="close" data-dismiss="alert" onClick="hideModal()">
+                            <i class="far fa-times-circle"></i>
+                        </button>
+                        <h4>Atenção!</h4>
+                        <span>Erro ao salvar! Os seguintes campos já foram cadastrados:</span>
+                        <span id="spanErroEmail"></span>
+                        <span id="spanErroLogin"></span>
+                    </div>
+
+                    <div class="form">
+                        <label>Nome</label>
+                        <input id="inputs" type="text" th:field="${usuario.nome}"
+                            placeholder="Digite seu nome completo." minlength="8" readonly>
+                    </div>
+
+                    <div class="form">
+                        <label>CPF</label>
+                        <input id="inputs" type="text" th:field="${usuario.cpf}" placeholder="xxx-xxx-xxx-xx"
+                            onkeypress="$(this).mask('000.000.000-00')" minlength="11" maxlength="11" readonly>
+                    </div>
+
+                    <div class="form">
+                        <label>E-mail</label>
+                        <input id="inputs" type="email" th:field="${usuario.email} " placeholder="Digite seu e-mail. "
+                            minlength="10" required>
+                    </div>
+
+                    <div class="form">
+                        <label>Login</label>
+                        <input id="inputs" type="text" th:field="${usuario.login}" placeholder="Digite seu login. "
+                            minlength="8" maxlength="30" required>
+                    </div>
+
+                    <div class="form">
+                        <label>Senha</label>
+                        <input type="password" id="inputs" th:field="${usuario.senha}" placeholder="No mínimo 8 letra. "
+                            minlength="8" maxlength="30" required>
+                    </div>
+
+                    <div class="form">
+                        <label class="lb2">Foto</label>
+                        <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg" />
+                        <img id="thumbnail" alt="Insira sua foto!" />
+                    </div>
+
+
+
+                    <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horÃ¡rio de
+                        Segunda.</small>
+                    <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
+                        <option th:each="h : ${salaSegunda} " th:value="${h.id} " th:text="${h.hora} ">
+                        </option>
+                    </select>
+
+                    <small class="form-text text-muted ">Selecione o horÃ¡rio de TerÃ§a.</small>
+                    <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
+                        <option th:each="h : ${salaTerca} " th:value="${h.id} " th:text="${h.hora} ">
+                        </option>
+                    </select>
+
+                    <small class="form-text text-muted ">Selecione o horÃ¡rio de Quarta.</small>
+                    <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
+                        <option th:each="h : ${salaQuarta} " th:value="${h.id} " th:text="${h.hora} ">
+                        </option>
+                    </select>
+
+                    <small class="form-text text-muted ">Selecione o horÃ¡rio de Quinta.</small>
+                    <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
+                        <option th:each="h : ${salaQuinta} " th:value="${h.id} " th:text="${h.hora} ">
+                        </option>
+                    </select>
+
+                    <small class="form-text text-muted ">Selecione o horÃ¡rio de Sexta.</small>
+                    <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
+                        <option th:each="h : ${salaSexta} " th:value="${h.id} " th:text="${h.hora} ">
+                        </option>
+                    </select>
+
+                    <small class="form-text text-muted ">Selecione o horÃ¡rio de SÃ¡bado.</small>
+                    <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
+                        <option th:each="h : ${salaSabado} " th:value="${h.id} " th:text="${h.hora} ">
+                        </option>
+                    </select>
+
+                    <div class="btns">
+
+                        <button class="btn btn-secondary btn-width cds-botao-cancelar" type="button"
+                            onclick="window.location.href='../list'">
+                            <i class="fa fa-ban" aria-hidden="true "></i> Cancelar
+                        </button>
+
+                        <button class="btn btn-success btn-width cds-botao-salvar" type="submit">
+                            <i class="fa fa-save" aria-hidden="true"></i> Salvar
+                        </button>
+                    </div>
+
+                </form>
             </div>
         </div>
 
-<div class="container-2">
 
-    <div class="profile-header">
+        <!--JAVASCRIPT-->
+        <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+        <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js}"></script>
+        <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/script.js}"></script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
 
-        <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+            var erroLogin = /*[[${erroLogin}]]*/ 'default';
+            var erroEmail = /*[[${erroEmail}]]*/ 'default';
 
-            <div class="profile-img">
-                <img class="img-view" th:if="${nullFoto}" th:src="@{/img/null.jpg}" width="100px" height="100px"/>
-            	<img class="img-view" th:unless="${nullFoto}" th:src="@{${usuario.get().fotoImagePath}}"  width="100px" height="100px"/>
-            </div>
+            document.getElementById("modalErro").style.display = 'none';
 
-            <div class="hidden">
-                <label>Código</label> <input class="form-control" type="number" th:field="*{id}" readonly>
-            </div>
-
-            <div class="alert alert-danger" id="modalErro">
-                <button type="button" class="close" data-dismiss="alert" onClick="hideModal()">
-                    <i class="far fa-times-circle"></i>
-                </button>
-                <h4>Atenção!</h4>
-                <span>Erro ao salvar! Os seguintes campos já foram cadastrados:</span>
-                <span id="spanErroEmail"></span>
-                <span id="spanErroLogin"></span>
-            </div>
-
-            <div class="form">
-                <label>Nome</label>
-                <input id="inputs" type="text" th:field="${usuario.nome}" placeholder="Digite seu nome completo." minlength="8" readonly>
-            </div>
-
-            <div class="form">
-                <label>CPF</label>
-                <input id="inputs" type="text" th:field="${usuario.cpf}" placeholder="xxx-xxx-xxx-xx" onkeypress="$(this).mask('000.000.000-00')" minlength="11" maxlength="11" readonly>
-            </div>
-
-            <div class="form">
-                <label>E-mail</label>
-                <input id="inputs" type="email" th:field="${usuario.email} " placeholder="Digite seu e-mail. " minlength="10" required>
-            </div>
-
-            <div class="form">
-                <label>Login</label>
-                <input id="inputs" type="text" th:field="${usuario.login}" placeholder="Digite seu login. " minlength="8" maxlength="30" required>
-            </div>
-
-            <div class="form">
-                <label>Senha</label>
-                <input type="password" id="inputs" th:field="${usuario.senha}" placeholder="No mínimo 8 letra. " minlength="8" maxlength="30" required>
-            </div>
-
-            <div class="form">
-                <label class="lb2">Foto</label>
-                <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg"/>
-                <img id="thumbnail" alt="Insira sua foto!" />
-            </div>
-
-			
-
-                   <small class="form-text text-muted cds-cd-dentro-segunda ">Selecione o horÃ¡rio de
-                       Segunda.</small>
-                   <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
-                       <option th:each="h : ${salaSegunda} " th:value="${h.id} " th:text="${h.hora} ">
-                       </option>
-                   </select>
-
-                   <small class="form-text text-muted ">Selecione o horÃ¡rio de TerÃ§a.</small>
-                   <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
-                       <option th:each="h : ${salaTerca} " th:value="${h.id} " th:text="${h.hora} ">
-                       </option>
-                   </select>
-
-                   <small class="form-text text-muted ">Selecione o horÃ¡rio de Quarta.</small>
-                   <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
-                       <option th:each="h : ${salaQuarta} " th:value="${h.id} " th:text="${h.hora} ">
-                       </option>
-                   </select>
-
-                   <small class="form-text text-muted ">Selecione o horÃ¡rio de Quinta.</small>
-                   <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
-                       <option th:each="h : ${salaQuinta} " th:value="${h.id} " th:text="${h.hora} ">
-                       </option>
-                   </select>
-
-                   <small class="form-text text-muted ">Selecione o horÃ¡rio de Sexta.</small>
-                   <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
-                       <option th:each="h : ${salaSexta} " th:value="${h.id} " th:text="${h.hora} ">
-                       </option>
-                   </select>
-
-                   <small class="form-text text-muted ">Selecione o horÃ¡rio de SÃ¡bado.</small>
-                   <select th:field="*{salas} " class="form-control cds-options-sala " multiple="multiple " size="10 ">
-                       <option th:each="h : ${salaSabado} " th:value="${h.id} " th:text="${h.hora} ">
-                       </option>
-                   </select>
-
-            <div class="btns">
-
-                <button class="btn btn-secondary btn-width cds-botao-cancelar" type="button" onclick="window.location.href='../list'">
-                    <i class="fa fa-ban" aria-hidden="true "></i> Cancelar
-                </button>
-
-                <button class="btn btn-success btn-width cds-botao-salvar" type="submit">
-                    <i class="fa fa-save" aria-hidden="true"></i> Salvar
-                </button>
-            </div>
-
-        </form>
-    </div>
-    </div>
-
-
-    <!--JAVASCRIPT-->
-    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js}"></script>
-    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/script.js}"></script>
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-
-        var erroLogin = /*[[${erroLogin}]]*/ 'default';
-        var erroEmail = /*[[${erroEmail}]]*/ 'default';
-
-        document.getElementById("modalErro").style.display = 'none';
-
-        function openModal() {
-            document.getElementById("modalErro").style.display = 'block';
-        }
-
-        function hideModal() {
-            document.getElementById("modalErro").style.display = "none";
-        }
-
-        if (erroLogin == "true" || erroEmail == "true") {
-
-            openModal();
-
-            if (erroEmail == "true") {
-                document.getElementById("spanErroEmail").innerHTML = "E-mail;";
+            function openModal() {
+                document.getElementById("modalErro").style.display = 'block';
             }
 
-            if (erroLogin == "true") {
-                document.getElementById("spanErroLogin").innerHTML = "Login;";
+            function hideModal() {
+                document.getElementById("modalErro").style.display = "none";
             }
-        }
+
+            if (erroLogin == "true" || erroEmail == "true") {
+
+                openModal();
+
+                if (erroEmail == "true") {
+                    document.getElementById("spanErroEmail").innerHTML = "E-mail;";
+                }
+
+                if (erroLogin == "true") {
+                    document.getElementById("spanErroLogin").innerHTML = "Login;";
+                }
+            }
 
 
-        /*]]>*/
-    </script>
+            /*]]>*/
+        </script>
 
 
 </body>

@@ -40,7 +40,7 @@
   --container-columns-2: var(--black4);
 }
 
-/* -- COMEÃ‡O NAVBAR-- */
+/* -- COMEÇO NAVBAR-- */
 
 .navbar {
   position: fixed;
@@ -408,7 +408,7 @@ a {
   }
 }
 
-/* COMEÃ‡O - MEDIA DO NAVBAR */
+/* COMEÇO - MEDIA DO NAVBAR */
 @media (max-width: 600px) {
   .navbar-nav .nav-link {
       padding-right: 40px;
