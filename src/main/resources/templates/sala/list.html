@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Salas</title>
 
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
 </head>
 
-<body>
+<body class="light-mode">
 <nav class="navbar">
     <ul class="navbar-nav">
         <li class="logo">
@@ -57,101 +57,6 @@
         </li>
     </ul>
 </nav>
-<!-- <div class="container-all">
-    <div class="container-menu">
-        <div class="container">
-            <h1 class="titulo">betterclass</h1>
-            <ul>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/home.svg" alt="">
-                        <a class="subtitulo" th:href="@{/}">Home</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/sobre.svg" alt="">
-                        <a class="subtitulo" th:href="@{/}">Sobre</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/planos.svg" alt="">
-                        <a class="subtitulo" th:href="@{/}">Planos</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/contato.svg" alt="">
-                        <a class="subtitulo" th:href="@{/}">Contato</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
-                        <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/perfil.svg" alt="">
-                        <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="container-item">
-                        <img class="icon" src="../img/salas.svg" alt="">
-                        <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
-            </div>
-
-            <div>
-                <button class="button-login">login</button>
-            </div>
-
-            <div class="container-copyright">
-                <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
-                <p class="titulo-copyright">2021 Inspiration</p>
-            </div>
-        </div>
-    </div>
-
-    <nav role="navigation">
-        <div id="menuToggle">
-
-            <input type="checkbox">
-            <span></span>
-            <span></span>
-            <span></span>
-            </input>
-            <ul id="menu">
-                <div class="container-item">
-                    <img class="icon" src="../img/home.svg" alt="">
-                    <a class="subtitulo" th:href="@{/}">Home</a>
-                </div>
-                <div class="container-item">
-                    <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
-                    <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
-                </div>
-                <div class="container-item">
-                    <img class="icon" src="../img/perfil.svg" alt="">
-                    <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
-                </div>
-                <div class="container-item">
-                    <img class="icon" src="../img/salas.svg" alt="">
-                    <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
-                </div>
-            </ul>
-        </div>
-    </nav> -->
-<!-- FIM NAVBAR -->
 
 <div class="container">
     <div class="container-salas">
@@ -193,12 +98,13 @@
 
             <div class="row">
                 <div class="card-sala-filtro col col-16 col-sm-6 mt-2" th:each="sala : ${sala}">
-                    <div class="bg-info text-white card-sala">
+
+                    <div class="card-sala">
                         <div class="card-title link-view" th:text="${sala.titulo}"
                              th:href="@{'/sala/view/' + ${sala.id} + '/' + ${true}}"></div>
                         <div class="card-body" th:text="${sala.descricao}"></div>
                         <div id="card-body card-body-semana" th:text="${sala.semana}" hidden></div>
-                        <div>
+                        <div class="card-bottom">
                             <i class="fa fa-trash link-delete" th:onclick="|showModalDeletar(${sala.id})|"></i>
                             <i class="fas fa-edit link-edit" th:href="@{'/sala/edit/' + ${sala.id}}"></i>
                         </div>
@@ -236,9 +142,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Atenção!</h4>
-                <button type="button" class="close" data-dismiss="modal"
+                <h4 type="button" class="close" data-dismiss="modal"
                         onclick="window.location.href='../sala/list'">&times;
-                </button>
+                </h4>
 
             </div>
             <div class="modal-body">
@@ -248,11 +154,11 @@
             <div class="modal-footer">
                 <input type="number" id="id_deletar" readonly hidden>
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                <button type="button" class="btn btn-secondary text-white" data-dismiss="modal"
                         onclick="window.location.href='../sala/list'">
                     <i class="fa fa-ban"></i> Cancelar
                 </button>
-                <button type="button" class="btn btn-danger" th:onclick="deletar('sala')">
+                <button type="button" class="btn btn-danger text-white" th:onclick="deletar('sala')">
                     <i class="fa fa-trash"></i> Deletar
                 </button>
             </div>
@@ -266,7 +172,28 @@
 <script th:src="@{/js/script.js}"></script>
 <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
 <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
 
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
 </script>
 </body>
 

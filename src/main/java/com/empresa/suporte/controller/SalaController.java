@@ -38,8 +38,7 @@ public class SalaController {
         } catch (Exception e) {
             System.out.println("Erro ao salvar: " + e.getMessage());
         }
-        //return "redirect:/sala/view/" + sala.getId() + "/" + true;
-        return "sala/list";
+        return "redirect:/sala/list";
     }
 
     @GetMapping("/sala/view/{id}/{salvo}")

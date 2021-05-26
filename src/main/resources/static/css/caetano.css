@@ -1,6 +1,6 @@
 :root {
     --white: #FFFFFF;
-    --black: #393939;
+	--black: #3f3f3f;
 
     --white2: #F6F6F6;
     --black2: #333333;
@@ -19,6 +19,24 @@
     --white4: #dddddd;
     --black4: #272727;
 
+    --red-bg: #FFDEDE;
+    --red: #D46464;
+    	
+    --green-bg: #DEFFEF;
+    --green: #3D8B65;
+    	
+    --blue-bg: #C3BFFF;
+    --blue: #441CC1;
+    	
+    --navbar-bg: #FFFFFF;
+    --nav-link-color-h: white;
+    	
+    --bg-sala-list: #F1F1F1;
+    --container-list: white;
+    --sala-nome: black;
+    --pesquisa: white;
+    --form-input-bg: rgb(238, 238, 238);
+
     --container-bg-color: var(--white);
     --body-bg-color: var(--white2);
     --titulo-color: var(--purple);
@@ -30,12 +48,32 @@
 }
 
 [data-theme="dark"] {
+
+    --red-bg: #e45656;
+	--red: #ffffff;
+	
+	--green-bg: #41c082;
+	--green: #ffffff;
+	
+	--blue-bg: #5349db;
+	--blue: #ffffff;
+	
+	--navbar-bg: #393939;
+	--nav-link-color-h: white;
+	
+	--bg-sala-list: #3f3f3f;
+	--container-list: #333333;
+	--sala-nome: white;
+	--pesquisa: #3f3f3f;
+	--form-input-bg: #3f3f3f;
+
     --container-bg-color: var(--black);
     --body-bg-color: var(--black2);
     --titulo-color: var(--purple2);
     --input-switch: var(--black3);
     --bolinha-switch: var(--grey2);
     --subtitulo-section: var(--white);
+    --subtitulo: var(--white);
     --container-columns: var(--black4);
     --container-columns-2: var(--black4);
 }
@@ -49,23 +87,59 @@ body {
     font-style: bold;
 }
 
+	/*NAVBAR MODO ESCURO*/
+
+.navbar-nav {
+    background-color: var(--navbar-bg);
+}
+
+.nav-link {
+    background-color: var(--navbar-bg);
+    color: var(--subtitulo-section);
+}
+
+.nav-link:hover {
+    background-color: var(--purple);
+    color: var(--nav-link-color-h);
+}
+
+/*NAVBAR MODO ESCURO FIM*/
+
+/*MODO ESCURO*/
+/*USUARIO ADD*/
+.select-semana option{
+    color: var(--sala-nome) !important;
+}
+/*USUARIO ADD FIM*/
+
+/*LOGIN*/
+.fadeIn.second {
+    color: var(--sala-nome);
+}
+.fadeIn.third{
+    color: var(--sala-nome) !important;
+}
+/*LOGIN FIM*/
+
+/*MODO ESCURO FIM*/
+
 /* -- COMEÇO NAVBAR-- */
 
 .navbar {
     position: fixed;
-    background-color: var(--white);
     transition: width 300ms;
     overflow: hidden;
     z-index: 1;
+    height: 110%;
 }
 
 .navbar-nav {
-    background-color: var(--white);
     list-style: none;
     align-items: center;
-    height: 100%;
+    height: 110%;
     width: 100%;
 }
+
 
 .nav-item {
     width: 100%;
@@ -93,8 +167,6 @@ body {
     display: flex;
     align-items: center;
     height: 5rem;
-    color: var(--black);
-    background-color: var(--white);
     text-decoration: none;
     filter: grayscale(100%) opacity(0.7);
     transition: var(--transition-speed);
@@ -102,8 +174,6 @@ body {
 
 .nav-link:hover {
     filter: grayscale(0%) opacity(1);
-    background: var(--purple);
-    color: var(--white);
     width: 100%;
     font: bold;
 }
@@ -370,7 +440,6 @@ a {
     padding-bottom: 15px;
     padding-top: 15px;
     font-size: 17px;
-    color: black;
     border: 2px solid var(--body-bg-color);
     border-radius: 5px;
     outline: none;
@@ -379,8 +448,6 @@ a {
 .fadeIn.second:hover,
 .fadeIn.second:focus {
     transition: all 0.4s;
-    background-color: #ffffff;
-    border-color: silver;
 }
 
 .fadeIn.third {
@@ -406,8 +473,6 @@ a {
 .fadeIn.third:hover,
 .fadeIn.third:focus {
     transition: all 0.4s;
-    background-color: #ffffff;
-    border-color: silver;
 }
 
 /* ESTILO DO LOGIN */
@@ -553,11 +618,6 @@ input[type=submit]:active {
 
 /* --- CADASTRO --- */
 
-/*#lbcodigo {
-}
-
-.form-control1 {
-}*/
 
 .texto2 {
     font-family: sans-serif;
@@ -578,7 +638,7 @@ input[type=submit]:active {
 }
 
 .box {
-    margin-left: 170px;
+    margin-left: 100px;
     border-radius: 6px;
     background-color: var(--container-bg-color);
     width: 420px;
@@ -796,7 +856,7 @@ input[type=submit]:active {
     }
 
     .usuario-eye {
-        color: #441CC1 ;
+        color: #441cc1 ;
         float: left;
         width: 30%;
         height: 100%;
