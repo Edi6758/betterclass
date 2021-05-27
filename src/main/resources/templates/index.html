@@ -57,105 +57,6 @@
             </li>
         </ul>
     </nav>
-    <!--
-    <div class="batata">
-        <div class="container-all">
-            <div class="gambiarra">
-                <div class="container-menu">
-                    <div class="container">
-                        <h1 class="titulo">betterclass</h1>
-                        <ul>
-                            <li>
-                                <div class="container-item">
-                                    <img class="icon" src="../img/home.svg" alt="">
-                                    <a class="subtitulo" th:href="@{/}">Home</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container-item">
-                                    <img class="icon" src="../img/sobre.svg" alt="">
-                                    <a class="subtitulo" th:href="@{/}">Sobre</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container-item">
-                                    <img class="icon" src="../img/planos.svg" alt="">
-                                    <a class="subtitulo" th:href="@{/}">Planos</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container-item">
-                                    <img class="icon" src="../img/contato.svg" alt="">
-                                    <a class="subtitulo" th:href="@{/}">Contato</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container-item">
-                                    <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
-                                    <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container-item">
-                                    <img class="icon" src="../img/perfil.svg" alt="">
-                                    <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container-item">
-                                    <img class="icon" src="../img/salas.svg" alt="">
-                                    <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox" />
-                                <div class="slider round"></div>
-                            </label>
-                        </div>
-        
-                        <div>
-                            <button class="button-login" onclick="window.location.href='/login';">login</button>
-                        </div>
-        
-                        <div class="container-copyright">
-                            <img class="icon-copyright" th:src="@{img/copyright.svg}" alt="">
-                            <p class="titulo-copyright">2021 Inspiration</p>
-                        </div>
-                    </div>
-                </div>
-        
-                <nav role="navigation">
-                    <div id="menuToggle">
-        
-                        <input type="checkbox">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        </input>
-                        <ul id="menu">
-                            <div class="container-item-hamburger">
-                                <img class="icon" src="../img/home.svg" alt="">
-                                <a class="subtitulo" th:href="@{/}">Home</a>
-                            </div>
-                            <div class="container-item-hamburger">
-                                <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
-                                <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
-                            </div>
-                            <div class="container-item-hamburger">
-                                <img class="icon" src="../img/perfil.svg" alt="">
-                                <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
-                            </div>
-                            <div class="container-item-hamburger">
-                                <img class="icon" src="../img/salas.svg" alt="">
-                                <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
-                            </div>
-                        </ul>
-                    </div>
-                </nav>
-        -->
-    <!-- </div> -->
     </div>
     <div class="sections">
         <section class="section-1 background-1" id="section-1">
@@ -169,13 +70,12 @@
                         Com o betterclass tudo fica mais fácil!</p>
                     <button class="button-home-1" th:onclick="@{location.href='/'}">conheça os planos!</button>
                 </div>
-                <div class="container-2">
+                <div class="container-2 container-images">
                     <img id="img-2-light" src="img/home-2-light.svg" alt="" class="show">
                     <img id="img-2-dark" src="img/home-2-dark.svg" alt="" class="hidden">
                 </div>
             </div>
         </section>
-
         <section class="section-1 background-2" id="section-1">
             <div class="container-home-1">
                 <div class="container-1" id="container-2">
@@ -204,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container-2">
+                <div class="container-2" id="container-section-2">
                     <h1 class="titulo-home-1">o melhor jeito de
                         organizar sua empresa!
                         simples, rápido e fácil!</h1>
@@ -271,7 +171,7 @@
                     </div>
                     <div class="card-4 display-flex justify-center direction-column">
                         <h1 class="titulo-3">Telefone</h1>
-                        <h2 class="subtitulo">Tem alguma dúvida?</h2>
+                        <h2 class="subtitulo subtitulo-telefone">Tem alguma dúvida?</h2>
                         <p class="txt-3">48 XXXX-XXXX</p>
                     </div>
                     <div class="card-5 display-flex justify-center direction-column">
