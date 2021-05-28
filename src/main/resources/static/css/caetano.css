@@ -1,6 +1,6 @@
 :root {
     --white: #FFFFFF;
-	--black: #3f3f3f;
+    --black: #3f3f3f;
 
     --white2: #F6F6F6;
     --black2: #333333;
@@ -21,19 +21,20 @@
 
     --red-bg: #FFDEDE;
     --red: #D46464;
-    	
+
     --green-bg: #DEFFEF;
     --green: #3D8B65;
-    	
+
     --blue-bg: #C3BFFF;
     --blue: #441CC1;
-    	
+
     --navbar-bg: #FFFFFF;
     --nav-link-color-h: white;
-    	
-    --bg-sala-list: #F1F1F1;
+
+    --bg-sala-list: #ffffff;
     --container-list: white;
     --sala-nome: black;
+    --boxlist-usu-list: var(--grey);
     --pesquisa: white;
     --form-input-bg: rgb(238, 238, 238);
 
@@ -50,22 +51,24 @@
 [data-theme="dark"] {
 
     --red-bg: #e45656;
-	--red: #ffffff;
-	
-	--green-bg: #41c082;
-	--green: #ffffff;
-	
-	--blue-bg: #5349db;
-	--blue: #ffffff;
-	
-	--navbar-bg: #393939;
-	--nav-link-color-h: white;
-	
-	--bg-sala-list: #3f3f3f;
-	--container-list: #333333;
-	--sala-nome: white;
-	--pesquisa: #3f3f3f;
-	--form-input-bg: #3f3f3f;
+    --red: #ffffff;
+
+    --green-bg: #41c082;
+    --green: #ffffff;
+
+    --blue-bg: #5349db;
+    --blue: #ffffff;
+
+    --navbar-bg: #393939;
+    --nav-link-color-h: white;
+
+    --bg-sala-list: #3f3f3f;
+    --container-list: #333333;
+    --sala-nome: white;
+    --pesquisa: #3f3f3f;
+    --form-input-bg: #3f3f3f;
+
+    --boxlist-usu-list: white;
 
     --container-bg-color: var(--black);
     --body-bg-color: var(--black2);
@@ -87,7 +90,7 @@ body {
     font-style: bold;
 }
 
-	/*NAVBAR MODO ESCURO*/
+/*NAVBAR MODO ESCURO*/
 
 .navbar-nav {
     background-color: var(--navbar-bg);
@@ -98,16 +101,15 @@ body {
     color: var(--subtitulo-section);
 }
 
-.nav-link:hover {
-    background-color: var(--purple);
-    color: var(--nav-link-color-h);
-}
 
 /*NAVBAR MODO ESCURO FIM*/
 
 /*MODO ESCURO*/
 /*USUARIO ADD*/
-.select-semana option{
+.select-semana option {
+    color: var(--sala-nome) !important;
+}
+.cds-inputs{
     color: var(--sala-nome) !important;
 }
 /*USUARIO ADD FIM*/
@@ -116,10 +118,45 @@ body {
 .fadeIn.second {
     color: var(--sala-nome);
 }
-.fadeIn.third{
+
+.fadeIn.third {
     color: var(--sala-nome) !important;
 }
+
 /*LOGIN FIM*/
+/*USUARIO LIST*/
+.usuario-eye {
+    background-color: var(--blue-bg);
+    color: var(--blue);
+}
+
+.usuario-edit {
+    background-color: var(--green-bg);
+    color: var(--green);
+}
+
+.usuario-trash {
+    background-color: var(--red-bg);
+    color: var(--red);
+}
+
+.boxList {
+    background-color: var(--bg-sala-list);
+}
+
+:is(.nomeList1,
+    .emailList1,
+    .cpfList1,
+    .loginList1) {
+    color: var(--sala-nome);
+    border: none;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.tabela-controle {
+    border: none;
+}
 
 /*MODO ESCURO FIM*/
 
@@ -131,6 +168,7 @@ body {
     overflow: hidden;
     z-index: 1;
     height: 110%;
+    padding-top: 0px !important;
 }
 
 .navbar-nav {
@@ -176,10 +214,6 @@ body {
     filter: grayscale(0%) opacity(1);
     width: 100%;
     font: bold;
-}
-
-.nav-item:hover {
-    padding-left: 0px;
 }
 
 .link-text {
@@ -246,6 +280,10 @@ body {
     list-style: none;
     box-sizing: border-box;
     /* transition: background-color 0.6s ease, color 1s ease; */
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: #6C63FF;
 }
 
 .show {
@@ -639,6 +677,7 @@ input[type=submit]:active {
 
 .box {
     margin-left: 100px;
+    margin-bottom: 65px;
     border-radius: 6px;
     background-color: var(--container-bg-color);
     width: 420px;
@@ -717,7 +756,7 @@ input[type=submit]:active {
 
 .boxList {
     padding: 30px;
-    background-color: white;
+    padding-top: 15px;
     margin-top: 50px;
     border-radius: 10px;
     margin-left: 80px;
@@ -758,6 +797,10 @@ input[type=submit]:active {
     font-style: none;
 }
 
+.btnAdd-R {
+    display: none;
+}
+
 .tabela-controle1 {
     display: none;
 }
@@ -768,20 +811,9 @@ input[type=submit]:active {
     color: white;
 }
 
-.nomeList1 {
-    color: rgb(114, 113, 113);
-}
-
-.cpfList1 {
-    color: rgb(114, 113, 113);
-}
-
-.emailList1 {
-    color: rgb(114, 113, 113);
-}
-
-.loginList1 {
-    color: rgb(114, 113, 113);
+.btnAdd-R:hover {
+    background-color: #0e03da;
+    color: white;
 }
 
 .btn-group {
@@ -839,16 +871,52 @@ input[type=submit]:active {
     border: 2px solid #f6f6f6;
     outline: none;
 }
-
-
+.foto > img{
+    max-width: 80% !important;
+    max-height: 500px !important;
+}
+#fileImage{
+    color: var(--sala-nome);
+}
 
 
 /* -- NAVBAR MEDIA -- */
+/* MEDIA'S */
+/*tira os :hovers do mobile*/
+@media(hover: hover) {
+    .nav-link:hover {
+        background-color: var(--purple);
+        color: var(--nav-link-color-h);
+        filter: grayscale(0%) opacity(1);
+        width: 100%;
+        font: bold;
+    }
+
+    .nav-item:hover {
+        padding-left: 0px;
+    }
+}
+
 /*KAUAN*/
-@media(max-width:1100px) {
+@media(max-width:1134px) {
+    .btnAdd-R {
+        display: initial;
+        border-radius: 6px;
+        background-color: #56baed;
+        color: white;
+        padding: 5px 10px;
+        font-family: sans-serif;
+        transition: all 0.5s;
+        font-style: none;
+        height: 400px;
+        text-decoration: none;
+
+    }
+
     .tabela-controle1 {
         height: 50px;
         padding: 0px !important;
+        border: none;
     }
 
     td.tabela-controle {
@@ -856,7 +924,7 @@ input[type=submit]:active {
     }
 
     .usuario-eye {
-        color: #441cc1 ;
+        color: #441cc1;
         float: left;
         width: 30%;
         height: 100%;
@@ -868,47 +936,37 @@ input[type=submit]:active {
     }
 
     .usuario-edit {
-        color: #3D8B65;
         float: left;
         width: 40%;
         height: 100%;
         text-align: center;
         padding-top: 12px;
-        background-color: #DEFFEF;
     }
 
     .usuario-trash {
-        color: #D46464;
         float: right;
         width: 30%;
         height: 100%;
         text-align: center;
         padding-top: 12px;
-        background-color: #FFDEDE;
         border-bottom-right-radius: 7px;
         border-top-right-radius: 7px;
     }
 
     .usuario-eye:hover {
         background-color: white;
-        border: 1px solid var(--purple);
         border-right: none;
-        color: var(--purple);
     }
 
     .usuario-edit:hover {
         background-color: white;
-        border: 1px solid #3D8B65;
         border-left: none;
         border-right: none;
-        color: #3D8B65;
     }
 
     .usuario-trash:hover {
         background-color: white;
-        border: 1px solid #D46464;
         border-left: none;
-        color: #D46464;
     }
 
 
@@ -1136,7 +1194,7 @@ input[type=submit]:active {
     }
 
     .box {
-        margin-left: -50px;
+        margin-left: -70px;
         margin-bottom: 100px;
         width: 600px;
     }
@@ -1161,7 +1219,8 @@ input[type=submit]:active {
     .container {
         margin-left: 1rem;
     }
-    .boxList{
+
+    .boxList {
         margin-left: 0px;
         margin-right: 5px;
         padding-left: 0px;
@@ -1176,7 +1235,7 @@ input[type=submit]:active {
 
 @media (max-width: 500px) {
     .box {
-        margin-left: -51px;
+        margin-left: -150px;
     }
 
     .salas-add-full {
@@ -1222,19 +1281,71 @@ input[type=submit]:active {
 @media (max-width: 380px) {
     #formBox {
         width: 400px;
-        margin-left: -4.1rem;
+        margin-left: -115px !important;
+    }
+
+    .wrapper .fadeInDown {
+        margin: 0px;
     }
 }
 
-/* COMEÇO - MEDIA DO NAVBAR */
-@media (max-width: 600px) {
+/*MEDIA DO NAVBAR*/
+@media (max-height: 810px) {
 
-    .navbar-nav .nav-link {
-        padding-right: 40px;
+    .theme-switch-wrapper {
+        margin: 0px;
+        margin-bottom: 20px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 805px) {
+    .nav-item:last-child {
+        margin-top: -25px;
     }
 
-    .nav-item:last-child {
-        margin-top: -50px;
+    .nav-item .theme-switch-wrapper {
+        margin-right: auto;
+        margin-left: auto;
+        float: right;
+
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0px;
+        margin: 0px;
+        width: auto;
+        max-width: 10px;
+
+    }
+
+    .nav-item {
+        margin: 0px;
+        max-width: 150px;
+        padding: 0px;
+    }
+
+    ul.navbar-nav {
+        width: 100%;
+        height: auto;
+        padding: 0px;
+
+    }
+
+    .navbar {
+        bottom: 0;
+        height: 5rem;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        padding-right: 80px;
+    }
+
+    .theme-switch {
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .navbar {
@@ -1249,16 +1360,29 @@ input[type=submit]:active {
     }
 
     .navbar-nav {
-        flex-direction: row;
+        display: flex;
+        flex-direction: row !important;
     }
 
     .nav-link {
-        justify-content: center;
+        padding: 0px;
     }
 
-    main {
-        margin: 0;
+}
+
+@media (max-width: 715px) {
+    .container-3 {
+        display: block;
     }
+
+    .background-2 {
+        background-image: none;
+    }
+
+    .container-home-1 {
+        margin-bottom: auto;
+    }
+
 }
 
 @media (max-width: 496px) {
@@ -1278,11 +1402,12 @@ input[type=submit]:active {
 }
 
 /* Large screens */
-@media (min-width: 600px) {
+@media (min-width: 806px) {
+
     .navbar {
         top: 0;
         width: 5rem;
-        height: 100%;
+        height: 100vh;
     }
 
     .navbar:hover {
@@ -1300,6 +1425,7 @@ input[type=submit]:active {
     .navbar:hover .logo-text {
         left: 0px;
     }
+
 
 }
 

@@ -29,6 +29,8 @@
     --blue-bg: #C3BFFF;
     --blue: #441CC1;
 
+    --btn-filtro : #6C63FF;
+
     --navbar-bg: #FFFFFF;
     --nav-link-color-h: white;
 
@@ -36,6 +38,7 @@
     --container-list: white;
     --sala-nome: black;
     --pesquisa: white;
+    --pesquisa-bg: #b9b9b9;
     --form-input-bg: rgb(238, 238, 238);
 
     --container-bg-color: var(--white);
@@ -66,8 +69,9 @@
     --container-list: #333333;
     --sala-nome: white;
     --pesquisa: #3f3f3f;
+    --pesquisa-bg: #525252;
     --form-input-bg: #3f3f3f;
-
+    --btn-filtro : #6C63FF;
 
     --container-bg-color: var(--black);
     --body-bg-color: var(--black2);
@@ -119,11 +123,6 @@ a {
     color: var(--subtitulo-section);
 }
 
-.nav-link:hover {
-    background-color: var(--purple);
-    color: var(--nav-link-color-h);
-}
-
 /*NAVBAR MODO ESCURO FIM*/
 /*MODO ESCURO*/
 /*SALA LIST*/
@@ -137,17 +136,19 @@ a {
 
 #pesquisa {
     background-color: var(--pesquisa);
-    border: var(--pesquisa) solid 2px;
+    border: var(--pesquisa-bg) solid 2px;
     color: var(--sala-nome);
 }
 
 .btn-filtro {
-    color: var(--sala-nome) !important;
+    background-color: var(--btn-filtro);
+    border: 1px solid var(--btn-filtro);
+    color: white !important;
 }
 
 .btn-filtro:hover,
 .btn-filtro:focus {
-    color: var(--white) !important;
+    color: #6C63FF var(--btn-filtro);
 }
 
 .link-edit:hover {
@@ -242,7 +243,8 @@ input:checked+.slider:before {
     transition: width 300ms;
     overflow: hidden;
     z-index: 1;
-    padding-top: 0px;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
 }
 
 .navbar-nav {
@@ -277,16 +279,6 @@ input:checked+.slider:before {
     text-decoration: none;
     filter: grayscale(100%) opacity(0.7);
     transition: var(--transition-speed);
-}
-
-.nav-link:hover {
-    filter: grayscale(0%) opacity(1);
-    width: 100%;
-    font: bold;
-}
-
-.nav-item:hover {
-    padding-left: 0px;
 }
 
 .link-text {
@@ -568,21 +560,9 @@ input:checked+.slider:before {
 }
 
 .btn {
-    color: black;
     padding: 8px;
     margin: 5px;
     border: none;
-    border-bottom: 1px solid #6C63FF;
-}
-
-.btn-filtro {
-    background-size: 100% 200%;
-}
-
-.btn-filtro:hover,
-.btn-filtro:focus {
-    background-position: 0 100%;
-    background-color: #6C63FF;
 }
 
 /* --- CAETANO --- */
@@ -697,6 +677,20 @@ input:checked+.slider:before {
 
 
 /*MEDIAS*/
+@media(hover: hover) {
+  .nav-link:hover {
+    background-color: var(--purple);
+    color: var(--nav-link-color-h);
+    filter: grayscale(0%) opacity(1);
+    width: 100%;
+    font: bold;
+  }
+
+  .nav-item:hover {
+    padding-left: 0px;
+  }
+}
+
 @media (max-width: 1110px) {
     .container-salas {
         width: 90%;
@@ -778,6 +772,26 @@ input:checked+.slider:before {
     }
 
     .sala-add-2 {
+        width: 100%;
+    }
+
+    .sala-add-2 {
+        height: 352px;
+    }
+    .sala-add-btn{
+        margin-top: 250px;
+    }
+    .label-cores {
+        width: 100%;
+    }
+    :is(
+        .form-input .form-input-titulo,
+        .form-input .form-input-local,
+        .form-input .form-input-descricao,
+        .form-select,
+        .form-input .form-input-horario,
+        .form-input
+    ){
         width: 100%;
     }
 }

@@ -10,6 +10,7 @@
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/caetano.css}">
     <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
+    <link rel="icon" th:href="@{/img/logo.png}">
 </head>
 
 <body class="light-mode">
@@ -63,7 +64,6 @@
     <div class="container-usuario-list">
 
         <div class="boxList">
-
             <table class="table">
                 <thead class="thead-tela-list-usuario">
 
@@ -78,11 +78,15 @@
                                     adicionar <i class="fa fa-plus"></i>
                                 </a>
                             </div>
-
                         </th>
                     </tr>
                 </thead>
                 <tbody class="tbody-tela-list-usuario">
+                    <div class="addList col">
+                        <a th:href="@{/usuario/add}" class="btnAdd-R">
+                            adicionar <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
                     <tr th:each="usuario : ${usuarios}">
                         <td th:text="${usuario.nome}" class="nomeList1" data-label="Nome"></td>
                         <td th:text="${usuario.cpf}" class="cpfList1" data-label="Cpf"></td>
@@ -181,6 +185,28 @@
                 $("#modalViewUser").modal("show").find(".modal-content").load($(this).attr("href"))
             })
         })
+
+
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
     </script>
 
 </body>
