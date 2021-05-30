@@ -675,7 +675,6 @@ input:checked+.slider:before {
 
 
 
-
 /*MEDIA DO NAVBAR*/
 @media (max-height: 810px) {
   .subtitulo {
@@ -691,7 +690,8 @@ input:checked+.slider:before {
 
 @media (max-width: 805px) {
   .nav-item:last-child {
-    margin-top: 0px;
+    margin-top: 25px;
+    margin-bottom: auto;
   }
 
   .nav-item .theme-switch-wrapper {
@@ -721,15 +721,6 @@ input:checked+.slider:before {
     padding: 0px;
 
   }
-
-  .navbar {
-    bottom: 0;
-    height: 5rem;
-    overflow: hidden;
-    width: 100%;
-    background-color: aqua;
-  }
-
   .navbar-nav .nav-link {
     padding-right: 80px;
   }

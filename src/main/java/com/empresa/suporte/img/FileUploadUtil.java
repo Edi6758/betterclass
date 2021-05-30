@@ -25,12 +25,6 @@ public class FileUploadUtil {
         }
         
     }
-    
-    public static void deleteFoto(String uploadDir, String fileName) {
-    	Path uploadPath = Paths.get(uploadDir);
-
-    	
-    }
 
 
 }

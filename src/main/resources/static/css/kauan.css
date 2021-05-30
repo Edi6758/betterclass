@@ -19,7 +19,6 @@
     --white4: #dddddd;
     --black4: #272727;
 
-
     --red-bg: #FFDEDE;
     --red: #D46464;
 
@@ -29,16 +28,15 @@
     --blue-bg: #C3BFFF;
     --blue: #441CC1;
 
-    --btn-filtro : #6C63FF;
-
     --navbar-bg: #FFFFFF;
     --nav-link-color-h: white;
+    --btn-filtro: #6C63FF;
 
-    --bg-sala-list: #F1F1F1;
+    --bg-sala-list: #ffffff;
     --container-list: white;
     --sala-nome: black;
+    --boxlist-usu-list: var(--grey);
     --pesquisa: white;
-    --pesquisa-bg: #b9b9b9;
     --form-input-bg: rgb(238, 238, 238);
 
     --container-bg-color: var(--white);
@@ -69,9 +67,10 @@
     --container-list: #333333;
     --sala-nome: white;
     --pesquisa: #3f3f3f;
-    --pesquisa-bg: #525252;
     --form-input-bg: #3f3f3f;
-    --btn-filtro : #6C63FF;
+    --btn-filtro: #6C63FF;
+
+    --boxlist-usu-list: white;
 
     --container-bg-color: var(--black);
     --body-bg-color: var(--black2);
@@ -83,6 +82,7 @@
     --container-columns: var(--black4);
     --container-columns-2: var(--black4);
 }
+
 
 /*scrollbar personalizada*/
 ::-webkit-scrollbar {
@@ -103,7 +103,7 @@
 /*slider switch css */
 
 body {
-    background-color: var(--bg-sala-list);
+    background-color: var(--body-bg-color);
     font-family: Bahnschrift;
     overflow-x: hidden;
 }
@@ -127,7 +127,7 @@ a {
 /*MODO ESCURO*/
 /*SALA LIST*/
 .container-salas {
-    background-color: var(--container-list);
+    background-color: var(--bg-sala-list);
 }
 
 .salas-nome {
@@ -135,7 +135,7 @@ a {
 }
 
 #pesquisa {
-    background-color: var(--pesquisa);
+    background-color: var(--body-bg-color);
     border: var(--pesquisa-bg) solid 2px;
     color: var(--sala-nome);
 }
@@ -162,18 +162,19 @@ a {
 /*SALA LIST FIM*/
 /*SALA ADD*/
 .salas-add-full {
-    background-color: var(--container-list);
+    background-color: var(--bg-sala-list);
     color: var(--grey);
 }
 
-:is(.form-input,.form-select) {
-    border: 1px solid var(--form-input-bg);
-    background-color: var(--form-input-bg);
+:is(.form-input, .form-select) {
+    border: 1px solid var(--body-bg-color);
+    background-color: var(--body-bg-color);
     color: var(--sala-nome);
 }
-.label-cores{
-    background-color: var(--form-input-bg);
-    border: 1px solid var(--form-input-bg) !important;
+
+.label-cores {
+    background-color: var(--body-bg-color);
+    border: 1px solid var(--body-bg-color) !important;
 }
 
 
@@ -564,7 +565,12 @@ input:checked+.slider:before {
     margin: 5px;
     border: none;
 }
-
+.modal-header{
+    border-bottom: none !important;
+}
+.modal-footer{
+    border-top: none !important;
+}
 /* --- CAETANO --- */
 /* VIEW */
 .modal-content {
@@ -574,6 +580,19 @@ input:checked+.slider:before {
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+    background-color: var(--body-bg-color);
+    color: var(--sala-nome);
+}
+
+:is(input.form-control, input.form-control:hover, input.form-control:focus, select.form-control) {
+    background-color: var(--bg-sala-list) !important;
+    border: 1px solid var(--bg-sala-list);
+    color: var(--sala-nome);
+}
+
+:is(.btn-add-hora-salvar, .btn-add-hora-salvar:hover, .btn-add-hora-cancelar, .btn-add-hora-cancelar:hover) {
+    background-color: var(--btn-filtro) !important;
+    color: var(--sala-nome);
 }
 
 @-webkit-keyframes modal-content {
@@ -678,17 +697,17 @@ input:checked+.slider:before {
 
 /*MEDIAS*/
 @media(hover: hover) {
-  .nav-link:hover {
-    background-color: var(--purple);
-    color: var(--nav-link-color-h);
-    filter: grayscale(0%) opacity(1);
-    width: 100%;
-    font: bold;
-  }
+    .nav-link:hover {
+        background-color: var(--purple);
+        color: var(--nav-link-color-h);
+        filter: grayscale(0%) opacity(1);
+        width: 100%;
+        font: bold;
+    }
 
-  .nav-item:hover {
-    padding-left: 0px;
-  }
+    .nav-item:hover {
+        padding-left: 0px;
+    }
 }
 
 @media (max-width: 1110px) {
@@ -778,20 +797,21 @@ input:checked+.slider:before {
     .sala-add-2 {
         height: 352px;
     }
-    .sala-add-btn{
+
+    .sala-add-btn {
         margin-top: 250px;
     }
+
     .label-cores {
         width: 100%;
     }
-    :is(
-        .form-input .form-input-titulo,
+
+    :is(.form-input .form-input-titulo,
         .form-input .form-input-local,
         .form-input .form-input-descricao,
         .form-select,
         .form-input .form-input-horario,
-        .form-input
-    ){
+        .form-input) {
         width: 100%;
     }
 }

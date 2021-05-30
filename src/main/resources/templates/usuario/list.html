@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>betterclass</title>
+    <title>Usuários</title>
 
     <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/css/caetano.css}">
@@ -18,7 +18,7 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="logo">
-                <a href="#" class="nav-link">
+                <a th:href="@{/}" class="nav-link">
                     <span class="link-text logo-text">Betterclass</span>
                 </a>
             </li>
@@ -116,7 +116,8 @@
                         </td>
 
                         <td class="tabela-controle1">
-                            <a th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}" class="usuario-eye link-view-user">
+                            <a th:href="@{'/usuario/view/' + ${usuario.id} + '/' + ${false}}"
+                                class="usuario-eye link-view-user">
                                 <i class="fa fa-eye"></i>
                             </a>
 
@@ -154,7 +155,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Atenção!</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 type="button" class="close" data-dismiss="modal" onclick="window.location.href='../sala/list'">
+                        &times;
+                    </h4>
 
                 </div>
                 <div class="modal-body">
@@ -162,7 +165,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="number" id="id_deletar" hidden>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='../usuario/list'">
                         <i class="fa fa-ban"></i> Cancelar
                     </button>
                     <button type="button" class="btn btn-info" th:onclick="deletar('usuario')">
@@ -196,6 +199,7 @@
                 toggleSwitch.checked = true;
             }
         }
+
         function switchTheme(e) {
             if (e.target.checked) {
                 document.documentElement.setAttribute('data-theme', 'dark');

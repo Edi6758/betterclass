@@ -16,155 +16,87 @@
 </head>
 
 <body class="light-mode">
-<nav class="navbar">
-    <ul class="navbar-nav">
-        <li class="logo">
-            <a href="#" class="nav-link">
-                <span class="link-text logo-text">Betterclass</span>
-            </a>
-        </li>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a th:href="@{/}" class="nav-link">
+                    <span class="link-text logo-text">Betterclass</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/}" class="nav-link">
-                <img class="icon" src="../img/home.svg" alt="">
-                <span class="link-text">Home</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/}" class="nav-link">
+                    <img class="icon" src="../img/home.svg" alt="">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/usuario/list}" class="nav-link">
-                <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
-                <span class="link-text">Usuários</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/usuario/list}" class="nav-link">
+                    <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                    <span class="link-text">Usuários</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/usuario/viewUser}" class="nav-link">
-                <img class="icon" src="../img/perfil.svg" alt="">
-                <span class="link-text">Perfil</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/usuario/viewUser}" class="nav-link">
+                    <img class="icon" src="../img/perfil.svg" alt="">
+                    <span class="link-text">Perfil</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/sala/list}" class="nav-link">
-                <img class="icon" src="../img/salas.svg" alt="">
-                <span class="link-text">Salas</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/sala/list}" class="nav-link">
+                    <img class="icon" src="../img/salas.svg" alt="">
+                    <span class="link-text">Salas</span>
+                </a>
+            </li>
 
-        <li class="nav-item theme-switch-wrapper" id="themeButton">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox"/>
-                <div class="slider round"></div>
-            </label>
-        </li>
-    </ul>
-</nav>
-<!--
-    <div class="container-all">
-        <div class="container-menu">
-            <div class="container">
-                <h1 class="titulo">betterclass</h1>
-                <ul>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/home.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Home</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/sobre.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Sobre</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/planos.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Planos</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/contato.svg" alt="">
-                            <a class="subtitulo" th:href="@{/}">Contato</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon icon-usuarios" src="img/usuarios.svg" alt="">
-                            <a class="subtitulo" th:href="@{/usuario/list}">Usuários</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/perfil.svg" alt="">
-                            <a class="subtitulo" th:href="@{/usuario/viewUser}">Perfil</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="container-item">
-                            <img class="icon" src="img/salas.svg" alt="">
-                            <a class="subtitulo" th:href="@{/sala/list}">Salas</a>
-                        </div>
-                    </li>
-                </ul>
+            <li class="nav-item theme-switch-wrapper" id="themeButton">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-2">
 
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider round"></div>
-                    </label>
-                </div>
-
-                <div>
-                    <button class="button-login">login</button>
-                </div>
-
-                <div class="container-copyright">
-                    <img class="icon-copyright" src="../static/imgs/copyright.png" alt="">
-                    <p class="titulo-copyright">2021 Inspiration</p>
-                </div>
-            </div>
+        <div class="texto">
+            <h1 class="h111"><strong>bem-vindo de volta!<br>estavamos com saudade.</strong></h1>
         </div>
--->
-        <div class="container-2">
-
-            <div class="texto">
-                <h1 class="h111"><strong>bem-vindo de volta!<br>estavamos com saudade.</strong></h1>
-            </div>
-            <div class="subtexto">
-                <p>Lorem Ipsum tem sido o texto fictício<br> padrão da indústria desde quando um impressor<br>
-                    desconhecido
-                    pegou um modelo de impressão</p>
-            </div>
-
-            <div class="wrapper fadeInDown">
-                <div id="formBox">
-                    <h1 class="txtLogin">Log In</h1>
-
-                    <!-- Login Form -->
-
-                    <form id="form1" th:action="@{/login}" method="post">
-
-                        <div th:if="${param.error}" class="alert alert-danger" id="modalErro">
-                            <h4>Atenção!</h4>
-                            <span>Preencha corretamente o usuario e senha</span>
-                        </div>
-
-                        <div><label class="lb1"> Usuário <input id="login" class="fadeIn second" type="text"
-                                    name="username" placeholder="Digite seu login" autocomplete="off" /> </label></div>
-                        <div><label class="lb1"> Senha <input type="password" id="password" class="fadeIn third"
-                                    name="password" placeholder="Digite sua senha" autocomplete="off" /> </label></div>
-                        <div id="formFooter">Não é cadastrado?
-                            <a class="underlineHover" onclick="window.location.href='/usuario/add'">Cadastre-se</a>
-                        </div>
-                        <div><input type="submit" class="fadeIn fourth" value="Login" /></div>
-                    </form>
-                </div>
-
-            </div>
+        <div class="subtexto">
+            <p>Lorem Ipsum tem sido o texto fictício<br> padrão da indústria desde quando um impressor<br>
+                desconhecido
+                pegou um modelo de impressão</p>
         </div>
+
+        <div class="wrapper fadeInDown">
+            <div id="formBox">
+                <h1 class="txtLogin">Log In</h1>
+
+                <!-- Login Form -->
+
+                <form id="form1" th:action="@{/login}" method="post">
+
+                    <div th:if="${param.error}" class="alert alert-danger" id="modalErro">
+                        <h4>Atenção!</h4>
+                        <span>Preencha corretamente o usuario e senha</span>
+                    </div>
+
+                    <div><label class="lb1"> Usuário <input id="login" class="fadeIn second" type="text" name="username"
+                                placeholder="Digite seu login" autocomplete="off" /> </label></div>
+                    <div><label class="lb1"> Senha <input type="password" id="password" class="fadeIn third"
+                                name="password" placeholder="Digite sua senha" autocomplete="off" /> </label></div>
+                    <div id="formFooter">Não é cadastrado?
+                        <a class="underlineHover" onclick="window.location.href='/usuario/add'">Cadastre-se</a>
+                    </div>
+                    <div><input type="submit" class="fadeIn fourth" value="Login" /></div>
+                </form>
+            </div>
+
+        </div>
+    </div>
     </div>
 
     <!--JAVASCRIPT-->

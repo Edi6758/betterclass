@@ -108,10 +108,18 @@ body {
 /*USUARIO ADD*/
 .select-semana option {
     color: var(--sala-nome) !important;
+    background-color: var(--body-bg-color) !important;
 }
-.cds-inputs{
+
+.cds-inputs {
     color: var(--sala-nome) !important;
+    background-color: var(--body-bg-color) !important;
 }
+
+.cds-options-horario {
+    background-color: var(--body-bg-color) !important;
+}
+
 /*USUARIO ADD FIM*/
 
 /*LOGIN*/
@@ -411,19 +419,22 @@ a {
 }
 
 .texto {
-    margin-left: 200px;
     margin-top: 185px;
+    right: 750px;
     color: #6C63FF;
-    position: absolute
+    position: absolute;
+    margin-left: 200px;
+    margin-right: 10px;
 }
-
 
 .subtexto {
     font-size: 20px;
+    right: 750px;
+    top: 370px;
     font-family: sans-serif;
     position: absolute;
-    margin-top: 330px;
     margin-left: 200px;
+    margin-right: 10px;
     color: rgb(105, 101, 101);
 }
 
@@ -439,6 +450,7 @@ a {
     margin-left: 50px;
     width: 100%;
     padding: 20px;
+    overflow-y: hidden;
 }
 
 .lb1 {
@@ -450,7 +462,6 @@ a {
     font-size: 17px;
     color: rgb(114, 113, 113);
 }
-
 #formBox {
     border-radius: 6px;
     background-color: var(--container-bg-color);
@@ -459,8 +470,9 @@ a {
     padding: 0px;
     text-align: center;
     position: absolute;
-    margin-left: 40rem;
-    margin-top: 40rem;
+    overflow: hidden;
+    right: 90px;
+    top: 100px;
 }
 
 /* ESTILO EMAIL/SENHA */
@@ -707,7 +719,6 @@ input[type=submit]:active {
 /* INPUTS */
 .form-control {
     background-color: var(--body-bg-color);
-    ;
     border: none;
     color: #0d0d0d;
     padding-left: 20px;
@@ -822,6 +833,11 @@ input[type=submit]:active {
 }
 
 /* --- VIEW LIST --- */
+.modal-content {
+    background-color: var(--body-bg-color);
+    color: var(--sala-nome);
+}
+
 .img-view {
     border-radius: 50%;
     border: 2px solid whitesmoke;
@@ -849,12 +865,13 @@ input[type=submit]:active {
     display: block;
     width: 19rem;
     border-radius: 5px;
-    background-color: #f6f6f6;
+    background-color: var(--bg-sala-list);
     text-align: left;
     padding-bottom: 5px;
     padding-top: 5px;
-    border: 2px solid #f6f6f6;
+    border: 2px solid var(--bg-sala-list);
     outline: none;
+    color: var(--sala-nome);
 }
 
 #input-modal-view1 {
@@ -864,22 +881,44 @@ input[type=submit]:active {
     display: block;
     width: 19rem;
     border-radius: 5px;
-    background-color: #f6f6f6;
+    background-color: var(--bg-sala-list);
     text-align: left;
     padding-bottom: 5px;
     padding-top: 5px;
-    border: 2px solid #f6f6f6;
+    border: 2px solid var(--bg-sala-list);
     outline: none;
-}
-.foto > img{
-    max-width: 80% !important;
-    max-height: 500px !important;
-}
-#fileImage{
     color: var(--sala-nome);
 }
 
+.foto>img {
+    max-width: 80% !important;
+    max-height: 500px !important;
+}
 
+.ul-list-usu {
+    padding-left: 0px !important;
+}
+
+:is(.form-group-usuario-view-li,
+    .form-group-usuario-view) {
+    background-color: var(--bg-sala-list) !important;
+}
+
+.form-group-usuario-view {
+    text-align: center;
+}
+
+#fileImage {
+    color: var(--sala-nome);
+}
+
+.modal-header {
+    border-bottom: none !important;
+}
+
+.modal-footer {
+    border-top: none !important;
+}
 /* -- NAVBAR MEDIA -- */
 /* MEDIA'S */
 /*tira os :hovers do mobile*/
@@ -898,6 +937,13 @@ input[type=submit]:active {
 }
 
 /*KAUAN*/
+@media(max-width: 1210px) {
+    .texto {
+        bottom: 300px;
+        left: auto;
+    }
+}
+
 @media(max-width:1134px) {
     .btnAdd-R {
         display: initial;
@@ -1007,6 +1053,14 @@ input[type=submit]:active {
     }
 }
 
+@media(max-width:1212px) {
+    :is(.texto, .subtexto){
+        display: none;
+    }
+}
+
+
+
 @media(max-width:510px) {
     tr {
         margin-left: 0px;
@@ -1014,14 +1068,6 @@ input[type=submit]:active {
 
     .boxList {
         padding-left: 0px;
-    }
-}
-
-@media(max-width:410px) {
-
-    td.emailList,
-    td.emailList1 {
-        display: none;
     }
 }
 
@@ -1033,41 +1079,6 @@ input[type=submit]:active {
     }
 }
 
-@media (max-width: 1024px) {
-    .h111 {
-        font-size: 30px;
-    }
-
-    .texto {
-        margin-left: 150px;
-    }
-
-    .subtexto {
-        font-size: 17px;
-        margin-left: 150px;
-        margin-top: 300px;
-    }
-
-    #formBox {
-        margin-left: 30rem;
-        margin-top: 31rem;
-    }
-}
-
-@media (max-width: 980px) {
-    #formBox {
-        margin-left: 27rem;
-    }
-
-    .texto {
-        margin-left: 120px;
-    }
-
-    .subtexto {
-        margin-left: 120px;
-    }
-}
-
 @media (max-width: 962px) {
     .texto2 {
         font-size: 30px;
@@ -1076,20 +1087,6 @@ input[type=submit]:active {
     .subtexto2 {
         font-size: 16px;
         margin-top: 280px;
-    }
-}
-
-@media (max-width: 920px) {
-    #formBox {
-        margin-left: 24rem;
-    }
-
-    .texto {
-        margin-left: 100px;
-    }
-
-    .subtexto {
-        margin-left: 100px;
     }
 }
 
@@ -1107,78 +1104,18 @@ input[type=submit]:active {
     }
 }
 
-@media (max-width: 880px) {
-    .h111 {
-        font-size: 25px;
-    }
-
-    #formBox {
-        margin-left: 22rem;
-    }
-
-    .texto {
-        margin-left: 100px;
-    }
-
-    .subtexto {
-        margin-left: 100px;
-        margin-top: 260px;
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 840px) {
-    .h111 {
-        font-size: 25px;
-    }
-
-    #formBox {
-        margin-left: 22rem;
-    }
-
-    .texto {
-        margin-left: 100px;
-    }
-
-    .subtexto {
-        margin-left: 100px;
-        margin-top: 260px;
-        font-size: 15px;
-    }
-}
-
 @media (max-width: 810px) {
-    #formBox {
-        margin-left: 21.5rem;
-    }
 
-    .h111 {
-        font-size: 23px;
-    }
-
-    subtexto {
-        font-size: 14px;
+    .boxList {
+        margin-left: 0px;
+        margin-right: 5px;
+        padding-left: 0px;
     }
 }
 
 @media (max-width: 768px) {
     .box {
         margin-left: 180px;
-    }
-}
-
-@media (max-width: 768px) {
-    .texto {
-        display: none;
-    }
-
-    .subtexto {
-        display: none;
-    }
-
-    #formBox {
-        margin-left: 12rem;
-        margin-top: 33rem;
     }
 }
 
@@ -1199,14 +1136,7 @@ input[type=submit]:active {
         width: 600px;
     }
 
-    #formBox {
-        margin-left: 3.50rem;
-        margin-top: 28.5rem;
-    }
 
-    .txtlogin {
-        margin-top: 20px;
-    }
 
     .lb1 {
         margin-top: 15px;
@@ -1220,16 +1150,44 @@ input[type=submit]:active {
         margin-left: 1rem;
     }
 
-    .boxList {
-        margin-left: 0px;
-        margin-right: 5px;
-        padding-left: 0px;
+    .ul-list-usu {
+        padding-left: 35px !important;
+        padding-right: 35px !important;
     }
-}
 
-@media (max-width: 520px) {
-    #formBox {
-        margin-left: 1rem;
+    .btn-modal-voltar {
+        margin-bottom: 10px;
+    }
+
+    .div-btn-voltar {
+        width: 95%;
+        text-align: center;
+    }
+
+    .container-modal-list-usuario {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    :is(#input-modal-view,
+        #input-modal-view1) {
+        margin-left: 25px !important;
+        margin-right: 30px !important;
+        width: 90%;
+    }
+
+    .lbl-view-modal {
+        margin-left: 25px;
+    }
+    #formBox{
+        left: 10px !important;
+        right: 10px !important;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100%;
+    }
+    .wrapper{
+        width: 100%;
     }
 }
 
@@ -1252,23 +1210,30 @@ input[type=submit]:active {
     }
 }
 
-@media (max-width: 480px) {
-    #formBox {
-        margin-left: 1px;
-        margin-top: 29rem;
-    }
-}
-
 @media (max-width: 460px) {
     .box {
         margin-left: -50px;
     }
-}
-
-@media (max-width: 440px) {
-    #formBox {
-        width: 400px;
-        margin-left: -2.70rem;
+    #formBox{
+        width: 100%;
+        position: inherit;
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .wrapper{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+    .lb1{
+        width: auto;
+        display: grid;
+        position: inherit;
+    }
+    .lb1 > input{
+        width: auto;
+        margin: 10px;      
     }
 }
 
@@ -1276,22 +1241,17 @@ input[type=submit]:active {
     .box {
         margin-left: -28px;
     }
-}
-
-@media (max-width: 380px) {
-    #formBox {
-        width: 400px;
-        margin-left: -115px !important;
+    .formBox{
+        margin: 1px;
     }
-
-    .wrapper .fadeInDown {
-        margin: 0px;
+    .lb1{
+        margin: 10px;
+        text-align: center;
     }
 }
 
 /*MEDIA DO NAVBAR*/
 @media (max-height: 810px) {
-
     .theme-switch-wrapper {
         margin: 0px;
         margin-bottom: 20px;

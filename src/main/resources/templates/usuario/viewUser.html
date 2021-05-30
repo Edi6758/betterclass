@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Perfil</title>
 
     <!--CSS-->
@@ -14,100 +14,129 @@
 
 </head>
 
-<body>
-<nav class="navbar">
-    <ul class="navbar-nav">
-        <li class="logo">
-            <a href="#" class="nav-link">
-                <span class="link-text logo-text">Betterclass</span>
-            </a>
-        </li>
+<body class="light-mode">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a th:href="@{/}" class="nav-link">
+                    <span class="link-text logo-text">Betterclass</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/}" class="nav-link">
-                <img class="icon" src="../img/home.svg" alt="">
-                <span class="link-text">Home</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/}" class="nav-link">
+                    <img class="icon" src="../img/home.svg" alt="">
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/usuario/list}" class="nav-link">
-                <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
-                <span class="link-text">Usuários</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/usuario/list}" class="nav-link">
+                    <img class="icon icon-usuarios" src="../img/usuarios.svg" alt="">
+                    <span class="link-text">Usuários</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/usuario/viewUser}" class="nav-link">
-                <img class="icon" src="../img/perfil.svg" alt="">
-                <span class="link-text">Perfil</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/usuario/viewUser}" class="nav-link">
+                    <img class="icon" src="../img/perfil.svg" alt="">
+                    <span class="link-text">Perfil</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-            <a th:href="@{/sala/list}" class="nav-link">
-                <img class="icon" src="../img/salas.svg" alt="">
-                <span class="link-text">Salas</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a th:href="@{/sala/list}" class="nav-link">
+                    <img class="icon" src="../img/salas.svg" alt="">
+                    <span class="link-text">Salas</span>
+                </a>
+            </li>
 
-        <li class="nav-item theme-switch-wrapper" id="themeButton">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox"/>
-                <div class="slider round"></div>
-            </label>
-        </li>
-    </ul>
-</nav>
-        <div class="container-2">
-            <div class="profile-header" id="profile-box">
+            <li class="nav-item theme-switch-wrapper" id="themeButton">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-2">
+        <div class="profile-header" id="profile-box">
 
-                <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST">
+            <form th:action="@{/usuario/save}" th:object="${usuario}" method="POST" class="form-perfil">
 
-		            <div class="profile-img">
-            	    	<img th:if="${nullFoto == true}" th:src="@{/img/null.jpg}" width="100px" height="100px"/>
-            	    	<img th:if="${nullFoto == false}" th:src="@{${usuario.fotoImagePath}}" width="100px" height="100px"/>
-        	        </div>
+                <div class="profile-img">
+                    <img th:if="${nullFoto == true}" th:src="@{/img/null.jpg}" width="100px" height="100px" />
+                    <img th:if="${nullFoto == false}" th:src="@{${usuario.fotoImagePath}}" width="100px"
+                        height="100px" />
+                </div>
 
-					<div class="form" hidden>
+                <div class="form" hidden>
                     <label>Código</label>
-        				<input class="form-control form-control-usuario-view" type="number" th:field="${usuario.id}" readonly>
-      				</div>
-      				
-                    <div class="form">
-                        <label>Nome:</label>
-                        <input id="inputs" type="text" th:field="${usuario.nome}" readonly>
+                    <input class="form-control form-control-usuario-view" type="number" th:field="${usuario.id}"
+                        readonly>
+                </div>
 
-                    </div>
+                <div class="form">
+                    <label>Nome:</label>
+                    <input id="inputs" type="text" th:field="${usuario.nome}" readonly>
 
-                    <div class="form">
-                        <label>CPF:</label>
-                        <input id="inputs" type="text" th:field="${usuario.cpf}" readonly>
-                    </div>
+                </div>
 
-                    <div class="form">
-                        <label>E-mail:</label>
-                        <input id="inputs" type="text" th:field="${usuario.email}" readonly>
-                    </div>
-                    
-                    
-                  
-                    <ul class="form form-sala">
-                        <li class="list-group-item form-group-usuario-view">Salas</li>
-                        <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.getSalas()}" th:text="${sala.titulo + ' ' + sala.semana + ' ' + sala.hora}"></li>
-       				</ul>
+                <div class="form">
+                    <label>CPF:</label>
+                    <input id="inputs" type="text" th:field="${usuario.cpf}" readonly>
+                </div>
 
-                </form>
+                <div class="form">
+                    <label>E-mail:</label>
+                    <input id="inputs" type="text" th:field="${usuario.email}" readonly>
+                </div>
 
-            </div>
+
+
+                <ul class="form form-sala">
+                    <li class="list-group-item form-group-usuario-view">Salas</li>
+                    <li class="list-group-item form-group-usuario-view-li" th:each="sala : ${usuario.getSalas()}"
+                        th:text="${sala.titulo + ' ' + sala.semana + ' ' + sala.hora}"></li>
+                </ul>
+
+            </form>
+
         </div>
+    </div>
     </div>
 
     <!--JAVASCRIPT-->
     <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
     <script th:src="@{/js/script.js}"></script>
     <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
 
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
 </body>
 
 </html>

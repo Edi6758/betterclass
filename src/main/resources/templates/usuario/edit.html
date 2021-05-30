@@ -10,14 +10,14 @@
     <link rel="stylesheet" th:href="@{/fontAwesome/css/all.min.css}">
     <link rel="stylesheet" th:href="@{/css/ze.css}">
     <link rel="icon" th:href="@{/img/logo.png}">
-    <title>betterclass</title>
+    <title>Editar usuário</title>
 </head>
 
 <body class="light-mode">
 <nav class="navbar">
     <ul class="navbar-nav">
         <li class="logo">
-            <a href="#" class="nav-link">
+            <a th:href="@{/}" class="nav-link">
                 <span class="link-text logo-text">Betterclass</span>
             </a>
         </li>
@@ -75,9 +75,6 @@
             </div>
 
             <div class="alert alert-danger" id="modalErro">
-                <button type="button" class="close" data-dismiss="alert" onClick="hideModal()">
-                    <i class="far fa-times-circle"></i>
-                </button>
                 <h4>Atenção!</h4>
                 <span>Erro ao salvar! Os seguintes campos já foram cadastrados:</span>
                 <span id="spanErroEmail"></span>
@@ -99,23 +96,23 @@
             <div class="form">
                 <label>E-mail</label>
                 <input id="inputs" type="email" th:field="${usuario.email} " placeholder="Digite seu e-mail. "
-                       minlength="10" required>
+                       minlength="10" required autocomplete="off">
             </div>
 
             <div class="form">
                 <label>Login</label>
                 <input id="inputs" type="text" th:field="${usuario.login}" placeholder="Digite seu login. "
-                       minlength="8" maxlength="30" required>
+                       minlength="8" maxlength="30" required autocomplete="off">
             </div>
 
             <div class="form">
                 <label>Senha</label>
                 <input type="password" id="inputs" th:field="${usuario.senha}" placeholder="No mínimo 8 letra. "
-                       minlength="8" maxlength="30" required>
+                       minlength="8" maxlength="30" required autocomplete="off">
             </div>
 
-            <div class="form">
-                <label class="lb2">Foto</label>
+            <div class="form form-img">
+                <label class="lb2"></label>
                 <input type="file" name="image" id="fileImage" accept="image/png, image/jpeg"/>
                 <img id="thumbnail" alt="Insira sua foto!"/>
             </div>
@@ -211,8 +208,33 @@
 
 
         /*]]>*/
+</script>
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
 
 
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
 </script>
 
 
